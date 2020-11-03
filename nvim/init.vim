@@ -154,6 +154,7 @@
 	let g:SuperTabDefaultCompletionType = '<c-n>'
 
 " Auto Commands:
+	autocmd BufEnter *.html set ts=2 sw=2
 	augroup VCenterCursor
 		au!
 		au BufEnter,WinEnter,WinNew,VimResized *,*.*
