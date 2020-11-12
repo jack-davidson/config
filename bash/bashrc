@@ -27,6 +27,7 @@
         alias v='$EDITOR $@'
         alias :q='exit'
         alias :e='$EDITOR $@'
+	alias get_idf='. $HOME/dev/esp/esp-idf/export.sh'
 
 	# Program Aliases:
 		alias irc='weechat'
@@ -68,3 +69,4 @@
 	bind '"\e[18~":"htop\n"'
 	bind '"\e[24~":"cd ..\n"'
 	bind '"\e[24;5~":"cd\n"'
+

@@ -51,7 +51,10 @@
 	" Colorschemes:
 		" Blue colorscheme with soft, comfortable colors (my favorite).
 		Plug 'arcticicestudio/nord-vim'
-	
+
+		" Retro groove colorscheme
+		Plug 'morhetz/gruvbox'
+
 	" Language Server:
 		" common lsp configuration
 		Plug 'neovim/nvim-lspconfig'
@@ -117,6 +120,9 @@
 			let g:nord_italic=1 " always allow italic fonts
 			let g:nord_italic_comments=1 " give comments italic font
 			let g:nord_underline=1 " always allow underlined text
+
+		" Gruvbox:
+			let g:gruvbox_contrast_dark="soft"
 
 		colorscheme nord
 
