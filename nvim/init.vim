@@ -34,6 +34,9 @@
 		" auto closing delimiters
 		Plug 'jiangmiao/auto-pairs'
 
+		" focus mode
+		Plug 'junegunn/goyo.vim'
+
 	" Cosmetic:
 		" evaluate '#XXXXXX' (hex) colors inside files 
 		" and highlight as real color value.
@@ -156,11 +159,25 @@
 	nnoremap <C-p> :Files<CR>
 	nnoremap <C-s> :Rg<CR>
 
+	" LaTeX
+	function LatexCompile()
+		call jobstart('pdflatex ' . expand('%'))
+	endfunction
+
+	function LatexOpen()
+		call jobstart('zathura ' . expand('%:r') . '.pdf')
+	endfunction
+
+	nnoremap <leader>c :call LatexCompile()<CR>
+	nnoremap <leader>o :call LatexOpen()<CR>
+
+	nnoremap <leader>f :Goyo<CR>
+
 	" supertab bindings
 	let g:SuperTabDefaultCompletionType = '<c-n>'
 
 " Auto Commands:
-	autocmd BufEnter *.html setlocal ts=2 sw=2
+	autocmd Bufenter *.html,*.tex setlocal ts=2 sw=2
 	augroup VCenterCursor
 		au!
 		au BufEnter,WinEnter,WinNew,VimResized *,*.*
