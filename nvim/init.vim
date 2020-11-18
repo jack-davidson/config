@@ -71,7 +71,7 @@
 	call plug#end()
 
 " Settings:
-	" Completion:
+	" Language Server:
 		set completeopt=menuone,noinsert,noselect
 		let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 		lua require'lspconfig'.ccls.setup{ on_attach=require'completion'.on_attach }
@@ -95,7 +95,7 @@
 			\ }
 
 	" Cosmetic:
-	" highlight line at 80 column (good for adhering to line limits)
+		" highlight line at 80 column (good for adhering to line limits)
 		if exists('+colorcolumn')
 			set colorcolumn=80
 		else
@@ -129,6 +129,7 @@
 
 		colorscheme nord
 
+
 	" Hybrid Number:
 		" when combined, they have a hybrid effect
 		" where the line you are on is the line number,
@@ -161,6 +162,7 @@
 
 	" LaTeX
 	function LatexCompile()
+		w
 		call jobstart('pdflatex ' . expand('%'))
 	endfunction
 
