@@ -15,6 +15,7 @@
 		export BROWSER=qutebrowser
 		export PAGER=less
 		export PATH=$PATH:~/.local/bin
+		export MANPATH=$MANPATH:~/.local/share/man/
 		export COLORTERM="truecolor"
 	
 	# bat configuration:
@@ -44,6 +45,7 @@
 		alias ls='ls --color=auto'
 		alias grep='grep --color=always'
 		alias less='less -R'
+		alias dmesg='sudo dmesg --color=always'
 
 # Colors:
 
