@@ -2,8 +2,6 @@
 
 # NOTE: make sure all commands are launched as background processes denoted by trailing `&`
 
-xrandr --output HDMI-A-0 --mode 1920x1080 --rate 144 --set TearFree on
-
 # Kill custom dwmbar script and then
 # start it up again. More information
 # can be found at https://gitlab.com/J0ND03/scripts
