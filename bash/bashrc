@@ -64,11 +64,3 @@
 		export LESS_TERMCAP_so=$'\e[46;30m'
 		export LESS_TERMCAP_ue=$'\e[0m'
 		export LESS_TERMCAP_us=$'\e[4;1;3;34m'
-
-# Keys:
-	bind '"\e[15~":"fzfopen;clear;exit\n"'
-	bind '"\e[20~":"fzfopen;clear\n"'
-	bind '"\e[18~":"htop\n"'
-	bind '"\e[24~":"cd ..\n"'
-	bind '"\e[24;5~":"cd\n"'
-

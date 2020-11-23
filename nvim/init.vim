@@ -37,6 +37,10 @@
 		" focus mode
 		Plug 'junegunn/goyo.vim'
 
+		" directory tree browser, helps for heavily structured
+		" django projects
+		Plug 'preservim/nerdtree'
+
 	" Cosmetic:
 		" evaluate '#XXXXXX' (hex) colors inside files 
 		" and highlight as real color value.
@@ -82,7 +86,6 @@
 		set splitbelow
 
 	" Plugin Settings:
-	
 		" Fzf:
 			" Always enable preview window on the right with 60% width
 			let g:fzf_preview_window = 'right:60%'
@@ -175,10 +178,14 @@
 
 	nnoremap <leader>f :Goyo<CR>
 
-	" supertab bindings
-	let g:SuperTabDefaultCompletionType = '<c-n>'
+	" NERDTREE Bindings:
+		nnoremap <C-n> :NERDTreeToggle<CR>
+
+	" Supertab Bindings:
+		let g:SuperTabDefaultCompletionType = '<c-n>'
 
 " Auto Commands:
+
 	autocmd Bufenter *.html,*.tex setlocal ts=2 sw=2
 	augroup VCenterCursor
 		au!
