@@ -25,6 +25,9 @@
 		Plug 'junegunn/fzf.vim'
 		Plug 'junegunn/fzf', { 'do': { -> fzf#install()  } }
 
+		" view project from tags
+		Plug 'preservim/tagbar'
+
 		" auto tag closing
 		Plug 'alvan/vim-closetag'
 
@@ -152,31 +155,37 @@
 	" enable mouse interaction
 	set mouse=a
 
-	nnoremap <C-J> :tabnext<CR>
-	nnoremap <C-K> :tabprevious<CR>
+	" Navigation
+		nnoremap <C-J> :tabnext<CR>
+		nnoremap <C-K> :tabprevious<CR>
 
-	nnoremap H <C-w>h
-	nnoremap J <C-w>j
-	nnoremap K <C-w>k
-	nnoremap L <C-w>l
+		nnoremap H <C-w>h
+		nnoremap J <C-w>j
+		nnoremap K <C-w>k
+		nnoremap L <C-w>l
 
-	nnoremap <C-p> :Files<CR>
-	nnoremap <C-s> :Rg<CR>
+	" File Commands:
+		nnoremap <C-p> :Files<CR>
+		nnoremap <C-s> :Rg<CR>
 
-	" LaTeX
-	function LatexCompile()
-		w
-		call jobstart('pdflatex ' . expand('%'))
-	endfunction
+	" Ctags:
+		nnoremap <leader>t :TagbarToggle<CR>
+	
+	" LaTeX:
+		function LatexCompile()
+			w
+			call jobstart('pdflatex ' . expand('%'))
+		endfunction
 
-	function LatexOpen()
-		call jobstart('zathura ' . expand('%:r') . '.pdf')
-	endfunction
+		function LatexOpen()
+			call jobstart('zathura ' . expand('%:r') . '.pdf')
+		endfunction
 
-	nnoremap <leader>c :call LatexCompile()<CR>
-	nnoremap <leader>o :call LatexOpen()<CR>
+		nnoremap <leader>c :call LatexCompile()<CR>
+		nnoremap <leader>o :call LatexOpen()<CR>
 
-	nnoremap <leader>f :Goyo<CR>
+	" Goyo:
+		nnoremap <leader>f :Goyo<CR>
 
 	" NERDTREE Bindings:
 		nnoremap <C-n> :NERDTreeToggle<CR>
