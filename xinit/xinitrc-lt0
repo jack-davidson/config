@@ -10,8 +10,8 @@ killall dwmbarinfo; ~/.local/bin/dwmbarinfo.sh &
 # Swap caps lock and escape key.
 setxkbmap -option caps:ctrl_modifier &
 
-# Swap left alt and left win
-setxkbmap -option altwin:swap_lalt_lwin
+# swap win and alt
+setxkbmap -option altwin:swap_alt_win
 
 # Set wallpaper.
 feh --bg-fill ~/.wallpaper &
