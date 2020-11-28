@@ -8,7 +8,7 @@
 killall dwmbarinfo; ~/.local/bin/dwmbarinfo.sh &
 
 # Swap caps lock and escape key.
-setxkbmap -option caps:ctrl_modifier &
+setxkbmap -option caps:ctrl_modifier
 
 # swap win and alt
 setxkbmap -option altwin:swap_alt_win
