@@ -155,6 +155,9 @@
 	" enable mouse interaction
 	set mouse=a
 
+	" clear highlight
+		nnoremap <C-l> :noh<CR>	
+
 	" Navigation
 		nnoremap <C-J> :tabnext<CR>
 		nnoremap <C-K> :tabprevious<CR>
