@@ -1,3 +1,1 @@
-- Make different branches for each machine
-	- I have finished branch dt0
-	- need to do lt0 (specific customizations for different hardware)
+- modularize init.vim
