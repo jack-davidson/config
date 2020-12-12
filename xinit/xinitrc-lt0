@@ -5,7 +5,7 @@
 # Kill custom dwmbar script and then
 # start it up again. More information
 # can be found at https://gitlab.com/J0ND03/scripts
-killall dwmbarinfo; ~/.local/bin/dwmbarinfo.sh &
+killall dwmbarinfo.sh; (~/.local/bin/dwmbarinfo.sh &)
 
 # Swap caps lock and escape key.
 setxkbmap -option caps:ctrl_modifier
