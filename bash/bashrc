@@ -29,11 +29,10 @@
         alias :q='exit'
         alias :e='$EDITOR $@'
 	alias get_idf='. $HOME/dev/esp/esp-idf/export.sh'
-
-	# Program Aliases:
-		alias irc='weechat'
-		alias v='$EDITOR $@'
-		alias q='exit'
+	alias z="cd .."
+	alias irc='weechat'
+	alias v='$EDITOR $@'
+	alias q='exit'
 
 	# Git Aliases
 		alias gs='git status'
