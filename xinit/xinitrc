@@ -7,7 +7,7 @@ xrandr --output HDMI-A-0 --mode 1920x1080 --rate 144 --set TearFree on
 # Kill custom dwmbar script and then
 # start it up again. More information
 # can be found at https://gitlab.com/J0ND03/scripts
-killall dwmbarinfo.sh; ~/.local/bin/dwmbarinfo.sh &
+killall dwmbarinfo.sh; (~/.local/bin/dwmbarinfo.sh &)
 
 # Swap caps lock and escape key.
 setxkbmap -option caps:ctrl_modifier

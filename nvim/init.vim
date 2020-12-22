@@ -4,7 +4,7 @@
 " be easy to maintain and highly documented.
 " Configuration is only added once it is
 " fully understood. Configuration is written
-" in a heirarchical format.
+" in a hierarchical format.
 " ex:
 "
 "	" Configuration Category:
@@ -31,7 +31,7 @@
 		" auto tag closing
 		Plug 'alvan/vim-closetag'
 
-		" delimeter manipulation
+		" delimiter manipulation
 		Plug 'tpope/vim-surround'
 
 		" auto closing delimiters
@@ -81,12 +81,15 @@
 	" Language Server:
 		set completeopt=menuone,noinsert,noselect
 		let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+
 		lua require'lspconfig'.ccls.setup{ on_attach=require'completion'.on_attach }
 		lua require'lspconfig'.jedi_language_server.setup{ on_attach=require'completion'.on_attach }
+
 
 	" Interface:
 		set splitright
 		set splitbelow
+		setlocal spell spelllang=en_us
 
 	" Plugin Settings:
 		" Fzf:
