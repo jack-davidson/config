@@ -89,7 +89,6 @@
 	" Interface:
 		set splitright
 		set splitbelow
-		setlocal spell spelllang=en_us
 
 	" Plugin Settings:
 		" Fzf:
@@ -201,7 +200,7 @@
 
 " Auto Commands:
 
-	autocmd Bufenter *.html,*.tex setlocal ts=2 sw=2
+	autocmd Bufenter *.html,*.tex setlocal ts=2 sw=2 setlocal spell spelllang=en_us
 	augroup VCenterCursor
 		au!
 		au BufEnter,WinEnter,WinNew,VimResized *,*.*
