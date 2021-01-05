@@ -82,8 +82,8 @@
 		set completeopt=menuone,noinsert,noselect
 		let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
-		lua require'lspconfig'.ccls.setup{ on_attach=require'completion'.on_attach }
-		lua require'lspconfig'.jedi_language_server.setup{ on_attach=require'completion'.on_attach }
+		lua require'lspconfig'.ccls.setup{on_attach=require'completion'.on_attach}
+		lua require'lspconfig'.jedi_language_server.setup{on_attach=require'completion'.on_attach}
 
 
 	" Interface:
@@ -200,7 +200,7 @@
 
 " Auto Commands:
 
-	autocmd Bufenter *.html,*.tex setlocal ts=2 sw=2 setlocal spell spelllang=en_us
+	autocmd Bufenter *.html,*.tex setlocal ts=2 sw=2 spell spelllang=en_us
 	augroup VCenterCursor
 		au!
 		au BufEnter,WinEnter,WinNew,VimResized *,*.*

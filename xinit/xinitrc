@@ -9,12 +9,6 @@ xrandr --output HDMI-A-0 --mode 1920x1080 --rate 144 --set TearFree on
 # can be found at https://gitlab.com/J0ND03/scripts
 killall dwmbarinfo.sh; (~/.local/bin/dwmbarinfo.sh &)
 
-# Swap caps lock and escape key.
-setxkbmap -option caps:ctrl_modifier
-
-# swap win and alt
-setxkbmap -option altwin:swap_alt_win
-
 # Set wallpaper.
 feh --bg-fill ~/.wallpaper &
 
