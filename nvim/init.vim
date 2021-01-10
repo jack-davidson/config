@@ -114,14 +114,16 @@
 			augroup END
 		endif
 
+		" list invisible characters like tab
+		set list
 
-	" higlight background of selected line (lags my computer)
-	" set cursorcolumn
-	" highlight background of selected column
-	set cursorline
+		" higlight background of selected line (lags my computer)
+		" set cursorcolumn
+		" highlight background of selected column
+		set cursorline
 
-	" Vertical split divider character and color.
-	set fillchars+=vert:\|
+		" Vertical split divider character and color.
+		set fillchars+=vert:\|
 
 	" Colorschemes:
 

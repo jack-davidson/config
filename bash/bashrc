@@ -14,7 +14,7 @@
 		export EDITOR=nvim
 		export BROWSER=qutebrowser
 		export PAGER=less
-		export PATH=$PATH:~/.local/bin
+		export PATH=$PATH:~/.local/bin:~/go/bin
 		export MANPATH=$MANPATH:~/.local/share/man/
 		export COLORTERM="truecolor"
 	
