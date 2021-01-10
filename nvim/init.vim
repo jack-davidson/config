@@ -84,6 +84,7 @@
 
 		lua require'lspconfig'.ccls.setup{on_attach=require'completion'.on_attach}
 		lua require'lspconfig'.jedi_language_server.setup{on_attach=require'completion'.on_attach}
+		lua require'lspconfig'.gopls.setup{on_attach=require'completion'.on_attach}
 
 
 	" Interface:
