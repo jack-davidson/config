@@ -65,6 +65,9 @@
 		" Retro groove colorscheme
 		Plug 'morhetz/gruvbox'
 
+		Plug 'sheerun/vim-polyglot'
+
+
 	" Language Server:
 		" common lsp configuration
 		Plug 'neovim/nvim-lspconfig'
@@ -90,6 +93,7 @@
 	" Interface:
 		set splitright
 		set splitbelow
+		set ts=8
 
 	" Plugin Settings:
 		" Fzf:
@@ -203,7 +207,7 @@
 
 " Auto Commands:
 
-	autocmd Bufenter *.html,*.tex setlocal ts=2 sw=2 spell spelllang=en_us
+"	autocmd Bufenter *.html,*.tex setlocal ts=2 sw=2 spell spelllang=en_us
 	augroup VCenterCursor
 		au!
 		au BufEnter,WinEnter,WinNew,VimResized *,*.*
