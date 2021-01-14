@@ -67,6 +67,8 @@
 
 		Plug 'sheerun/vim-polyglot'
 
+		Plug 'dracula/vim'
+
 
 	" Language Server:
 		" common lsp configuration
@@ -104,7 +106,7 @@
 		" Lightline:
 			set noshowmode
 			let g:lightline = {
-				\ 'colorscheme': 'nord',
+				\ 'colorscheme': 'gruvbox',
 			\ }
 
 	" Cosmetic:
@@ -141,8 +143,12 @@
 
 		" Gruvbox:
 			let g:gruvbox_contrast_dark="soft"
+			let g:gruvbox_italic=1
+			let g:gruvbox_invert_selection=0
+			let g:gruvbox_invert_signs=1
+			let g:gruvbox_sign_column='bg0'
 
-		colorscheme nord
+		colo gruvbox
 
 
 	" Hybrid Number:
