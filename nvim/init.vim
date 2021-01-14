@@ -58,6 +58,8 @@
 		" git diff in sign column
 		Plug 'airblade/vim-gitgutter'
 
+		Plug 'ryanoasis/vim-devicons'
+
 	" Colorschemes:
 		" Blue colorscheme with soft, comfortable colors (my favorite).
 		Plug 'arcticicestudio/nord-vim'
@@ -88,7 +90,7 @@
 		let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 		lua require'lspconfig'.ccls.setup{on_attach=require'completion'.on_attach}
-		lua require'lspconfig'.jedi_language_server.setup{on_attach=require'completion'.on_attach}
+		lua require'lspconfig'.pyls.setup{on_attach=require'completion'.on_attach}
 		lua require'lspconfig'.gopls.setup{on_attach=require'completion'.on_attach}
 
 
@@ -132,6 +134,8 @@
 		" Vertical split divider character and color.
 		set fillchars+=vert:\|
 
+		let g:airline_powerline_fonts = 1
+
 	" Colorschemes:
 
 		set termguicolors
@@ -142,7 +146,7 @@
 			let g:nord_underline=1 " always allow underlined text
 
 		" Gruvbox:
-			let g:gruvbox_contrast_dark="soft"
+			let g:gruvbox_contrast_dark="medium"
 			let g:gruvbox_italic=1
 			let g:gruvbox_invert_selection=0
 			let g:gruvbox_invert_signs=1
