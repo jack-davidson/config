@@ -108,7 +108,7 @@
 		" Lightline:
 			set noshowmode
 			let g:lightline = {
-				\ 'colorscheme': 'gruvbox',
+				\ 'colorscheme': 'dracula',
 			\ }
 
 	" Cosmetic:
@@ -124,7 +124,7 @@
 		endif
 
 		" list invisible characters like tab
-		set list
+		set list lcs=tab:│\ ,trail:·
 
 		" higlight background of selected line (lags my computer)
 		" set cursorcolumn
@@ -152,7 +152,7 @@
 			let g:gruvbox_invert_signs=1
 			let g:gruvbox_sign_column='bg0'
 
-		colo gruvbox
+		colo dracula
 
 
 	" Hybrid Number:
@@ -217,7 +217,7 @@
 
 " Auto Commands:
 
-"	autocmd Bufenter *.html,*.tex setlocal ts=2 sw=2 spell spelllang=en_us
+	autocmd Bufenter *.html,*.tex setlocal ts=2 sw=2 spell spelllang=en_us
 	augroup VCenterCursor
 		au!
 		au BufEnter,WinEnter,WinNew,VimResized *,*.*
