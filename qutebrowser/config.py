@@ -1,4 +1,4 @@
-config.source("nord-qutebrowser.py")
+config.source("gruvbox.py")
 
 c.downloads.location.directory = "~/dow"
 c.url.start_pages = "file:///home/jd/.config/qutebrowser/homepage.html"

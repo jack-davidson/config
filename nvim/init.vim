@@ -108,7 +108,7 @@
 		" Lightline:
 			set noshowmode
 			let g:lightline = {
-				\ 'colorscheme': 'dracula',
+				\ 'colorscheme': 'gruvbox',
 			\ }
 
 	" Cosmetic:
@@ -152,7 +152,7 @@
 			let g:gruvbox_invert_signs=1
 			let g:gruvbox_sign_column='bg0'
 
-		colo dracula
+		colo gruvbox
 
 
 	" Hybrid Number:

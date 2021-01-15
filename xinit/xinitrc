@@ -10,7 +10,7 @@ xrandr --output HDMI-A-0 --mode 1920x1080 --rate 144 --set TearFree on
 killall dwmbarinfo.sh; (~/.local/bin/dwmbarinfo.sh &)
 
 # Set wallpaper.
-feh --bg-fill ~/.wallpaper &
+xsetroot -solid \#282828
 
 # start window manager
 exec dwm
