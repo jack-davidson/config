@@ -55,13 +55,4 @@
 		[ -z "$SSH_CONNECTION" ] || SSH="$HOSTNAME"
 		PS1='$([ -z $SSH ] || echo "(\[\e$FG2\]$SSH\[\e$RESET\])") \[\e$FG1\]\w\[\e$RESET\] > '
 
-	# Manual Page Colors:
-		export LESS_TERMCAP_mb=$'\e[1;32m'
-		export LESS_TERMCAP_md=$'\e[1;32m'
-		export LESS_TERMCAP_me=$'\e[0m'
-		export LESS_TERMCAP_se=$'\e[0m'
-		export LESS_TERMCAP_so=$'\e[46;30m'
-		export LESS_TERMCAP_ue=$'\e[0m'
-		export LESS_TERMCAP_us=$'\e[4;1;3;34m'
-
 # Keys:

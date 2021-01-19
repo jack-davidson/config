@@ -28,6 +28,8 @@
 		" view project from tags
 		Plug 'preservim/tagbar'
 
+		Plug 'justinmk/vim-sneak'
+
 		" auto tag closing
 		Plug 'alvan/vim-closetag'
 
@@ -138,7 +140,7 @@ end
 
 -- Use a loop to conveniently both setup defined servers 
 -- and map buffer local keybindings when the language server attaches
-local servers = { "ccls", "gopls", "pyls" }
+local servers = { "tsserver", "ccls", "gopls", "pyls" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
 end
@@ -147,6 +149,7 @@ EOF
 	" Interface:
 		set splitright
 		set splitbelow
+		set sw=8
 		set ts=8
 
 	" Plugin Settings:
@@ -175,6 +178,8 @@ EOF
 
 		" list invisible characters like tab
 		set list lcs=tab:│\ ,trail:·
+
+		let g:sneak#label = 1
 
 		" higlight background of selected line (lags my computer)
 		" set cursorcolumn
@@ -264,7 +269,7 @@ EOF
 		nnoremap <leader>o :call LatexOpen()<CR>
 
 	" Goyo:
-		nnoremap <leader>f :Goyo<CR>
+		nnoremap <leader>lf :Goyo<CR>
 
 	" NERDTREE Bindings:
 		nnoremap <C-n> :NERDTreeToggle<CR>
