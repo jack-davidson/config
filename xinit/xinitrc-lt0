@@ -16,5 +16,9 @@ setxkbmap -option altwin:swap_alt_win
 # Set wallpaper.
 xsetroot -solid \#282828
 
+# adjust display gamma levels
+xrandr --output eDP1 --gamma 1.05:1:0.85
+
+
 # start window manager
 exec dwm
