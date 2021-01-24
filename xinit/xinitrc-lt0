@@ -17,7 +17,7 @@ setxkbmap -option altwin:swap_alt_win
 xsetroot -solid \#282828
 
 # adjust display gamma levels
-xrandr --output eDP1 --gamma 1.05:1:0.85
+xrandr --output eDP-1 --gamma 1.05:1:0.85
 
 
 # start window manager
