@@ -54,5 +54,6 @@
 		FG2='[1;34m'
 		[ -z "$SSH_CONNECTION" ] || SSH="$HOSTNAME"
 		PS1='$([ -z $SSH ] || echo "(\[\e$FG2\]$SSH\[\e$RESET\])") \[\e$FG1\]\w\[\e$RESET\] > '
-
+	
 # Keys:
+
