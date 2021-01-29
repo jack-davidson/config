@@ -124,18 +124,6 @@ local on_attach = function(client, bufnr)
   end
   
   -- Set autocommands conditional on server_capabilities
-  if client.resolved_capabilities.document_highlight then
-    require('lspconfig').util.nvim_multiline_command [[
-      :hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
-      :hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
-      :hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
-      augroup lsp_document_highlight
-        autocmd!
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]]
-  end
 end
 
 -- Use a loop to conveniently both setup defined servers 
@@ -194,6 +182,9 @@ EOF
 	" Colorschemes:
 
 		set termguicolors
+		hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
+		hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
+		hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
 
 		" Nord:
 			let g:nord_italic=1 " always allow italic fonts
@@ -258,7 +249,7 @@ EOF
 	" LaTeX:
 		function LatexCompile()
 			w
-			call jobstart('pdflatex ' . expand('%'))
+			call jobstart('xelatex ' . expand('%'))
 		endfunction
 
 		function LatexOpen()
