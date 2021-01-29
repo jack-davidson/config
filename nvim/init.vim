@@ -249,7 +249,7 @@ EOF
 	" LaTeX:
 		function LatexCompile()
 			w
-			call jobstart('xelatex ' . expand('%'))
+			call jobstart('pdflatex ' . expand('%'))
 		endfunction
 
 		function LatexOpen()
