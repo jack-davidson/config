@@ -182,9 +182,6 @@ EOF
 	" Colorschemes:
 
 		set termguicolors
-		hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
-		hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
-		hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
 
 		" Nord:
 			let g:nord_italic=1 " always allow italic fonts
@@ -252,11 +249,17 @@ EOF
 			call jobstart('pdflatex ' . expand('%'))
 		endfunction
 
+		function XelatexCompile()
+			w
+			call jobstart('xelatex ' . expand('%'))
+		endfunction
+
 		function LatexOpen()
 			call jobstart('zathura ' . expand('%:r') . '.pdf')
 		endfunction
 
-		nnoremap <leader>c :call LatexCompile()<CR>
+		nnoremap <leader>c :call XelatexCompile()<CR>
+		nnoremap <leader>ac :call LatexCompile()<CR>
 		nnoremap <leader>o :call LatexOpen()<CR>
 
 	" Goyo:

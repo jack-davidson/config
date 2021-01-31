@@ -3,4 +3,8 @@
 # Get the aliases and functions
 [ -f $HOME/.bashrc ] && . $HOME/.bashrc
 
-[ -z "$SSH_CONNECTION" ] && startx
+[ -z "$SSH_CONNECTION" ] || exit
+
+if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+  exec startx
+fi
