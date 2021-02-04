@@ -35,6 +35,17 @@
 	alias q='exit'
 	alias ls='exa'
 
+	fcd() {
+		if [ -z "$1" ]; then
+			cd $(fd . ~ -Htd | fzf)
+			ls
+		else
+			cd $1
+		fi
+	}
+
+	alias cd='fcd'
+
 	# Git Aliases
 		alias gs='git status'
 		alias ga='git add'

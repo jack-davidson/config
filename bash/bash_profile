@@ -5,6 +5,6 @@
 
 [ -z "$SSH_CONNECTION" ] || exit
 
-if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+if [ -z "${DISPLAY}" ]; then
   exec startx
 fi
