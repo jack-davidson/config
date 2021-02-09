@@ -7,86 +7,85 @@
 " in a hierarchical format.
 " ex:
 "
-"	" Configuration Category:
-"		" Configuration Title:
-"			" configuration comment/documentation link
-"			<configuration command>
+"   " Configuration Category:
+"       " Configuration Title:
+"           " configuration comment/documentation link
+"           <configuration command>
 
 " Initialization:
-	scriptencoding utf-8
-	filetype plugin on
-	set termguicolors
+    scriptencoding utf-8
+    filetype plugin on
+    set termguicolors
 
 " Plugins:
-	call plug#begin()
+    call plug#begin()
 
-	" Utility:
-		" Amazing search menu.
-		Plug 'junegunn/fzf.vim'
-		Plug 'junegunn/fzf', { 'do': { -> fzf#install()  } }
+    " Utility:
+        " Amazing search menu.
+        Plug 'junegunn/fzf.vim'
+        Plug 'junegunn/fzf', { 'do': { -> fzf#install()  } }
 
-		" view project from tags
-		Plug 'preservim/tagbar'
+        " view project from tags
+        Plug 'preservim/tagbar'
 
-		Plug 'justinmk/vim-sneak'
+        Plug 'justinmk/vim-sneak'
 
-		" auto tag closing
-		Plug 'alvan/vim-closetag'
+        " auto tag closing
+        Plug 'alvan/vim-closetag'
 
-		" delimiter manipulation
-		Plug 'tpope/vim-surround'
+        " delimiter manipulation
+        Plug 'tpope/vim-surround'
 
-		" auto closing delimiters
-		Plug 'jiangmiao/auto-pairs'
+        " auto closing delimiters
+        Plug 'jiangmiao/auto-pairs'
 
-		" focus mode
-		Plug 'junegunn/goyo.vim'
+        " focus mode
+        Plug 'junegunn/goyo.vim'
 
-		" directory tree browser, helps for heavily structured
-		" django projects
-		Plug 'preservim/nerdtree'
+        " directory tree browser, helps for heavily structured
+        " django projects
+        Plug 'preservim/nerdtree'
 
-	" Cosmetic:
-		" evaluate '#XXXXXX' (hex) colors inside files 
-		" and highlight as real color value.
-		Plug 'ap/vim-css-color'
+    " Cosmetic:
+        " evaluate '#XXXXXX' (hex) colors inside files 
+        " and highlight as real color value.
+        Plug 'ap/vim-css-color'
 
-		" highlight other instances of word under cursor.
-		Plug 'RRethy/vim-illuminate'
+        " highlight other instances of word under cursor.
+        Plug 'RRethy/vim-illuminate'
 
-		" cool status bar
-		Plug 'itchyny/lightline.vim'
+        " cool status bar
+        Plug 'itchyny/lightline.vim'
 
-		" git diff in sign column
-		Plug 'airblade/vim-gitgutter'
+        " git diff in sign column
+        Plug 'airblade/vim-gitgutter'
 
-		Plug 'ryanoasis/vim-devicons'
+        Plug 'ryanoasis/vim-devicons'
 
-	" Colorschemes:
-		" Blue colorscheme with soft, comfortable colors (my favorite).
-		Plug 'arcticicestudio/nord-vim'
+    " Colorschemes:
+        " Blue colorscheme with soft, comfortable colors (my favorite).
+        Plug 'arcticicestudio/nord-vim'
 
-		" Retro groove colorscheme
-		Plug 'morhetz/gruvbox'
+        " Retro groove colorscheme
+        Plug 'morhetz/gruvbox'
 
-		Plug 'sheerun/vim-polyglot'
-
-		Plug 'dracula/vim'
+        Plug 'sheerun/vim-polyglot'
 
 
-	" Language Server:
-		" common lsp configuration
-		Plug 'neovim/nvim-lspconfig'
 
-		" lsp completion
-		Plug 'nvim-lua/completion-nvim'
+    " Language Server:
+        " common lsp configuration
+        Plug 'neovim/nvim-lspconfig'
 
-	call plug#end()
+        " lsp completion
+        Plug 'nvim-lua/completion-nvim'
+
+    call plug#end()
 
 " Settings:
-	" Language Server:
-		set completeopt=menuone,noinsert,noselect
-		let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+    " Language Server:
+        set completeopt=menuone,noinsert,noselect
+        let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 lua << EOF
 local nvim_lsp = require('lspconfig')
@@ -134,140 +133,144 @@ for _, lsp in ipairs(servers) do
 end
 EOF
 
-	" Interface:
-		set splitright
-		set splitbelow
-		set sw=8
-		set ts=8
+    " Interface:
+        set splitright
+        set splitbelow
 
-	" Plugin Settings:
-		" Fzf:
-			" Always enable preview window on the right with 60% width
-			let g:fzf_preview_window = 'right:60%'
-			let g:fzf_layout = { 'window' : { 'width': 0.9, 'height': 0.6, 'highlight': 'Normal' } }
+    " Plugin Settings:
+        " Fzf:
+            " Always enable preview window on the right with 60% width
+            let g:fzf_preview_window = 'right:60%'
+            let g:fzf_layout = { 'window' : { 'width': 0.9, 'height': 0.6, 'highlight': 'Normal' } }
 
-		" Lightline:
-			set noshowmode
-			let g:lightline = {
-				\ 'colorscheme': 'gruvbox',
-			\ }
+        " Lightline:
+            set noshowmode
+            let g:lightline = {
+                \ 'colorscheme': 'gruvbox',
+            \ }
 
-	" Cosmetic:
-		" highlight line at 80 column (good for adhering to line limits)
-		if exists('+colorcolumn')
-			set colorcolumn=80
-		else
-			augroup ColorColumn
-				autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg',
-								\ '\%>80v.\+',
-								\ -1)
-			augroup END
-		endif
+    " Cosmetic:
+        " highlight line at 80 column (good for adhering to line limits)
+        if exists('+colorcolumn')
+            set colorcolumn=80
+        else
+            augroup ColorColumn
+                autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg',
+                                \ '\%>80v.\+',
+                                \ -1)
+            augroup END
+        endif
 
-		" list invisible characters like tab
-		set list lcs=tab:│\ ,trail:·
+        " list invisible characters like tab
+        set list lcs=tab:│\ ,trail:·
 
-		let g:sneak#label = 1
+        let g:sneak#label = 1
 
-		" higlight background of selected line (lags my computer)
-		" set cursorcolumn
-		" highlight background of selected column
-		set cursorline
+        " higlight background of selected line (lags my computer)
+        " set cursorcolumn
+        " highlight background of selected column
+        set cursorline
 
-		" Vertical split divider character and color.
-		set fillchars+=vert:\|
+        " Vertical split divider character and color.
+        set fillchars+=vert:\|
 
-		let g:airline_powerline_fonts = 1
+        let g:airline_powerline_fonts = 1
 
-	" Colorschemes:
+    " Colorschemes:
 
-		set termguicolors
+        set termguicolors
 
-		" Nord:
-			let g:nord_italic=1 " always allow italic fonts
-			let g:nord_italic_comments=1 " give comments italic font
-			let g:nord_underline=1 " always allow underlined text
+        " Nord:
+            let g:nord_italic=1 " always allow italic fonts
+            let g:nord_italic_comments=1 " give comments italic font
+            let g:nord_underline=1 " always allow underlined text
 
-		" Gruvbox:
-			let g:gruvbox_contrast_dark="medium"
-			let g:gruvbox_italic=1
-			let g:gruvbox_invert_selection=0
-			let g:gruvbox_invert_signs=1
-			let g:gruvbox_sign_column='bg0'
+        " Gruvbox:
+            let g:gruvbox_contrast_dark="medium"
+            let g:gruvbox_italic=1
+            let g:gruvbox_invert_selection=0
+            let g:gruvbox_invert_signs=1
+            let g:gruvbox_sign_column='bg0'
 
-		colo gruvbox
-		hi LspDiagnosticsDefaultError guifg=#fb4934
-		hi LspDiagnosticsDefaultWarning guifg=#fabd2f
-		hi LspDiagnosticsDefaultInformation guifg=#f9f5d7
-		hi LspDiagnosticsDefaultHint guifg=#928374
+        colo gruvbox
+        hi LspDiagnosticsDefaultError guifg=#fb4934
+        hi LspDiagnosticsDefaultWarning guifg=#fabd2f
+        hi LspDiagnosticsDefaultInformation guifg=#f9f5d7
+        hi LspDiagnosticsDefaultHint guifg=#928374
+    
+    set tabstop=4
+    set shiftwidth=4
+    set softtabstop=4
+    set expandtab
 
-	" Hybrid Number:
-		" when combined, they have a hybrid effect
-		" where the line you are on is the line number,
-		" and then adjacent lines start counting upward:
-		" 2
-		" 1
-		"   64
-		" 1
-		" 2
-		set number
-		set relativenumber
+    " Hybrid Number:
+        " when combined, they have a hybrid effect
+        " where the line you are on is the line number,
+        " and then adjacent lines start counting upward:
+        " 2
+        " 1
+        "   64
+        " 1
+        " 2
+        set number
+        set relativenumber
 
 " Bindings:
-	" mapleader must be placed before any other bindings
-	let mapleader=' '
+    " mapleader must be placed before any other bindings
+    let mapleader=' '
 
-	" enable mouse interaction
-	set mouse=a
+    " enable mouse interaction
+    set mouse=a
 
-	" Use <Tab> and <S-Tab> to navigate through popup menu
-		inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-		inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    " Use <Tab> and <S-Tab> to navigate through popup menu
+        inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+        inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-	" clear highlight
-		nnoremap <C-l> :noh<CR>	
+    " clear highlight
+        nnoremap <C-l> :noh<CR> 
 
-	" Navigation
-		nnoremap <C-J> :tabnext<CR>
-		nnoremap <C-K> :tabprevious<CR>
+    " Navigation
+        nnoremap <C-J> :tabnext<CR>
+        nnoremap <C-K> :tabprevious<CR>
 
-		nnoremap H <C-w>h
-		nnoremap J <C-w>j
-		nnoremap K <C-w>k
-		nnoremap L <C-w>l
+        nnoremap H <C-w>h
+        nnoremap J <C-w>j
+        nnoremap K <C-w>k
+        nnoremap L <C-w>l
 
-	" File Commands:
-		nnoremap <C-p> :Files<CR>
-		nnoremap <C-s> :Rg<CR>
+    " File Commands:
+        nnoremap <C-p> :Files<CR>
+        nnoremap <C-s> :Rg<CR>
 
-	" Ctags:
-		nnoremap <leader>t :TagbarToggle<CR>
-	
-	" LaTeX:
-		function LatexCompile()
-			w
-			call jobstart('pdflatex ' . expand('%'))
-		endfunction
+    " Ctags:
+        nnoremap <leader>t :TagbarToggle<CR>
+    
+    " LaTeX:
+        function LatexCompile()
+            w
+            call jobstart('pdflatex ' . expand('%'))
+        endfunction
 
-		function XelatexCompile()
-			w
-			call jobstart('xelatex ' . expand('%'))
-		endfunction
+        function XelatexCompile()
+            w
+            call jobstart('xelatex ' . expand('%'))
+        endfunction
 
-		function LatexOpen()
-			call jobstart('zathura ' . expand('%:r') . '.pdf')
-		endfunction
+        function LatexOpen()
+            call jobstart('zathura ' . expand('%:r') . '.pdf')
+        endfunction
 
-		nnoremap <leader>c :call XelatexCompile()<CR>
-		nnoremap <leader>ac :call LatexCompile()<CR>
-		nnoremap <leader>o :call LatexOpen()<CR>
+        nnoremap <leader>c :call XelatexCompile()<CR>
+        nnoremap <leader>ac :call LatexCompile()<CR>
+        nnoremap <leader>o :call LatexOpen()<CR>
 
-	" Goyo:
-		nnoremap <leader>lf :Goyo<CR>
+    " Goyo:
+        nnoremap <leader>lf :Goyo<CR>
 
-	" NERDTREE Bindings:
-		nnoremap <C-n> :NERDTreeToggle<CR>
+    " NERDTREE Bindings:
+        nnoremap <C-n> :NERDTreeToggle<CR>
 
 " Auto Commands:
 
-	autocmd Bufenter *.html,*.tex setlocal ts=2 sw=2 spell spelllang=en_us
+    autocmd Bufenter *.c,*.h,*.cpp,*.hpp setlocal ts=8 sw=8 softtabstop=8 noexpandtab
+    autocmd Bufenter *.html,*.tex setlocal ts=2 sw=2 spell spelllang=en_us
