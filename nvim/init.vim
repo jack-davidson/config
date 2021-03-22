@@ -197,7 +197,7 @@ EOF
         hi LspDiagnosticsDefaultWarning guifg=#fabd2f
         hi LspDiagnosticsDefaultInformation guifg=#f9f5d7
         hi LspDiagnosticsDefaultHint guifg=#928374
-    
+
     set tabstop=4
     set shiftwidth=4
     set softtabstop=4
@@ -221,7 +221,10 @@ EOF
 
     " enable mouse interaction
     set mouse=a
-
+    noremap <leader>y "+y
+    noremap <leader>p "+p
+    noremap <leader>Y "*y
+    noremap <leader>P "*p
     " Use <Tab> and <S-Tab> to navigate through popup menu
         inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
         inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -244,7 +247,7 @@ EOF
 
     " Ctags:
         nnoremap <leader>t :TagbarToggle<CR>
-    
+
     " LaTeX:
         function LatexCompile()
             w
