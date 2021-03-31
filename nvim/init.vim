@@ -136,6 +136,7 @@ EOF
     " Interface:
         set splitright
         set splitbelow
+        set ignorecase
 
     " Plugin Settings:
         " Fzf:
