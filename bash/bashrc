@@ -17,6 +17,7 @@
 		export PATH=$PATH:~/.local/bin:~/go/bin:~/.local/bin/zoom
 		export MANPATH=$MANPATH:~/.local/share/man/
 		export COLORTERM="truecolor"
+        export GTK_THEME=Adwaita:dark
 	
 	# bat configuration:
 		export BAT_THEME=gruvbox
