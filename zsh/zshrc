@@ -1,0 +1,32 @@
+# ~/.zshrc 
+
+# Variables
+export PATH=$PATH:~/.local/bin
+setopt autocd
+
+
+# Aliases
+alias gs="git status"
+alias grep="grep --color"
+alias ls="exa"
+
+# Plugin Loading
+source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/plugins/completion.zsh
+
+# Prompt
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn
+zstyle ':vcs_info:git*' formats "::(%b)"
+precmd() {vcs_info}
+setopt prompt_subst
+prompt=' %F{green}%~%f${vcs_info_msg_0_} > '
+
+# History
+HISTFILE=~/.zsh_history
+HISTSIZE=5000
+SAVEHIST=5000
+setopt INC_APPEND_HISTORY
+setopt EXTENDED_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
