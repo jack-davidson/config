@@ -2,7 +2,11 @@
 
 # Variables
 export PATH=$PATH:~/.local/bin
+export EDITOR=nvim
+
+# zsh settings
 setopt autocd
+bindkey -e
 
 
 # Aliases
