@@ -1,0 +1,5 @@
+feh --bg-fill img/mount-fuji.jpg &
+dwmblocks &
+setxkbmap -option caps:ctrl_modifier
+setxkbmap -option altwin:swap_alt_win
+exec dwm
