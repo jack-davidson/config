@@ -3,6 +3,7 @@
 # Variables
 export PATH=$PATH:~/.local/bin
 export EDITOR=nvim
+export npm_config_prefix="$HOME/.local"
 
 # zsh settings
 setopt autocd
