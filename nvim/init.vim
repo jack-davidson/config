@@ -7,6 +7,8 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'itchyny/lightline.vim'
 Plug 'dracula/vim'
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 lua << EOF
@@ -49,11 +51,12 @@ end
 
 -- Use a loop to conveniently both setup defined servers 
 -- and map buffer local keybindings when the language server attaches
-local servers = { "tsserver", "ccls", "gopls", "pyls" }
+local servers = { "jdtls", "tsserver", "ccls", "gopls", "pyls" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
 end
 EOF
+
 
 set number
 set relativenumber
@@ -74,3 +77,7 @@ hi LspDiagnosticsDefaultHint guifg=#928374
 
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-K> :tabprev<CR>
+nnoremap <C-J> :tabnext<CR>
+nnoremap tn :tabnew<CR>
