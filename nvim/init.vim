@@ -9,6 +9,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'dracula/vim'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 lua << EOF
@@ -75,6 +77,7 @@ hi LspDiagnosticsDefaultWarning guifg=#fabd2f
 hi LspDiagnosticsDefaultInformation guifg=#f9f5d7
 hi LspDiagnosticsDefaultHint guifg=#928374
 
+nnoremap <C-p> :Files<CR>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 nnoremap <C-n> :NERDTreeToggle<CR>
