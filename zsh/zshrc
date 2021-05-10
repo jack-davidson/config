@@ -4,6 +4,7 @@
 export PATH=$PATH:~/.local/bin
 export EDITOR=nvim
 export npm_config_prefix="$HOME/.local"
+export BROWSER=qutebrowser
 
 # zsh settings
 setopt autocd
