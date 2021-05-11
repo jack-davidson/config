@@ -1,3 +1,8 @@
+#!/bin/sh
 feh --bg-fill img/wallpapers/mount-fuji.jpg &
+xrandr --output HDMI-A-0 --set TearFree on &
 dwmblocks &
+dunst &
+thunderbird &
+qutebrowser &
 exec dwm
