@@ -77,6 +77,8 @@ hi LspDiagnosticsDefaultWarning guifg=#fabd2f
 hi LspDiagnosticsDefaultInformation guifg=#f9f5d7
 hi LspDiagnosticsDefaultHint guifg=#928374
 
+autocmd BufEnter *.c,*.h set tabstop=8 shiftwidth=8 noexpandtab
+
 nnoremap <C-p> :Files<CR>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
