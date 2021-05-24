@@ -53,7 +53,7 @@ end
 
 -- Use a loop to conveniently both setup defined servers 
 -- and map buffer local keybindings when the language server attaches
-local servers = { "jdtls", "tsserver", "ccls", "gopls", "pyls" }
+local servers = { "rls", "jdtls", "tsserver", "ccls", "gopls", "pyls" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
 end
@@ -61,6 +61,7 @@ EOF
 
 
 set number
+set cursorline
 set relativenumber
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set completeopt=menuone,noinsert,noselect
