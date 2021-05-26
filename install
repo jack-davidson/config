@@ -1,0 +1,31 @@
+#!/bin/sh
+
+SYSPREFIX=$(hostname)
+
+echo -e "-- jack-davidson config installation script -- \n\n\
+beginning installation
+"
+
+ln_config_dir() {
+    rm -rf "${2}/${1}"
+    ln -s "$(pwd)/${1}" "${2}"
+}
+
+ln_files() {
+    for file in $(ls ${1}); do
+        rm "${2}/.${file}"
+        ln -s "$(pwd)/${1}/${file}" "${2}/.${file}"
+    done;
+}
+
+ln_config_dir qutebrowser ~/.config
+ln_config_dir fontconfig  ~/.config
+ln_config_dir nvim        ~/.config
+ln_config_dir zathura     ~/.config
+ln_config_dir dunst       ~/.config
+
+ln_files xinit-${SYSPREFIX} ~
+ln_files alsa-${SYSPREFIX}  ~
+
+ln_files tmux ~
+ln_files zsh  ~
