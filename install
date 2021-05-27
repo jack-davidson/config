@@ -23,6 +23,7 @@ ln_config_dir fontconfig  ~/.config
 ln_config_dir nvim        ~/.config
 ln_config_dir zathura     ~/.config
 ln_config_dir dunst       ~/.config
+ln_config_dir spotifyd    ~/.config
 
 ln_files xinit-${SYSPREFIX} ~
 ln_files alsa-${SYSPREFIX}  ~
