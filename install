@@ -2,16 +2,17 @@
 
 SYSPREFIX=$(hostname)
 
-echo -e "-- jack-davidson config installation script -- \n\n\
-beginning installation
-"
+echo -e "[START] config, Copyright (c) 2021 Jack Davidson"
+echo -e "[STATUS] beginning configuration"
 
 ln_config_dir() {
+    echo -e "[STATUS] linking directory ${1} to ${2}"
     rm -rf "${2}/${1}"
     ln -s "$(pwd)/${1}" "${2}"
 }
 
 ln_files() {
+    echo -e "[STATUS] linking all files in ${1} to ${2} (hidden)"
     for file in $(ls ${1}); do
         rm "${2}/.${file}"
         ln -s "$(pwd)/${1}/${file}" "${2}/.${file}"
@@ -24,9 +25,12 @@ ln_config_dir nvim        ~/.config
 ln_config_dir zathura     ~/.config
 ln_config_dir dunst       ~/.config
 ln_config_dir spotifyd    ~/.config
+ln_config_dir spotify-tui ~/.config
 
 ln_files xinit-${SYSPREFIX} ~
 ln_files alsa-${SYSPREFIX}  ~
 
 ln_files tmux ~
 ln_files zsh  ~
+
+echo -e "[DONE] configuration completed"
