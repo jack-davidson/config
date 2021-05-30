@@ -6,8 +6,8 @@ dir     dunst          ~/.config
 dir     spotifyd       ~/.config
 dir     spotify-tui    ~/.config
 
-files   sys     xinit  ~/
-files   sys     alsa   ~/
+#files   xinit  ~/
+#files   alsa   ~/
 
 files   tmux ~
 files   zsh  ~
