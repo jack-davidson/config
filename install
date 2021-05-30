@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SYSPREFIX=$(hostname)
+SYSPREFIX=$(cat /etc/hostname)
 
 echo -e "[START] config, Copyright (c) 2021 Jack Davidson"
 echo -e "[STATUS] beginning configuration"
