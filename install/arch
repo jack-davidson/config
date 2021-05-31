@@ -1,2 +1,1 @@
 #!/bin/sh
-ping -c 1 archlinux.org &>/dev/null || echo "please connect to internet"
