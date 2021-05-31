@@ -1,2 +1,2 @@
 #!/bin/sh
-echo "installing arch"
+ping -c 1 archlinux.org &>/dev/null || echo "please connect to internet"
