@@ -1,13 +1,15 @@
-dir     qutebrowser    ~/.config
-dir     fontconfig     ~/.config
-dir     nvim           ~/.config
-dir     zathura        ~/.config
-dir     dunst          ~/.config
-dir     spotifyd       ~/.config
-dir     spotify-tui    ~/.config
+dir     qutebrowser     ~/.config
+dir     fontconfig      ~/.config
+dir     nvim            ~/.config
+dir     zathura         ~/.config
+dir     dunst           ~/.config
+dir     spotifyd        ~/.config
+dir     spotify-tui     ~/.config
 
-files   xinit  ~/      sys
-files   alsa   ~/      sys
+files   xinit@          ~/
+files   alsa@           ~/
 
-files   tmux ~
-files   zsh  ~
+files   tmux    ~/
+files   zsh     ~/
+
+install vim-plug
