@@ -6,7 +6,7 @@ call plug#begin()
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'itchyny/lightline.vim'
-Plug 'dracula/vim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -69,10 +69,10 @@ set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 set noshowmode
 let g:lightline = {
-	\ 'colorscheme': 'dracula',
+	\ 'colorscheme': 'nord',
 \}
 
-colo dracula
+colo nord
 
 hi LspDiagnosticsDefaultError guifg=#fb4934
 hi LspDiagnosticsDefaultWarning guifg=#fabd2f
