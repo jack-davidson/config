@@ -1,0 +1,13 @@
+#!/bin/sh
+cd ~/repos/jd/
+
+repos=(dwm dwmblocks dmenu st)
+
+for repo in ${repos[*]}; do
+    git clone https://github.com/jack-davidson/${repo}
+    cd ${repo}
+    make && sudo make install
+    cd ..
+done;
+
+echo "successfully built ${repos[*]}"
