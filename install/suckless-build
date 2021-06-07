@@ -1,13 +1,43 @@
 #!/bin/sh
 cd ~/repos/jd/
 
-repos=(dwm dwmblocks dmenu st)
+if [ -z ${1} ]; then
+    repos=(dwm dwmblocks dmenu st)
+else
+    repos=(${1});
+fi
 
-for repo in ${repos[*]}; do
-    git clone https://github.com/jack-davidson/${repo}
+src="https://github.com/jack-davidosn/"
+
+pkgbuild() {
+    repo=${1}
+    echo ":: starting build for ${repo}"
+    echo "(1/3) cloning ${src}${repo}"
+    git clone ${src}${repo} &> /dev/null
+    echo "(2/3) entering build directory"
     cd ${repo}
-    make && sudo make install
+    echo "(3/3) building ${repo}"
+    make &> /dev/null
+    echo ":: finished build for ${repo}"
+}
+
+pkginstall() {
+    repo=${1}
+    echo ":: starting install for ${repo}"
+    echo "(1/1) installing ${repo}"
+    make -C ${repo} install &> /dev/null
+    echo ":: finished install for ${repo}"
     cd ..
+}
+
+for repo in ${repos[@]}; do
+    pkgbuild ${repo}
+    echo ""
 done;
 
-echo "successfully built ${repos[*]}"
+for repo in ${repos[@]}; do
+    pkginstall ${repo}
+    echo ""
+done;
+
+echo ":: successfully built and installed ${#repos[@]} packages (${repos[@]})"
