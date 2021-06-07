@@ -13,5 +13,4 @@ files   tmux    ~/
 files   zsh     ~/
 
 install suckless-build
-
 install vim-plug
