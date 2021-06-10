@@ -2,8 +2,8 @@ prompt_console() {
 	printf "Would you like to start the Xorg server? [Y/n]"
 	read START
 
-	[ "$START" = "Y" ] && startx && logout
-	[ "$START" = "" ] && startx && logout
+	[ "$START" = "Y" ] && source ~/.zshrc && startx && logout
+	[ "$START" = "" ] && source ~/.zshrc && startx && logout
 }
 
 [ "$TERM" = "linux" ] && prompt_console
