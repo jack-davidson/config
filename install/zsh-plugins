@@ -1,0 +1,27 @@
+#!/bin/bash
+
+mkdir -p ~/.zsh/plugins
+cd ~/.zsh/plugins
+
+git_plugins=(zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.zsh)
+
+echo -e "\n\n:: fetching plugins from https://github.com/zsh-users/"
+for plugin in ${git_plugins[*]}; do
+    echo ":: installing ${plugin}"
+    rm -rf ~/.zsh/plugins/${plugin}
+    echo "(1/2) fetching ${plugin} from https://github.com/zsh-users"
+    git clone https://github.com/zsh-users/${plugin} &>/dev/null
+    echo "(2/2) done"
+done
+echo ":: done fetching plugins from https://github.com/zsh-users"
+
+echo -e "\n:: fetching raw plugins"
+for plugin in ${plugins}; do
+    echo ":: installing ${plugin}"
+    cd ~/.zsh/plugins
+    echo "(1/2) fetching raw object ${plugin}"
+    curl -O ${plugin} &>/dev/null
+    echo "(2/2) done fetching raw object ${plugin}"
+done
+echo ":: done fetching raw plugins"

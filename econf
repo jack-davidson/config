@@ -14,3 +14,4 @@ files   zsh     ~/
 
 install suckless-build
 install vim-plug
+install zsh-plugins
