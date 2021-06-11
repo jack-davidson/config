@@ -11,7 +11,6 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
-Plug 'cocopon/iceberg.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
@@ -29,7 +28,7 @@ let g:lightline = {
     \ 'colorscheme': 'nord',
 \}
 
-colo iceberg
+colo nord
 
 hi LspDiagnosticsDefaultError guifg=#fb4934
 hi LspDiagnosticsDefaultWarning guifg=#fabd2f
