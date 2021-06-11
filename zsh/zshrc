@@ -6,6 +6,7 @@ export EDITOR=nvim
 export BROWSER=qutebrowser
 export npm_config_prefix="$HOME/.local"
 export BROWSER=qutebrowser
+export BAT_THEME="Nord"
 
 # zsh settings
 setopt autocd
