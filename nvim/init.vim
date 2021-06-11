@@ -21,8 +21,6 @@ set number
 set cursorline
 set relativenumber
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
-set list
-set listchars=tab:\|\ 
 let g:indentLine_char = '|'
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
