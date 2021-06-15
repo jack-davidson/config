@@ -7,6 +7,7 @@ dir     zathura         ~/.config
 dir     dunst           ~/.config
 dir     spotifyd        ~/.config
 dir     spotify-tui     ~/.config
+dir     picom           ~/.config
 
 files   xinit:host     ~/
 files   alsa:host      ~/

@@ -27,7 +27,7 @@ pkginstall() {
     cd ${BASEDIR}
     echo ":: starting install for ${repo}"
     echo "(1/1) installing ${repo}"
-    sudo make -C ${BASEDIR}/${repo} install
+    sudo make -C ${BASEDIR}/${repo} install &>/dev/null
     echo ":: finished install for ${repo}"
     cd ..
 }
