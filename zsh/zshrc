@@ -17,6 +17,7 @@ bindkey -e
 alias gs="git status"
 alias grep="grep --color"
 alias ls="exa"
+alias dev="cd ~/repos/jd/"
 
 # Plugin Loading
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
