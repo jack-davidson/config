@@ -8,12 +8,13 @@ dir     dunst           ~/.config
 dir     spotifyd        ~/.config
 dir     spotify-tui     ~/.config
 dir     picom           ~/.config
+dir     mpd             ~/.config
 
-files   xinit:host     ~/
-files   alsa:host      ~/
+files   xinit:host     ~/.
+files   alsa:host      ~/.
 
-files   tmux    ~/
-files   zsh     ~/
+files   tmux    ~/.
+files   zsh     ~/.
 
 install suckless-build
 install vim-plug
