@@ -1,6 +1,7 @@
 noconfirm
 
 dir     qutebrowser     ~/.config
+dir     ncmpc           ~/.config
 dir     fontconfig      ~/.config
 dir     nvim            ~/.config
 dir     zathura         ~/.config
@@ -8,7 +9,7 @@ dir     dunst           ~/.config
 dir     spotifyd        ~/.config
 dir     spotify-tui     ~/.config
 dir     picom           ~/.config
-dir     mpd             ~/.config
+dir     mpd:host        ~/.config
 
 files   xinit:host     ~/.
 files   alsa:host      ~/.
