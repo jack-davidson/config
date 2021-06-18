@@ -1,7 +1,6 @@
 noconfirm
 
 dir     qutebrowser     ~/.config
-dir     ncmpc           ~/.config
 dir     fontconfig      ~/.config
 dir     nvim            ~/.config
 dir     zathura         ~/.config
