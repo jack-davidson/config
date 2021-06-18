@@ -69,7 +69,7 @@ mpd_music_dir = ~/mus
 ## visualizer.
 ##
 #
-#visualizer_data_source = /tmp/mpd.fifo
+visualizer_data_source = /tmp/mpd.fifo
 #
 ##
 ## Note: Below parameter is needed for ncmpcpp to determine which output
@@ -77,12 +77,12 @@ mpd_music_dir = ~/mus
 ## to synchronize with audio.
 ##
 #
-#visualizer_output_name = Visualizer feed
+visualizer_output_name = visualizer
 #
 ##
 ## If you set format to 44100:16:2, make it 'yes'.
 ##
-#visualizer_in_stereo = yes
+visualizer_in_stereo = yes
 #
 ##
 ## Note: set below to >=10 only if you have synchronization issues with
@@ -98,15 +98,15 @@ mpd_music_dir = ~/mus
 #
 ## Available values: spectrum, wave, wave_filled, ellipse.
 ##
-#visualizer_type = spectrum
+visualizer_type = spectrum
 #
-#visualizer_fps = 60
+visualizer_fps = 60
 #
-#visualizer_autoscale = no
+visualizer_autoscale = no
 #
 #visualizer_look = ●▮
 #
-#visualizer_color = blue, cyan, green, yellow, magenta, red
+visualizer_color = blue, cyan, green, yellow, magenta, red
 #
 ## Alternative subset of 256 colors for terminals that support it.
 ##
@@ -121,7 +121,7 @@ mpd_music_dir = ~/mus
 ## and visualizer_in_stereo set, artifacts may be visible on the bottom half of
 ## the visualization.
 #
-#visualizer_spectrum_smooth_look = yes
+visualizer_spectrum_smooth_look = yes
 #
 ## A value between 1 and 5 inclusive. Specifying a larger value makes the
 ## visualizer look at a larger slice of time, which results in less jumpy
