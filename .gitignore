@@ -3,3 +3,4 @@ spotify-tui/.spotify_token_cache.json
 nvim/plugged/
 qutebrowser/qsettings/QtProject.conf
 __pycache__
+ncmpcpp/error.log
