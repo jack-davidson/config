@@ -5,4 +5,5 @@ setxkbmap -option altwin:swap_alt_win
 #picom &
 dunst &
 qutebrowser &
+xinput set-prop 13 'libinput Accel Speed' -0.5 &
 exec dwm
