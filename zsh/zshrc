@@ -17,6 +17,13 @@ bindkey -e
 alias gs="git status"
 alias grep="grep --color"
 alias ls="exa"
+toggle_bat_levels(){
+    if [ -e "/tmp/dwmblocks:bat:show_levels" ]; then
+        rm "/tmp/dwmblocks:bat:show_levels"
+    else
+        touch "/tmp/dwmblocks:bat:show_levels"
+    fi
+}
 alias dev="cd ~/repos/jd/"
 
 # Plugin Loading
