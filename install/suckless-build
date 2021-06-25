@@ -32,12 +32,14 @@ pkginstall() {
     cd ..
 }
 
-for repo in ${repos[@]}; do
+for repo in ${repos[@]}
+do
     pkgbuild ${repo}
     echo ""
 done;
 
-for repo in ${repos[@]}; do
+for repo in ${repos[@]}
+do
     pkginstall ${repo}
     echo ""
 done;

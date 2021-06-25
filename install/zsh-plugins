@@ -7,7 +7,8 @@ git_plugins=(zsh-autosuggestions zsh-syntax-highlighting)
 plugins=(https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.zsh)
 
 echo -e "\n:: fetching plugins from https://github.com/zsh-users/"
-for plugin in ${git_plugins[*]}; do
+for plugin in ${git_plugins[*]}
+do
     echo ":: installing ${plugin}"
     rm -rf ~/.zsh/plugins/${plugin}
     echo "(1/2) fetching ${plugin} from https://github.com/zsh-users"
@@ -17,7 +18,8 @@ done
 echo ":: done fetching plugins from https://github.com/zsh-users"
 
 echo -e "\n:: fetching raw plugins"
-for plugin in ${plugins}; do
+for plugin in ${plugins}
+do
     echo ":: installing ${plugin}"
     cd ~/.zsh/plugins
     echo "(1/2) fetching raw object ${plugin}"
