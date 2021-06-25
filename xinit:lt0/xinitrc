@@ -1,9 +1,10 @@
+#!/bin/sh
+
 feh --bg-fill img/wallpapers/mount-fuji.jpg &
 dwmblocks &
 setxkbmap -option caps:ctrl_modifier
 setxkbmap -option altwin:swap_alt_win
-#picom &
 dunst &
 qutebrowser &
-xinput set-prop $(xinput | grep "TPPS/2 IBM TrackPoint" | cut -f2 | cut -d'=' -f2) "libinput Accel Speed" -0.5
+xinput set-prop $(xinput | grep "TPPS/2 IBM TrackPoint" | cut -f2 | cut -d'=' -f2) "libinput Accel Speed" -0.5 &
 exec dwm
