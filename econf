@@ -1,4 +1,3 @@
-noconfirm
 
 dir     qutebrowser     ~/.config
 dir     fontconfig      ~/.config
@@ -19,4 +18,4 @@ files   zsh     ~/.
 
 install suckless-build
 install vim-plug
-install zsh-plugins
+#install zsh-plugins

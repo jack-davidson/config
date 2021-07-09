@@ -8,6 +8,7 @@ export npm_config_prefix="$HOME/.local"
 export BROWSER=qutebrowser
 export XDG_DOWNLOAD_DIR="/home/jd/dow"
 export BAT_THEME="Nord"
+export MANPAGER="less --use-color --color=d+b --color=P+c --color=u+g"
 
 # zsh settings
 setopt autocd
