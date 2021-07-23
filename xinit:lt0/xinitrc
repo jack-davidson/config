@@ -1,10 +1,15 @@
 #!/bin/sh
 
-feh --bg-fill img/wallpapers/mount-fuji.jpg &
+xrandr --newmode 2048x1080_60.00  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+xrandr --addmode HDMI1 "2048x1080_60.00"
+xrandr --output HDMI1 --rotate normal --above eDP1 --mode "2048x1080_60.00"
 dwmblocks &
 setxkbmap -option caps:ctrl_modifier
 setxkbmap -option altwin:swap_alt_win
 dunst &
 qutebrowser &
+slack &
+thunderbird &
 xinput set-prop $(xinput | grep "TPPS/2 IBM TrackPoint" | cut -f2 | cut -d'=' -f2) "libinput Accel Speed" -0.8 &
+feh --bg-fill img/wallpapers/mount-fuji.jpg &
 exec dwm
