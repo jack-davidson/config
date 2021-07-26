@@ -37,6 +37,8 @@ hi LspDiagnosticsDefaultHint guifg=#928374
 hi Error guibg=#2e3440
 
 autocmd BufEnter *.c,*.h set tabstop=8 shiftwidth=8 noexpandtab
+autocmd BufEnter *.go set tabstop=8 shiftwidth=8 noexpandtab
+autocmd BufWritePost *.go silent !gofmt -w %:p
 
 nnoremap <C-p> :Files<CR>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
