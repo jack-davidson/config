@@ -1,8 +1,9 @@
 # ~/.zshrc 
 
 # Variables
-export PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/.local/bin:~/go/bin
 export EDITOR=nvim
+export GOPATH=~/go
 export BROWSER=qutebrowser
 export npm_config_prefix="$HOME/.local"
 export BROWSER=qutebrowser

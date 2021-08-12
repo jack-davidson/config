@@ -4,6 +4,7 @@ set termguicolors
 
 call plug#begin()
 Plug 'neovim/nvim-lspconfig'
+Plug 'fatih/vim-go'
 Plug 'Yggdroot/indentLine'
 Plug 'nvim-lua/completion-nvim'
 Plug 'itchyny/lightline.vim'
@@ -38,7 +39,6 @@ hi Error guibg=#2e3440
 
 autocmd BufEnter *.c,*.h set tabstop=8 shiftwidth=8 noexpandtab
 autocmd BufEnter *.go set tabstop=8 shiftwidth=8 noexpandtab
-autocmd BufWritePost *.go silent !gofmt -w %:p
 
 nnoremap <C-p> :Files<CR>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
