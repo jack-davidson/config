@@ -20,6 +20,10 @@ bindkey -e
 alias gs="git status"
 alias grep="grep --color"
 alias ls="exa"
+alias dev="cd ~/repos/jd/"
+alias t="task"
+
+# functions
 toggle_bat_levels(){
     if [ -e "/tmp/dwmblocks:bat:show_levels" ]; then
         rm "/tmp/dwmblocks:bat:show_levels"
@@ -27,7 +31,6 @@ toggle_bat_levels(){
         touch "/tmp/dwmblocks:bat:show_levels"
     fi
 }
-alias dev="cd ~/repos/jd/"
 
 # Plugin Loading
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

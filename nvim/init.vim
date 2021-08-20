@@ -3,6 +3,7 @@ filetype plugin on
 set termguicolors
 
 call plug#begin()
+Plug 'vimwiki/vimwiki'
 Plug 'neovim/nvim-lspconfig'
 Plug 'fatih/vim-go'
 Plug 'Yggdroot/indentLine'
@@ -25,9 +26,16 @@ let g:indentLine_char = '|'
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 set noshowmode
+
 let g:lightline = {
     \ 'colorscheme': 'nord',
 \}
+let g:vimwiki_list = [
+    \ {
+        \ 'path': '~/doc/vimwiki',
+    \},
+\]
+
 
 colo nord
 
@@ -41,6 +49,8 @@ autocmd BufEnter *.c,*.h set tabstop=8 shiftwidth=8 noexpandtab
 autocmd BufEnter *.go set tabstop=8 shiftwidth=8 noexpandtab
 
 nnoremap <C-p> :Files<CR>
+nnoremap gct :GoCoverageToggle<CR>
+nnoremap gc :GoCoverageClear<CR>:GoCoverage<CR>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 nnoremap <C-n> :NERDTreeToggle<CR>
