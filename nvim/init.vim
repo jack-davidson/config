@@ -46,7 +46,17 @@ hi LspDiagnosticsDefaultHint guifg=#928374
 hi Error guibg=#2e3440
 
 autocmd BufEnter *.c,*.h set tabstop=8 shiftwidth=8 noexpandtab
+autocmd BufEnter *.cpp,*.hpp set tabstop=8 shiftwidth=8 noexpandtab
+autocmd BufEnter *.html set tabstop=8 shiftwidth=8 noexpandtab
 autocmd BufEnter *.go set tabstop=8 shiftwidth=8 noexpandtab
+
+function! OpenCompletion()
+    if !pumvisible() && ((v:char >= 'a' && v:char <= 'z') || (v:char >= 'A' && v:char <= 'Z'))
+        call feedkeys("\<C-x>\<C-o>", "n")
+    endif
+endfunction
+
+autocmd InsertCharPre *.go call OpenCompletion()
 
 nnoremap <C-p> :Files<CR>
 nnoremap gct :GoCoverageToggle<CR>
@@ -98,8 +108,8 @@ end
 
 -- Use a loop to conveniently both setup defined servers 
 -- and map buffer local keybindings when the language server attaches
-local servers = { "rls", "jdtls", "tsserver", "ccls", "gopls", "pyls" }
-for _, lsp in ipairs(servers) do
+local servers = { "tsserver", "ccls", "gopls"}
+for i, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup { on_attach = on_attach }
 end
 EOF
