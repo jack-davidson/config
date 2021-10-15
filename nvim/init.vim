@@ -43,6 +43,10 @@ hi LspDiagnosticsDefaultError guifg=#fb4934
 hi LspDiagnosticsDefaultWarning guifg=#fabd2f
 hi LspDiagnosticsDefaultInformation guifg=#f9f5d7
 hi LspDiagnosticsDefaultHint guifg=#928374
+hi LspDiagnosticsUnderlineError guifg=#fb4934 gui=undercurl
+hi LspDiagnosticsUnderlineWarning guifg=#fabd2f gui=undercurl
+hi LspDiagnosticsUnderlineInformation guifg=#f9f5d7 gui=undercurl
+hi LspDiagnosticsUnderlineHint guifg=#928374 gui=undercurl
 hi Error guibg=#2e3440
 
 autocmd BufEnter *.c,*.h set tabstop=8 shiftwidth=8 noexpandtab
@@ -108,8 +112,8 @@ end
 
 -- Use a loop to conveniently both setup defined servers 
 -- and map buffer local keybindings when the language server attaches
-local servers = { "tsserver", "ccls", "gopls"}
-for i, lsp in ipairs(servers) do
+local servers = { "tsserver", "ccls", "gopls", "pyls" }
+for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup { on_attach = on_attach }
 end
 EOF
