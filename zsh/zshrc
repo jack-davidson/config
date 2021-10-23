@@ -1,7 +1,7 @@
 # ~/.zshrc 
 
 # Variables
-export PATH=$PATH:~/.local/bin:~/go/bin
+export PATH=$PATH:~/.local/bin:~/go/bin:/home/jd/.local/share/gem/ruby/3.0.0/bin
 export EDITOR=nvim
 export GOPATH=~/go
 export BROWSER=qutebrowser
