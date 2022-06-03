@@ -3,7 +3,6 @@ filetype plugin on
 set termguicolors
 
 call plug#begin()
-Plug 'vimwiki/vimwiki'
 Plug 'neovim/nvim-lspconfig'
 Plug 'fatih/vim-go'
 Plug 'Yggdroot/indentLine'
@@ -21,7 +20,7 @@ call plug#end()
 set number
 set cursorline
 set relativenumber
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=8 softtabstop=0 expandtab shiftwidth=8 smarttab
 let g:indentLine_char = '|'
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
@@ -65,6 +64,7 @@ autocmd InsertCharPre *.go,*.py call OpenCompletion()
 nnoremap <C-p> :Files<CR>
 nnoremap gct :GoCoverageToggle<CR>
 nnoremap gc :GoCoverageClear<CR>:GoCoverage<CR>
+" Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 nnoremap <C-n> :NERDTreeToggle<CR>
@@ -112,8 +112,10 @@ end
 
 -- Use a loop to conveniently both setup defined servers 
 -- and map buffer local keybindings when the language server attaches
-local servers = { "tsserver", "ccls", "gopls", "pylsp"}
+local servers = { "tsserver", "ccls", "gopls", "pyright"}
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup { on_attach = on_attach }
 end
 EOF
+
+let g:completion_enable_auto_popup = 1
