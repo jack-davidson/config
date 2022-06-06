@@ -6,6 +6,7 @@ call plug#begin()
 Plug 'neovim/nvim-lspconfig'
 Plug 'fatih/vim-go'
 Plug 'Yggdroot/indentLine'
+Plug 'github/copilot.vim'
 Plug 'nvim-lua/completion-nvim'
 Plug 'itchyny/lightline.vim'
 Plug 'arcticicestudio/nord-vim'
