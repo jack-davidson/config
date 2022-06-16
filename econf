@@ -1,4 +1,3 @@
-
 dir     qutebrowser     ~/.config
 dir     fontconfig      ~/.config
 dir     nvim            ~/.config
