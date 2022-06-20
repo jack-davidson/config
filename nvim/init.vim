@@ -27,6 +27,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
+luado require('lsp')
+
 set number
 set cursorline
 set relativenumber
@@ -66,5 +68,3 @@ nnoremap tn :tabnew<CR>
 nnoremap gs :Git status<CR>
 
 nnoremap <C-l> :noh<CR>
-
-luado require('lsp')
