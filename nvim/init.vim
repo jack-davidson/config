@@ -3,6 +3,9 @@ filetype plugin on
 set termguicolors
 
 call plug#begin()
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'tpope/vim-fugitive'
 Plug 'neovim/nvim-lspconfig'
 Plug 'onsails/lspkind.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -14,8 +17,6 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'itchyny/lightline.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
 call plug#end()
 
@@ -49,13 +50,12 @@ autocmd BufEnter *.cpp,*.hpp set tabstop=8 shiftwidth=8 noexpandtab
 autocmd BufEnter *.html set tabstop=2 shiftwidth=2 expandtab
 autocmd BufEnter *.go set tabstop=8 shiftwidth=8 noexpandtab
 
-nnoremap <C-p> :Files<CR>
-nnoremap gct :GoCoverageToggle<CR>
-nnoremap gc :GoCoverageClear<CR>:GoCoverage<CR>
-nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-p> <cmd>Telescope find_files<cr>
+
 nnoremap <C-K> :tabprev<CR>
 nnoremap <C-J> :tabnext<CR>
 nnoremap tn :tabnew<CR>
+nnoremap gs :Git status<CR>
 
 lua << EOF
 -- Mappings.
