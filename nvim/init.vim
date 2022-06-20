@@ -102,25 +102,41 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
-require('lspconfig')['pyright'].setup{
+
+require'lspconfig'.pyright.setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
-require('lspconfig')['tsserver'].setup{
+
+require'lspconfig'.tsserver.setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
-require('lspconfig')['rust_analyzer'].setup{
+
+require'lspconfig'.gopls.setup{
     on_attach = on_attach,
     flags = lsp_flags,
-    -- Server-specific settings...
-    settings = {
-      ["rust-analyzer"] = {}
-    }
+}
+
+require'lspconfig'.ccls.setup {
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+
+require'lspconfig'.cssls.setup {
+    capabilities = capabilities,
+}
+
+require'lspconfig'.html.setup {
+    capabilities = capabilities,
 }
 
 local lspkind = require('lspkind')
