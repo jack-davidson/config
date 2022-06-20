@@ -3,21 +3,28 @@ filetype plugin on
 set termguicolors
 
 call plug#begin()
+" tools
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'tpope/vim-fugitive'
+
+" lsp/completion
 Plug 'neovim/nvim-lspconfig'
 Plug 'onsails/lspkind.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
+
+" language
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'sheerun/vim-polyglot'
 Plug 'fatih/vim-go'
+
+" appearance
+Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
-Plug 'nvim-lua/completion-nvim'
 Plug 'itchyny/lightline.vim'
 Plug 'arcticicestudio/nord-vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 set number
@@ -55,7 +62,10 @@ nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap <C-K> :tabprev<CR>
 nnoremap <C-J> :tabnext<CR>
 nnoremap tn :tabnew<CR>
+
 nnoremap gs :Git status<CR>
+
+nnoremap <C-l> :noh<CR>
 
 lua << EOF
 -- Mappings.
