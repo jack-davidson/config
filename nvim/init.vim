@@ -18,6 +18,7 @@ Plug 'hrsh7th/nvim-cmp'
 " language
 Plug 'sheerun/vim-polyglot'
 Plug 'fatih/vim-go'
+Plug 'norcalli/nvim-colorizer.lua'
 
 " appearance
 Plug 'airblade/vim-gitgutter'
@@ -26,7 +27,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
-luado require('lsp')
+lua require('lsp')
+lua require'colorizer'.setup()
 
 set number
 set cursorline
@@ -36,6 +38,7 @@ let g:indentLine_char = '|'
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 set noshowmode
+let g:mapleader = ' '
 
 let g:lightline = {
     \ 'colorscheme': 'nord',
@@ -58,7 +61,8 @@ autocmd BufEnter *.cpp,*.hpp set tabstop=8 shiftwidth=8 noexpandtab
 autocmd BufEnter *.html set tabstop=2 shiftwidth=2 expandtab
 autocmd BufEnter *.go set tabstop=8 shiftwidth=8 noexpandtab
 
-nnoremap <C-p> <cmd>Telescope find_files<cr>
+nnoremap <leader><leader> <cmd>Telescope find_files<cr>
+nnoremap <leader>m <cmd>Telescope man_pages<cr>
 
 nnoremap <C-K> :tabprev<CR>
 nnoremap <C-J> :tabnext<CR>
