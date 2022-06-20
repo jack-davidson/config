@@ -78,8 +78,6 @@ local lspkind = require('lspkind')
 local cmp = require('cmp')
 cmp.setup {
     mapping = {
-        ["<esc>"] = cmp.mapping.close(),
-
         ['<C-n>'] = function(fallback)
             if not cmp.select_next_item() then
                 if vim.bo.buftype ~= 'prompt' and has_words_before() then
