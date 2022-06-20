@@ -4,14 +4,15 @@ set termguicolors
 
 call plug#begin()
 Plug 'neovim/nvim-lspconfig'
+Plug 'onsails/lspkind.nvim'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
 Plug 'fatih/vim-go'
 Plug 'Yggdroot/indentLine'
-Plug 'github/copilot.vim'
 Plug 'nvim-lua/completion-nvim'
 Plug 'itchyny/lightline.vim'
 Plug 'arcticicestudio/nord-vim'
-Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -21,7 +22,7 @@ call plug#end()
 set number
 set cursorline
 set relativenumber
-set tabstop=8 softtabstop=0 expandtab shiftwidth=8 smarttab
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 let g:indentLine_char = '|'
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
@@ -30,12 +31,6 @@ set noshowmode
 let g:lightline = {
     \ 'colorscheme': 'nord',
 \}
-let g:vimwiki_list = [
-    \ {
-        \ 'path': '~/doc/vimwiki',
-    \},
-\]
-
 
 colo nord
 
@@ -51,16 +46,8 @@ hi Error guibg=#2e3440
 
 autocmd BufEnter *.c,*.h set tabstop=8 shiftwidth=8 noexpandtab
 autocmd BufEnter *.cpp,*.hpp set tabstop=8 shiftwidth=8 noexpandtab
-autocmd BufEnter *.html set tabstop=8 shiftwidth=8 noexpandtab
+autocmd BufEnter *.html set tabstop=2 shiftwidth=2 expandtab
 autocmd BufEnter *.go set tabstop=8 shiftwidth=8 noexpandtab
-
-function! OpenCompletion()
-    if !pumvisible() && ((v:char >= 'a' && v:char <= 'z') || (v:char >= 'A' && v:char <= 'Z'))
-        call feedkeys("\<C-x>\<C-o>", "n")
-    endif
-endfunction
-
-autocmd InsertCharPre *.go,*.py call OpenCompletion()
 
 nnoremap <C-p> :Files<CR>
 nnoremap gct :GoCoverageToggle<CR>
@@ -117,6 +104,39 @@ local servers = { "tsserver", "ccls", "gopls", "pyright"}
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup { on_attach = on_attach }
 end
+
+local lspkind = require('lspkind')
+local cmp = require('cmp')
+cmp.setup {
+      mapping = {
+         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+         ["<C-f>"] = cmp.mapping.scroll_docs(4),
+         ["<C-e>"] = cmp.mapping.close(),
+         ["<c-y>"] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Insert,
+            select = true,
+         },
+      },
+      formatting = {
+         format = lspkind.cmp_format {
+            with_text = true,
+            menu = {
+               buffer   = "[buf]",
+               nvim_lsp = "[LSP]",
+               path     = "[path]",
+            },
+         },
+      },
+
+      sources = {
+         { name = "path" },
+         { name = "nvim_lsp" },
+         { name = "buffer" , keyword_length = 5},
+      },
+      experimental = {
+         ghost_text = true
+      }
+}
 EOF
 
 let g:completion_enable_auto_popup = 1
