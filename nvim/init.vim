@@ -52,91 +52,117 @@ autocmd BufEnter *.go set tabstop=8 shiftwidth=8 noexpandtab
 nnoremap <C-p> :Files<CR>
 nnoremap gct :GoCoverageToggle<CR>
 nnoremap gc :GoCoverageClear<CR>:GoCoverage<CR>
-" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-K> :tabprev<CR>
 nnoremap <C-J> :tabnext<CR>
 nnoremap tn :tabnew<CR>
 
 lua << EOF
-local nvim_lsp = require('lspconfig')
+-- Mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+local opts = { noremap=true, silent=true }
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+  -- Enable completion triggered by <c-x><c-o>
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-    require'completion'.on_attach()
-
-    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-    -- Mappings.
-    local opts = { noremap=true, silent=true }
-    buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-    buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    buf_set_keymap('n', '<leader>k', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    buf_set_keymap('n', '<leader>K', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-    buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-    buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-    buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-    buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-    buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-    buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-    buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-
-    -- Set some keybinds conditional on server capabilities
-    if client.resolved_capabilities.document_formatting then
-      buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-    elseif client.resolved_capabilities.document_range_formatting then
-      buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-    end
-    
-    -- Set autocommands conditional on server_capabilities
+  -- Mappings.
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+  vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+  vim.keymap.set('n', '<space>wl', function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  end, bufopts)
+  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
--- Use a loop to conveniently both setup defined servers 
--- and map buffer local keybindings when the language server attaches
-local servers = { "tsserver", "ccls", "gopls", "pyright"}
-for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup { on_attach = on_attach }
-end
+local lsp_flags = {
+  -- This is the default in Nvim 0.7+
+  debounce_text_changes = 150,
+}
+require('lspconfig')['pyright'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+require('lspconfig')['tsserver'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+require('lspconfig')['rust_analyzer'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    -- Server-specific settings...
+    settings = {
+      ["rust-analyzer"] = {}
+    }
+}
 
 local lspkind = require('lspkind')
 local cmp = require('cmp')
 cmp.setup {
-      mapping = {
-         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-         ["<C-e>"] = cmp.mapping.close(),
-         ["<c-y>"] = cmp.mapping.confirm {
+    mapping = {
+        ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-e>"] = cmp.mapping.close(),
+        ['<C-Space>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Insert,
             select = true,
-         },
-      },
-      formatting = {
-         format = lspkind.cmp_format {
+        },
+
+        ['<Tab>'] = function(fallback)
+            if not cmp.select_next_item() then
+                if vim.bo.buftype ~= 'prompt' and has_words_before() then
+                    cmp.complete()
+                else
+                    fallback()
+                end
+            end
+        end,
+
+        ['<S-Tab>'] = function(fallback)
+            if not cmp.select_prev_item() then
+                if vim.bo.buftype ~= 'prompt' and has_words_before() then
+                    cmp.complete()
+                else
+                    fallback()
+                end
+            end
+        end,
+    },
+    formatting = {
+        format = lspkind.cmp_format {
             with_text = true,
             menu = {
-               buffer   = "[buf]",
-               nvim_lsp = "[LSP]",
-               path     = "[path]",
+                buffer   = "[buf]",
+                nvim_lsp = "[LSP]",
+                path     = "[path]",
             },
          },
       },
 
-      sources = {
-         { name = "path" },
-         { name = "nvim_lsp" },
-         { name = "buffer" , keyword_length = 5},
-      },
-      experimental = {
-         ghost_text = true
-      }
+    sources = {
+        { name = "path" },
+        { name = "nvim_lsp" },
+        { name = "buffer" , keyword_length = 5},
+    },
+    experimental = {
+        ghost_text = true
+    }
 }
 EOF
-
-let g:completion_enable_auto_popup = 1
