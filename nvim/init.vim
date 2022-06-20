@@ -148,13 +148,27 @@ local lspkind = require('lspkind')
 local cmp = require('cmp')
 cmp.setup {
     mapping = {
-        ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-e>"] = cmp.mapping.close(),
-        ['<C-Space>'] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Insert,
-            select = true,
-        },
+        ["<esc>"] = cmp.mapping.close(),
+
+        ['<C-n>'] = function(fallback)
+            if not cmp.select_next_item() then
+                if vim.bo.buftype ~= 'prompt' and has_words_before() then
+                    cmp.complete()
+                else
+                    fallback()
+                end
+            end
+        end,
+
+        ['<C-p>'] = function(fallback)
+            if not cmp.select_prev_item() then
+                if vim.bo.buftype ~= 'prompt' and has_words_before() then
+                    cmp.complete()
+                else
+                    fallback()
+                end
+            end
+        end,
 
         ['<Tab>'] = function(fallback)
             if not cmp.select_next_item() then
