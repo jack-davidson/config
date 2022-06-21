@@ -12,8 +12,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'neovim/nvim-lspconfig'
 Plug 'onsails/lspkind.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
+
+" nvim-cmp sources
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/path'
 
 " language
 Plug 'sheerun/vim-polyglot'
