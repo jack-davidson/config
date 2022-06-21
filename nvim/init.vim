@@ -28,6 +28,7 @@ Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 lua require('lsp')
+lua require('telescope-config')
 lua require'colorizer'.setup()
 
 set number
@@ -64,11 +65,12 @@ autocmd BufEnter *.go set tabstop=8 shiftwidth=8 noexpandtab
 nnoremap <leader><leader> <cmd>Telescope git_files<cr>
 nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap <leader>m <cmd>Telescope man_pages<cr>
+nnoremap r <cmd>Telescope lsp_references<cr>
 
-nnoremap <C-K> :tabprevious<CR>
-nnoremap <C-J> :tabnext<CR>
-nnoremap tt :tabnew<CR>
+nnoremap <C-K> <cmd>tabprevious<CR>
+nnoremap <C-J> <cmd>tabnext<CR>
+nnoremap tt <cmd>tabnew<CR>
 
-nnoremap gs :Git status<CR>
+nnoremap gs <cmd>Git status<CR>
 
-nnoremap <C-l> :noh<CR>
+nnoremap <C-l> <cmd>noh<CR>
