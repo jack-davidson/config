@@ -61,12 +61,13 @@ autocmd BufEnter *.cpp,*.hpp set tabstop=8 shiftwidth=8 noexpandtab
 autocmd BufEnter *.html set tabstop=2 shiftwidth=2 expandtab
 autocmd BufEnter *.go set tabstop=8 shiftwidth=8 noexpandtab
 
-nnoremap <leader><leader> <cmd>Telescope find_files<cr>
+nnoremap <leader><leader> <cmd>Telescope git_files<cr>
+nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap <leader>m <cmd>Telescope man_pages<cr>
 
-nnoremap <C-K> :tabprev<CR>
+nnoremap <C-K> :tabprevious<CR>
 nnoremap <C-J> :tabnext<CR>
-nnoremap tn :tabnew<CR>
+nnoremap tt :tabnew<CR>
 
 nnoremap gs :Git status<CR>
 
