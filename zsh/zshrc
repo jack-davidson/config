@@ -33,6 +33,16 @@ toggle_bat_levels(){
     fi
 }
 
+# fzfcd - cd to selected directory
+fzfcd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+
+bindkey -s '^f' 'fzfcd^M'
+
 # Plugin Loading
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
