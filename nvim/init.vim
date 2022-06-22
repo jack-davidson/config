@@ -7,6 +7,7 @@ call plug#begin()
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'tpope/vim-fugitive'
+Plug 'windwp/nvim-autopairs'
 
 " lsp/completion
 Plug 'neovim/nvim-lspconfig'
@@ -16,7 +17,7 @@ Plug 'hrsh7th/nvim-cmp'
 
 " nvim-cmp sources
 Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/path'
+Plug 'hrsh7th/cmp-path'
 
 " language
 Plug 'sheerun/vim-polyglot'
@@ -60,6 +61,26 @@ hi LspDiagnosticsUnderlineInformation guifg=#f9f5d7 gui=undercurl
 hi LspDiagnosticsUnderlineHint guifg=#928374 gui=undercurl
 hi Error guibg=#2e3440
 
+" gray
+highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#4c566a
+" blue
+highlight! CmpItemAbbrMatch guibg=NONE guifg=#8FBCBB
+highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#8FBCBB
+" light blue
+highlight! CmpItemKindVariable guibg=NONE guifg=#D8DEE9
+highlight! CmpItemKindInterface guibg=NONE guifg=#D8DEE9
+highlight! CmpItemKindText guibg=NONE guifg=#D8DEE9
+" pink
+highlight! CmpItemKindFunction guibg=NONE guifg=#88C0D0
+highlight! CmpItemKindMethod guibg=NONE guifg=#88C0D0
+" yellow
+highlight! CmpItemKindClass guibg=NONE guifg=#8FBCBB
+highlight! CmpItemKindModule guibg=NONE guifg=#8FBCBB
+" front
+highlight! CmpItemKindKeyword guibg=NONE guifg=#81A1C1
+highlight! CmpItemKindProperty guibg=NONE guifg=#81A1C1
+highlight! CmpItemKindUnit guibg=NONE guifg=#81A1C1
+
 autocmd BufEnter *.c,*.h set tabstop=8 shiftwidth=8 noexpandtab
 autocmd BufEnter *.cpp,*.hpp set tabstop=8 shiftwidth=8 noexpandtab
 autocmd BufEnter *.html set tabstop=2 shiftwidth=2 expandtab
@@ -68,7 +89,7 @@ autocmd BufEnter *.go set tabstop=8 shiftwidth=8 noexpandtab
 nnoremap <leader><leader> <cmd>Telescope git_files<cr>
 nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap <leader>m <cmd>Telescope man_pages<cr>
-nnoremap r <cmd>Telescope lsp_references<cr>
+nnoremap R <cmd>Telescope lsp_references<cr>
 
 nnoremap <C-K> <cmd>tabprevious<CR>
 nnoremap <C-J> <cmd>tabnext<CR>
