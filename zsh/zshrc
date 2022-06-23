@@ -41,7 +41,7 @@ fzfcd() {
   cd "$dir"
 }
 
-bindkey -s '^f' 'fzfcd^M'
+bindkey -s '^@' '^[Qfzfcd;tmux^M'
 
 # Plugin Loading
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
