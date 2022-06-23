@@ -130,6 +130,7 @@ cmp.setup {
         { name = "path" },
         { name = "nvim_lsp" },
         { name = "buffer" , keyword_length = 5},
+        { name = 'nvim_lsp_signature_help' }
     },
     experimental = {
         ghost_text = true
