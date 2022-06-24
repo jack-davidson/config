@@ -62,22 +62,11 @@ set softtabstop=0
 set expandtab
 set shiftwidth=4
 set smarttab
-let g:indentLine_char = '|'
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 let g:mapleader = ' '
 
 colorscheme nord
-
-hi LspDiagnosticsDefaultError guifg=#BF616A
-hi LspDiagnosticsDefaultWarning guifg=#EBCB8B
-hi LspDiagnosticsDefaultInformation guifg=#D8DEE9
-hi LspDiagnosticsDefaultHint guifg=#5E81AC
-hi LspDiagnosticsUnderlineError guifg=#BF616A gui=undercurl
-hi LspDiagnosticsUnderlineWarning guifg=#EBCB8B gui=undercurl
-hi LspDiagnosticsUnderlineInformation guifg=#D8DEE9 gui=undercurl
-hi LspDiagnosticsUnderlineHint guifg=#5E81AC gui=undercurl
-hi Error guibg=#BF616A
 
 hi! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#4c566a
 hi! CmpItemAbbrMatch guibg=NONE guifg=#8FBCBB
@@ -92,11 +81,6 @@ hi! CmpItemKindModule guibg=NONE guifg=#8FBCBB
 hi! CmpItemKindKeyword guibg=NONE guifg=#81A1C1
 hi! CmpItemKindProperty guibg=NONE guifg=#81A1C1
 hi! CmpItemKindUnit guibg=NONE guifg=#81A1C1
-
-autocmd BufEnter *.c,*.h set tabstop=8 shiftwidth=8 noexpandtab
-autocmd BufEnter *.cpp,*.hpp set tabstop=8 shiftwidth=8 noexpandtab
-autocmd BufEnter *.html set tabstop=2 shiftwidth=2 expandtab
-autocmd BufEnter *.go set tabstop=8 shiftwidth=8 noexpandtab
 
 nnoremap <leader><leader> <cmd>Telescope git_files<cr>
 nnoremap <C-p> <cmd>Telescope find_files<cr>
