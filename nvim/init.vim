@@ -32,7 +32,7 @@ Plug 'fatih/vim-go'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'arcticicestudio/nord-vim'
-Plug 'airblade/vim-gitgutter'
+Plug 'lewis6991/gitsigns.nvim'
 call plug#end()
 
 
@@ -42,8 +42,9 @@ require('lsp-ui')
 require('cmp-config')
 require('lualine-config')
 require('telescope-config')
-require("nvim-autopairs").setup{}
+require("nvim-autopairs").setup()
 require'colorizer'.setup()
+require('gitsigns').setup()
 
 require("indent_blankline").setup {
     space_char_blankline = " ",
