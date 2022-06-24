@@ -1,9 +1,22 @@
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 
 vim.diagnostic.config({
+    virtual_text = false,
+
+    -- show diagnostic message in virtual text
+    --[[
     virtual_text = {
-        prefix = '■', -- Could be '●', '▎', 'x'
+        format = 
+        function(diagnostic)
+            if diagnostic.severity == vim.diagnostic.severity.ERROR then
+                return string.format("%s", diagnostic.message)
+            end
+            return diagnostic.message
+        end,
+
+        prefix = '',
     }
+    ]]--
 })
 
 for type, icon in pairs(signs) do
@@ -18,7 +31,7 @@ local function goto_definition(split_cmd)
     local api = vim.api
 
     -- note, this handler style is for neovim 0.5.1/0.6, if on 0.5, call with function(_, method, result)
-    local handler = function(_, result, ctx)
+    return function(_, result, ctx)
         if result == nil or vim.tbl_isempty(result) then
             local _ = log.info() and log.info(ctx.method, "No location found")
             return nil
@@ -40,13 +53,11 @@ local function goto_definition(split_cmd)
             util.jump_to_location(result)
         end
     end
-
-    return handler
 end
 
-vim.lsp.handlers["textDocument/definition"] = goto_definition('split')
+--vim.lsp.handlers["textDocument/definition"] = goto_definition('vsplit')
 
-vim.o.updatetime = 250
+vim.o.updatetime = 100
 -- show diagnostics window on hover
 vim.api.nvim_create_autocmd("CursorHold", {
   buffer = bufnr,
@@ -57,7 +68,7 @@ vim.api.nvim_create_autocmd("CursorHold", {
         border = 'rounded',
         source = 'always',
         prefix = ' ',
-        scope = 'cursor',
+        scope = 'line',
     }
     vim.diagnostic.open_float(nil, opts)
 end
