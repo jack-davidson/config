@@ -26,7 +26,12 @@ colorscheme nord
 nnoremap <leader><leader> <cmd>Telescope git_files<CR>
 nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap R <cmd>Telescope lsp_references<cr>
+
 nnoremap gs <cmd>Git status<CR>
+nnoremap ga <cmd>Git add %<CR>
+nnoremap gc <cmd>Git commit -m input()<CR>
+nnoremap gp <cmd>Git push<CR>
+
 nnoremap <leader>g <cmd>LazyGit<CR>
 
 nnoremap H <C-o>
