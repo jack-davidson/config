@@ -2,21 +2,6 @@ local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 
 vim.diagnostic.config({
     virtual_text = false,
-
-    -- show diagnostic message in virtual text
-    --[[
-    virtual_text = {
-        format = 
-        function(diagnostic)
-            if diagnostic.severity == vim.diagnostic.severity.ERROR then
-                return string.format("%s", diagnostic.message)
-            end
-            return diagnostic.message
-        end,
-
-        prefix = '',
-    }
-    ]]--
 })
 
 for type, icon in pairs(signs) do
@@ -55,9 +40,9 @@ local function goto_definition(split_cmd)
     end
 end
 
+-- open 'gotodefintions' in a split
 --vim.lsp.handlers["textDocument/definition"] = goto_definition('vsplit')
 
-vim.o.updatetime = 100
 -- show diagnostics window on hover
 vim.api.nvim_create_autocmd("CursorHold", {
   buffer = bufnr,
