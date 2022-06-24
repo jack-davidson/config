@@ -67,6 +67,7 @@ set softtabstop=0
 set expandtab
 set shiftwidth=4
 set smarttab
+set incsearch
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 let g:mapleader = ' '
