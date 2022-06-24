@@ -15,6 +15,10 @@ local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 local on_attach = function(client, bufnr)
 
     -- Enable omnicomplete
@@ -31,7 +35,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<space>f', vim.lsp.buf.format, bufopts)
 
-    if client.resolved_capabilities.document_formatting then
+    if capabilities.document_formatting then
         vim.api.nvim_create_autocmd({ "BufWrite" }, {
             callback = function()
                 vim.lsp.buf.format()
@@ -43,10 +47,6 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_set_keymap("n", "<leader>e", "<cmd>TroubleToggle workspace_diagnostics<cr>", opts)
 
 end
-
---Enable (broadcasting) snippet capability for completion
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 for _, lsp in pairs(servers) do
     require('lspconfig')[lsp].setup {
