@@ -31,12 +31,13 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<space>f', vim.lsp.buf.format, bufopts)
 
-    vim.api.nvim_create_autocmd({ "BufWrite" }, {
-        callback = function()
-            vim.lsp.buf.format()
-        end,
-    })
-
+    if client.resolved_capabilities.document_formatting then
+        vim.api.nvim_create_autocmd({ "BufWrite" }, {
+            callback = function()
+                vim.lsp.buf.format()
+            end,
+        })
+    end
 
     vim.api.nvim_set_keymap("n", "R", "<cmd>TroubleToggle lsp_references<cr>", opts)
     vim.api.nvim_set_keymap("n", "<leader>e", "<cmd>TroubleToggle workspace_diagnostics<cr>", opts)

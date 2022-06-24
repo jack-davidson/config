@@ -23,7 +23,7 @@ let g:mapleader = ' '
 
 colorscheme nord
 
-nnoremap <leader><leader> <cmd>Telescope git_files<cr>
+nnoremap <leader><leader> <cmd>Telescope git_files<CR>
 nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap R <cmd>Telescope lsp_references<cr>
 nnoremap gs <cmd>Git status<CR>
