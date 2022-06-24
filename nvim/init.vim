@@ -38,13 +38,12 @@ call plug#end()
 
 lua <<EOF
 require('lsp')
+require('lsp-ui')
+require('cmp-config')
 require('lualine-config')
 require('telescope-config')
+require("nvim-autopairs").setup{}
 require'colorizer'.setup()
-
-vim.opt.list = true
-vim.opt.listchars:append("space:⋅")
-vim.opt.listchars:append("eol:↴")
 
 require("indent_blankline").setup {
     space_char_blankline = " ",
@@ -69,29 +68,29 @@ let g:mapleader = ' '
 
 colorscheme nord
 
-hi LspDiagnosticsDefaultError guifg=#fb4934
-hi LspDiagnosticsDefaultWarning guifg=#fabd2f
-hi LspDiagnosticsDefaultInformation guifg=#f9f5d7
-hi LspDiagnosticsDefaultHint guifg=#928374
-hi LspDiagnosticsUnderlineError guifg=#fb4934 gui=undercurl
-hi LspDiagnosticsUnderlineWarning guifg=#fabd2f gui=undercurl
-hi LspDiagnosticsUnderlineInformation guifg=#f9f5d7 gui=undercurl
-hi LspDiagnosticsUnderlineHint guifg=#928374 gui=undercurl
-hi Error guibg=#2e3440
+hi LspDiagnosticsDefaultError guifg=#BF616A
+hi LspDiagnosticsDefaultWarning guifg=#EBCB8B
+hi LspDiagnosticsDefaultInformation guifg=#D8DEE9
+hi LspDiagnosticsDefaultHint guifg=#5E81AC
+hi LspDiagnosticsUnderlineError guifg=#BF616A gui=undercurl
+hi LspDiagnosticsUnderlineWarning guifg=#EBCB8B gui=undercurl
+hi LspDiagnosticsUnderlineInformation guifg=#D8DEE9 gui=undercurl
+hi LspDiagnosticsUnderlineHint guifg=#5E81AC gui=undercurl
+hi Error guibg=#BF616A
 
-highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#4c566a
-highlight! CmpItemAbbrMatch guibg=NONE guifg=#8FBCBB
-highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#8FBCBB
-highlight! CmpItemKindVariable guibg=NONE guifg=#D8DEE9
-highlight! CmpItemKindInterface guibg=NONE guifg=#D8DEE9
-highlight! CmpItemKindText guibg=NONE guifg=#D8DEE9
-highlight! CmpItemKindFunction guibg=NONE guifg=#88C0D0
-highlight! CmpItemKindMethod guibg=NONE guifg=#88C0D0
-highlight! CmpItemKindClass guibg=NONE guifg=#8FBCBB
-highlight! CmpItemKindModule guibg=NONE guifg=#8FBCBB
-highlight! CmpItemKindKeyword guibg=NONE guifg=#81A1C1
-highlight! CmpItemKindProperty guibg=NONE guifg=#81A1C1
-highlight! CmpItemKindUnit guibg=NONE guifg=#81A1C1
+hi! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#4c566a
+hi! CmpItemAbbrMatch guibg=NONE guifg=#8FBCBB
+hi! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#8FBCBB
+hi! CmpItemKindVariable guibg=NONE guifg=#D8DEE9
+hi! CmpItemKindInterface guibg=NONE guifg=#D8DEE9
+hi! CmpItemKindText guibg=NONE guifg=#D8DEE9
+hi! CmpItemKindFunction guibg=NONE guifg=#88C0D0
+hi! CmpItemKindMethod guibg=NONE guifg=#88C0D0
+hi! CmpItemKindClass guibg=NONE guifg=#8FBCBB
+hi! CmpItemKindModule guibg=NONE guifg=#8FBCBB
+hi! CmpItemKindKeyword guibg=NONE guifg=#81A1C1
+hi! CmpItemKindProperty guibg=NONE guifg=#81A1C1
+hi! CmpItemKindUnit guibg=NONE guifg=#81A1C1
 
 autocmd BufEnter *.c,*.h set tabstop=8 shiftwidth=8 noexpandtab
 autocmd BufEnter *.cpp,*.hpp set tabstop=8 shiftwidth=8 noexpandtab
