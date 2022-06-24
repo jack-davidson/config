@@ -45,20 +45,16 @@ require('lsp-ui')
 require('cmp-config')
 require('lualine-config')
 require('telescope-config')
+
 require("nvim-autopairs").setup()
 require'colorizer'.setup()
 require('gitsigns').setup()
+require("trouble").setup {}
 
 require("indent_blankline").setup {
     space_char_blankline = " ",
     show_current_context = true,
     show_current_context_start = true,
-}
-
-require("trouble").setup {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
 }
 EOF
 
@@ -96,7 +92,6 @@ hi CmpItemKindUnit guibg=NONE guifg=#81A1C1
 
 nnoremap <leader><leader> <cmd>Telescope git_files<cr>
 nnoremap <C-p> <cmd>Telescope find_files<cr>
-nnoremap <leader>m <cmd>Telescope man_pages<cr>
 nnoremap R <cmd>Telescope lsp_references<cr>
 
 nnoremap H <C-o>
