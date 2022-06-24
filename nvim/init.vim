@@ -4,53 +4,70 @@ set termguicolors
 
 call plug#begin()
 " tools
-Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'tpope/vim-fugitive'
+Plug 'nvim-lua/plenary.nvim'
+
 Plug 'windwp/nvim-autopairs'
+Plug 'tpope/vim-fugitive'
 
 " lsp/completion
-Plug 'neovim/nvim-lspconfig'
-Plug 'onsails/lspkind.nvim'
+Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'onsails/lspkind.nvim'
 
 " nvim-cmp sources
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 
 " language
-Plug 'sheerun/vim-polyglot'
-Plug 'fatih/vim-go'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'buoto/gotests-vim'
+Plug 'fatih/vim-go'
 
 " appearance
-Plug 'airblade/vim-gitgutter'
-Plug 'Yggdroot/indentLine'
-Plug 'itchyny/lightline.vim'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
-lua require('lsp')
-lua require('telescope-config')
-lua require'colorizer'.setup()
+
+lua <<EOF
+require('lsp')
+require('lualine-config')
+require('telescope-config')
+require'colorizer'.setup()
+
+vim.opt.list = true
+vim.opt.listchars:append("space:⋅")
+vim.opt.listchars:append("eol:↴")
+
+require("indent_blankline").setup {
+    space_char_blankline = " ",
+    show_current_context = true,
+    show_current_context_start = true,
+}
+EOF
 
 set number
 set cursorline
 set relativenumber
-set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+set noshowmode
+set tabstop=4
+set softtabstop=0
+set expandtab
+set shiftwidth=4
+set smarttab
 let g:indentLine_char = '|'
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-set noshowmode
 let g:mapleader = ' '
 
-let g:lightline = {
-    \ 'colorscheme': 'nord',
-\}
-
-colo nord
+colorscheme nord
 
 hi LspDiagnosticsDefaultError guifg=#fb4934
 hi LspDiagnosticsDefaultWarning guifg=#fabd2f
@@ -62,22 +79,16 @@ hi LspDiagnosticsUnderlineInformation guifg=#f9f5d7 gui=undercurl
 hi LspDiagnosticsUnderlineHint guifg=#928374 gui=undercurl
 hi Error guibg=#2e3440
 
-" gray
 highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#4c566a
-" blue
 highlight! CmpItemAbbrMatch guibg=NONE guifg=#8FBCBB
 highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#8FBCBB
-" light blue
 highlight! CmpItemKindVariable guibg=NONE guifg=#D8DEE9
 highlight! CmpItemKindInterface guibg=NONE guifg=#D8DEE9
 highlight! CmpItemKindText guibg=NONE guifg=#D8DEE9
-" pink
 highlight! CmpItemKindFunction guibg=NONE guifg=#88C0D0
 highlight! CmpItemKindMethod guibg=NONE guifg=#88C0D0
-" yellow
 highlight! CmpItemKindClass guibg=NONE guifg=#8FBCBB
 highlight! CmpItemKindModule guibg=NONE guifg=#8FBCBB
-" front
 highlight! CmpItemKindKeyword guibg=NONE guifg=#81A1C1
 highlight! CmpItemKindProperty guibg=NONE guifg=#81A1C1
 highlight! CmpItemKindUnit guibg=NONE guifg=#81A1C1
