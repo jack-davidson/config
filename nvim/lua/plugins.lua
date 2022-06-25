@@ -8,6 +8,7 @@ require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use 'kdheepak/lazygit.nvim'
+    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
     use {
         'nvim-telescope/telescope.nvim',
         requires = {
