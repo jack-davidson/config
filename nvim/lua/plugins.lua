@@ -26,6 +26,7 @@ require('packer').startup(function(use)
     use 'onsails/lspkind.nvim'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
     use 'hrsh7th/vim-vsnip-integ'
 
@@ -42,6 +43,7 @@ require('packer').startup(function(use)
     use 'nvim-lualine/lualine.nvim'
     use 'arcticicestudio/nord-vim'
     use 'lewis6991/gitsigns.nvim'
+    use "rafamadriz/friendly-snippets"
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
