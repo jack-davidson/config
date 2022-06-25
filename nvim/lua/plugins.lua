@@ -8,11 +8,14 @@ require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use 'kdheepak/lazygit.nvim'
-    use 'nvim-telescope/telescope.nvim'
-    use 'nvim-lua/plenary.nvim'
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+        },
+    }
 
     use 'windwp/nvim-autopairs'
-    use 'tpope/vim-fugitive'
 
     use 'folke/trouble.nvim'
 
@@ -31,7 +34,6 @@ require('packer').startup(function(use)
         run = ':TSUpdate'
     }
     use 'norcalli/nvim-colorizer.lua'
-    use 'buoto/gotests-vim'
     use 'fatih/vim-go'
 
     use 'kyazdani42/nvim-web-devicons'
