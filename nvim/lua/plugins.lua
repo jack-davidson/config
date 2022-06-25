@@ -7,43 +7,50 @@ end
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
+    -- Tools
     use 'kdheepak/lazygit.nvim'
-    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+    use {
+        'TimUntersberger/neogit',
+        requires = 'nvim-lua/plenary.nvim'
+    }
     use {
         'nvim-telescope/telescope.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim',
-        },
+        requires = 'nvim-lua/plenary.nvim',
     }
 
+    -- LSP
+    use 'neovim/nvim-lspconfig'
     use 'folke/trouble.nvim'
-
-    use 'hrsh7th/cmp-nvim-lsp-signature-help'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/nvim-cmp'
-
-    use 'neovim/nvim-lspconfig'
     use 'onsails/lspkind.nvim'
+
+    -- nvim-cmp Sources
+    use 'hrsh7th/cmp-nvim-lsp-signature-help'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-vsnip'
+
+    -- Snippets
     use 'hrsh7th/vim-vsnip'
     use 'hrsh7th/vim-vsnip-integ'
 
+    -- Language
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
     use 'norcalli/nvim-colorizer.lua'
     use 'fatih/vim-go'
+    use "rafamadriz/friendly-snippets"
 
+    -- UI/Appearance
     use 'crispgm/nvim-tabline'
     use 'kyazdani42/nvim-web-devicons'
     use 'lukas-reineke/indent-blankline.nvim'
     use 'nvim-lualine/lualine.nvim'
     use 'arcticicestudio/nord-vim'
     use 'lewis6991/gitsigns.nvim'
-    use "rafamadriz/friendly-snippets"
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

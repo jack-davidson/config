@@ -2,10 +2,6 @@ set termguicolors
 
 lua require('plugins')
 
-for f in split(glob('~/.config/nvim/vim/*'), '\n')
-    exe 'source' f
-endfor
-
 set number
 set updatetime=100
 set cursorline
@@ -23,9 +19,11 @@ let g:mapleader = ' '
 
 colorscheme nord
 
+" LSP diagnostics window
 hi NormalFloat guibg=#2E3440
 hi FloatBorder guifg=#81A1C1
 
+" nvim-cmp completion menu hl groups
 hi CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#4c566a
 hi CmpItemAbbrMatch guibg=NONE guifg=#8FBCBB
 hi CmpItemAbbrMatchFuzzy guibg=NONE guifg=#8FBCBB
@@ -40,20 +38,23 @@ hi CmpItemKindKeyword guibg=NONE guifg=#81A1C1
 hi CmpItemKindProperty guibg=NONE guifg=#81A1C1
 hi CmpItemKindUnit guibg=NONE guifg=#81A1C1
 
+" Telescope
 nnoremap <leader><leader> <cmd>Telescope git_files<CR>
 nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap R <cmd>Telescope lsp_references<cr>
 
+" Git
 nnoremap gs <cmd>Git status<CR>
 nnoremap ga <cmd>Git add .<CR>
 nnoremap gm <cmd>Git commit<CR>
 nnoremap gp <cmd>Git push<CR>
-
 nnoremap <leader>g <cmd>LazyGit<CR>
 
+" cursor history
 nnoremap H <C-o>
 nnoremap L <C-i>
 
+" tabs
 nnoremap <C-K> <cmd>tabprevious<CR>
 nnoremap <C-J> <cmd>tabnext<CR>
 nnoremap tt <cmd>tabnew<CR>
