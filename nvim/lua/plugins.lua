@@ -65,6 +65,7 @@ require('lsp-ui')
 require('cmp-config')
 require('lualine-config')
 require('telescope-config')
+require('treesitter-config')
 
 require'colorizer'.setup()
 require('gitsigns').setup()
