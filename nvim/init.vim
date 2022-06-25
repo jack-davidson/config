@@ -13,9 +13,13 @@ set expandtab
 set shiftwidth=4
 set smarttab
 set incsearch
+set pumblend=10
+set winblend=10
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 let g:mapleader = ' '
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 
 colorscheme nord
 
@@ -49,6 +53,10 @@ nnoremap ga <cmd>Git add .<CR>
 nnoremap gm <cmd>Git commit<CR>
 nnoremap gp <cmd>Git push<CR>
 nnoremap <leader>g <cmd>LazyGit<CR>
+
+" folding
+au BufEnter * normal zR
+nnoremap <CR> za
 
 " cursor history
 nnoremap H <C-o>

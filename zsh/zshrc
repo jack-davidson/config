@@ -43,6 +43,7 @@ fzfcd() {
 }
 
 bindkey -s '^@' '^[Qfzfcd^M'
+bindkey -s '^o' '^[Qnvim^M'
 
 # Plugin Loading
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

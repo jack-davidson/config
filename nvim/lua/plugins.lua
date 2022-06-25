@@ -40,11 +40,13 @@ require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
+    use 'windwp/nvim-ts-autotag'
     use 'norcalli/nvim-colorizer.lua'
     use 'fatih/vim-go'
     use "rafamadriz/friendly-snippets"
 
     -- UI/Appearance
+    use "startup-nvim/startup.nvim"
     use 'crispgm/nvim-tabline'
     use 'kyazdani42/nvim-web-devicons'
     use 'lukas-reineke/indent-blankline.nvim'
@@ -70,6 +72,8 @@ require('treesitter-config')
 require'colorizer'.setup()
 require('gitsigns').setup()
 require("trouble").setup {}
+
+require("startup").setup{theme="dashboard"}
 
 require("indent_blankline").setup {
     space_char_blankline = " ",
