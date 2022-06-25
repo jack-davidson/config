@@ -6,6 +6,12 @@ end
 local lspkind = require('lspkind')
 local cmp = require('cmp')
 cmp.setup {
+    snippet = {
+        expand = function(args)
+            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+        end,
+    },
+
     mapping = {
         ["<c-e>"] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Insert,
@@ -60,10 +66,11 @@ cmp.setup {
                 nvim_lsp = "[LSP]",
                 path     = "[path]",
             },
-         },
-      },
+        },
+    },
 
     sources = {
+        { name = 'vsnip' }, -- For vsnip users.
         { name = "path" },
         { name = "nvim_lsp" },
         { name = "buffer" , keyword_length = 5},

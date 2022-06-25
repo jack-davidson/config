@@ -16,8 +16,6 @@ require('packer').startup(function(use)
         },
     }
 
-    use 'windwp/nvim-autopairs'
-
     use 'folke/trouble.nvim'
 
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
@@ -26,9 +24,10 @@ require('packer').startup(function(use)
 
     use 'neovim/nvim-lspconfig'
     use 'onsails/lspkind.nvim'
-
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
+    use 'hrsh7th/vim-vsnip'
+    use 'hrsh7th/vim-vsnip-integ'
 
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -37,6 +36,7 @@ require('packer').startup(function(use)
     use 'norcalli/nvim-colorizer.lua'
     use 'fatih/vim-go'
 
+    use 'crispgm/nvim-tabline'
     use 'kyazdani42/nvim-web-devicons'
     use 'lukas-reineke/indent-blankline.nvim'
     use 'nvim-lualine/lualine.nvim'
@@ -57,7 +57,6 @@ require('cmp-config')
 require('lualine-config')
 require('telescope-config')
 
-require("nvim-autopairs").setup()
 require'colorizer'.setup()
 require('gitsigns').setup()
 require("trouble").setup {}
