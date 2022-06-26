@@ -5,9 +5,8 @@ export PATH=$PATH:~/.local/bin:~/go/bin:/home/jd/.local/share/gem/ruby/3.0.0/bin
 export TERM=xterm-256color
 export EDITOR=nvim
 export GOPATH=~/go
-export BROWSER=qutebrowser
+export BROWSER=/usr/bin/qutebrowser
 export npm_config_prefix="$HOME/.local"
-export BROWSER=qutebrowser
 export XDG_DOWNLOAD_DIR="/home/jd/dow"
 export BAT_THEME="Nord"
 export MANPAGER="less --use-color --color=d+b --color=P+c --color=u+g"
