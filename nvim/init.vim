@@ -28,10 +28,6 @@ nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap R <cmd>Telescope lsp_references<cr>
 
 " Git
-nnoremap gs <cmd>Git status<CR>
-nnoremap ga <cmd>Git add .<CR>
-nnoremap gm <cmd>Git commit<CR>
-nnoremap gp <cmd>Git push<CR>
 nnoremap <leader>g <cmd>LazyGit<CR>
 
 " folding
