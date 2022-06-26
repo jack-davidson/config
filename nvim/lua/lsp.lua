@@ -34,6 +34,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<space>f', vim.lsp.buf.format, bufopts)
+    vim.keymap.set('n', '<space>S', vim.lsp.buf.document_symbol, {})
 
     if capabilities.document_formatting then
         vim.api.nvim_create_autocmd({ "BufWrite" }, {

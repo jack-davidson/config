@@ -9,8 +9,7 @@ require('packer').startup(function(use)
 
     -- Tools
     use 'kdheepak/lazygit.nvim'
-    use {
-        'TimUntersberger/neogit',
+    use { 'TimUntersberger/neogit',
         requires = 'nvim-lua/plenary.nvim'
     }
     use {
@@ -46,7 +45,7 @@ require('packer').startup(function(use)
     use "rafamadriz/friendly-snippets"
 
     -- UI/Appearance
-    use "startup-nvim/startup.nvim"
+    use 'startup-nvim/startup.nvim'
     use 'crispgm/nvim-tabline'
     use 'kyazdani42/nvim-web-devicons'
     use 'lukas-reineke/indent-blankline.nvim'
@@ -71,9 +70,11 @@ require('treesitter-config')
 
 require'colorizer'.setup()
 require('gitsigns').setup()
-require("trouble").setup {}
+require("trouble").setup()
 
-require("startup").setup{theme="dashboard"}
+require("startup").setup {
+    theme = "dashboard",
+}
 
 require("indent_blankline").setup {
     space_char_blankline = " ",
