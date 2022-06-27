@@ -18,13 +18,14 @@ require('lualine').setup {
     },
     inactive_sections = {
         lualine_a = {},
-        lualine_b = {},
-        lualine_c = {'filename'},
-        lualine_x = {'location'},
+        lualine_b = {'filename'},
+        lualine_c = {'diagnostics'},
+        lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_y = {},
-        lualine_z = {}
+        lualine_z = {},
     },
     tabline = {
+        --[[
         lualine_a = {
             {
                 'buffers',
@@ -69,7 +70,7 @@ require('lualine').setup {
                 -- Note:
                 -- It can also be a function that returns
                 -- the value of `max_length` dynamically.
-                mode = 0, -- 0: Shows tab_nr
+                mode = 1, -- 0: Shows tab_nr
                 -- 1: Shows tab_name
                 -- 2: Shows tab_nr + tab_name
 
@@ -80,6 +81,7 @@ require('lualine').setup {
                 }
             }
         },
+        ]]--
     },
     extensions = {},
 }

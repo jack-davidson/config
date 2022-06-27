@@ -45,7 +45,7 @@ require('packer').startup(function(use)
     use "rafamadriz/friendly-snippets"
 
     -- UI/Appearance
---    use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+    use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
     use 'startup-nvim/startup.nvim'
     use 'crispgm/nvim-tabline'
     use 'kyazdani42/nvim-web-devicons'
@@ -77,18 +77,12 @@ require('startup').setup {
     theme = "dashboard",
 }
 
---[[
 require('bufferline').setup {
     options = {
         mode = "tabs",
-        diagnostics = "nvim_lsp",
 --        separator_style = "padded_slant",
-        diagnostics_indicator = function(count, level, diagnostics_dict, context)
-            return "     "..count
-        end,
     }
 }
-]]--
 
 require('indent_blankline').setup {
     space_char_blankline = " ",
