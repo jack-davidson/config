@@ -45,6 +45,7 @@ require('packer').startup(function(use)
     use "rafamadriz/friendly-snippets"
 
     -- UI/Appearance
+--    use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
     use 'startup-nvim/startup.nvim'
     use 'crispgm/nvim-tabline'
     use 'kyazdani42/nvim-web-devicons'
@@ -70,13 +71,26 @@ require('treesitter-config')
 
 require'colorizer'.setup()
 require('gitsigns').setup()
-require("trouble").setup()
+require('trouble').setup()
 
-require("startup").setup {
+require('startup').setup {
     theme = "dashboard",
 }
 
-require("indent_blankline").setup {
+--[[
+require('bufferline').setup {
+    options = {
+        mode = "tabs",
+        diagnostics = "nvim_lsp",
+--        separator_style = "padded_slant",
+        diagnostics_indicator = function(count, level, diagnostics_dict, context)
+            return "     "..count
+        end,
+    }
+}
+]]--
+
+require('indent_blankline').setup {
     space_char_blankline = " ",
     show_current_context = true,
     show_current_context_start = true,
