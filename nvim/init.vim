@@ -42,8 +42,8 @@ nnoremap H <C-o>
 nnoremap L <C-i>
 
 " tabs
-nnoremap <C-J> <cmd>tabprevious<CR>
-nnoremap <C-K> <cmd>tabnext<CR>
+nnoremap <C-K> <cmd>tabprevious<CR>
+nnoremap <C-J> <cmd>tabnext<CR>
 nnoremap tt <cmd>tabnew<CR>
 
 nnoremap <C-l> <cmd>noh<CR>
