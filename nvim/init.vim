@@ -3,6 +3,8 @@ set termguicolors
 lua require('plugins')
 
 set number
+set cmdheight=1
+set hidden
 set updatetime=100
 set cursorline
 set relativenumber
@@ -44,6 +46,8 @@ nnoremap <C-K> <cmd>tabnext<CR>
 nnoremap tt <cmd>tabnew<CR>
 
 nnoremap <C-l> <cmd>noh<CR>
+
+hi Comment gui=italic
 
 " LSP diagnostics window
 hi NormalFloat guibg=#2E3440
