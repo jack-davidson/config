@@ -7,6 +7,34 @@ local feedkey = function(key, mode)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
+local kinds = {
+    Text = "",
+    Method = "",
+    Function = "",
+    Constructor = "ﰕ",
+    Field = "ﰠ",
+    Variable = "",
+    Class = "ﴯ",
+    Interface = "",
+    Module = "",
+    Property = "",
+    Unit = "塞",
+    Value = "",
+    Enum = "",
+    Keyword = "廓",
+    Snippet = "",
+    Color = "",
+    File = "",
+    Reference = "",
+    Folder = "",
+    EnumMember = "",
+    Constant = "",
+    Struct = "פּ",
+    Event = "",
+    Operator = "",
+    TypeParameter = "",
+}
+
 local lspkind = require('lspkind')
 local cmp = require('cmp')
 cmp.setup {
@@ -64,14 +92,12 @@ cmp.setup {
     },
 
     formatting = {
-        format = lspkind.cmp_format {
-            with_text = true,
-            menu = {
-                buffer   = "[buf]",
-                nvim_lsp = "[LSP]",
-                path     = "[path]",
-            },
-        },
+        fields = { "kind", "abbr", "menu" },
+        format = function(_, vim_item)
+            vim_item.menu = vim_item.kind
+            vim_item.kind = kinds[vim_item.kind]
+            return vim_item
+        end,
     },
 
     sources = {

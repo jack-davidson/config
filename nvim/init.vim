@@ -20,8 +20,6 @@ set shiftwidth=4
 set smarttab
 
 set incsearch
-set pumblend=10
-set winblend=10
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 let g:mapleader = ' '
@@ -31,7 +29,6 @@ colorscheme nord
 " Telescope
 nnoremap <leader><leader> <cmd>Telescope git_files<CR>
 nnoremap <C-p> <cmd>Telescope find_files<cr>
-nnoremap R <cmd>Telescope lsp_references<cr>
 
 " Git
 nnoremap <leader>g <cmd>LazyGit<CR>
@@ -56,6 +53,12 @@ hi Comment gui=italic
 " LSP diagnostics window
 hi NormalFloat guibg=#2E3440
 hi FloatBorder guifg=#81A1C1
+
+hi PMenu guibg=#3B4252
+
+
+hi TelescopeNormal guibg=#3B4252
+"hi TelescopePreviewNormal guibg=#2E3440
 
 " nvim-cmp completion menu hl groups
 hi CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#4c566a
