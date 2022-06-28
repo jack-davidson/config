@@ -15,7 +15,6 @@ export MANPAGER="less --use-color --color=d+b --color=P+c --color=u+g"
 setopt autocd
 bindkey -e
 
-
 # Aliases
 alias gs="git status"
 alias grep="grep --color"
@@ -47,7 +46,6 @@ bindkey -s '^o' '^[Qnvim^M'
 # Plugin Loading
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/plugins/completion.zsh
 
 # Syntax Highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp)
@@ -55,10 +53,10 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp)
 # Prompt
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
-zstyle ':vcs_info:git*' formats ":%B%F{blue}%b%f"
+zstyle ':vcs_info:git*' formats "-->%B%F{blue}%b%f"
 precmd() {vcs_info}
 setopt prompt_subst
-prompt=' %F{green}%~%f${vcs_info_msg_0_}%b > '
+prompt='%K{black} %F{green}%~%f${vcs_info_msg_0_}%k%F{black}%f '
 
 # History
 HISTFILE=~/.zsh_history
