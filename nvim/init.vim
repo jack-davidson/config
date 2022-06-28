@@ -1,23 +1,27 @@
 set termguicolors
-
+set updatetime=100
 lua require('plugins')
 
-set number
 set cmdheight=1
-set hidden
-set updatetime=100
-set cursorline
-set relativenumber
+set laststatus=3
 set noshowmode
+set hidden
+
+set number
+set relativenumber
+
+set cursorline
+set mouse=a
+
 set tabstop=4
 set softtabstop=0
 set expandtab
 set shiftwidth=4
 set smarttab
+
 set incsearch
 set pumblend=10
 set winblend=10
-set mouse=a
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 let g:mapleader = ' '
