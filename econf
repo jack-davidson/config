@@ -1,5 +1,6 @@
 dir     qutebrowser     ~/.config
-dir     alacritty     ~/.config
+dir     alacritty       ~/.config
+dir     kitty           ~/.config
 dir     fontconfig      ~/.config
 dir     nvim            ~/.config
 dir     zathura         ~/.config
