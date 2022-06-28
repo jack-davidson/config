@@ -51,7 +51,7 @@ require('packer').startup(function(use)
     use 'kyazdani42/nvim-web-devicons'
     use 'lukas-reineke/indent-blankline.nvim'
     use 'nvim-lualine/lualine.nvim'
-    use 'arcticicestudio/nord-vim'
+    use 'shaunsingh/nord.nvim'
     use 'lewis6991/gitsigns.nvim'
 
     -- Automatically set up your configuration after cloning packer.nvim
@@ -83,7 +83,7 @@ require('bufferline').setup {
         show_close_icon = false,
         show_buffer_close_icons = false,
         numbers = "none",
-        separator_style = "slant",
+        separator_style = "thick",
     }
 }
 

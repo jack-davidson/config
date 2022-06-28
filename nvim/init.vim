@@ -56,10 +56,6 @@ hi FloatBorder guifg=#81A1C1
 
 hi PMenu guibg=#3B4252
 
-
-hi TelescopeNormal guibg=#3B4252
-"hi TelescopePreviewNormal guibg=#2E3440
-
 " nvim-cmp completion menu hl groups
 hi CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#4c566a
 hi CmpItemAbbrMatch guibg=NONE guifg=#8FBCBB
