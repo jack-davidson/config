@@ -35,7 +35,6 @@ local kinds = {
     TypeParameter = "",
 }
 
-local lspkind = require('lspkind')
 local cmp = require('cmp')
 cmp.setup {
     snippet = {

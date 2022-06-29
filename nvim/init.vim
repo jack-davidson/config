@@ -52,6 +52,8 @@ nnoremap <C-l> <cmd>noh<CR>
 
 hi Comment gui=italic
 
+hi BufferLineFill guibg=#191c23
+
 " LSP diagnostics window
 hi NormalFloat guibg=#2E3440
 hi FloatBorder guifg=#81A1C1

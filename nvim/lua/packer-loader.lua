@@ -4,11 +4,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
     packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
-local packer = require 'packer'
-packer.init { disable_commands = true }
-
-packer.use 'wbthomason/packer.nvim'
-require('plugins')(packer.use) -- pass packer.use to plugin function
+require('packer').startup(function(spec)
+    require('plugins')(use) -- pass use to plugin function
+end)
 
 if packer_bootstrap then
         require('packer').sync()

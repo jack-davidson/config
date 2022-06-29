@@ -1,4 +1,6 @@
 return function(use)
+    use 'wbthomason/packer.nvim'
+    use { "ellisonleao/gruvbox.nvim" }
     -- Tools
     use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim', config = require('config.telescope'), }
     use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
