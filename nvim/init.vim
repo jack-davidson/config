@@ -1,7 +1,7 @@
 set termguicolors
 set updatetime=100
 lua <<EOF
-require('packer-loader')
+require('loader')
 EOF
 
 set cmdheight=1
