@@ -1,6 +1,8 @@
 set termguicolors
 set updatetime=100
-lua require('plugins')
+lua <<EOF
+require('packer-loader')
+EOF
 
 set cmdheight=1
 set laststatus=3
