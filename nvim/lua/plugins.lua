@@ -7,7 +7,7 @@ return function(use)
     use 'kdheepak/lazygit.nvim'
 
     -- LSP
-    use { 'neovim/nvim-lspconfig', config = function() require('config.lsp') require('config.lsp-ui') end, }
+    use { 'neovim/nvim-lspconfig', config = require('config.lsp'), }
     use { 'folke/trouble.nvim', config = require('config.trouble'), }
     use { 'hrsh7th/nvim-cmp', config = require('config.cmp'), }
     use 'hrsh7th/cmp-nvim-lsp'
@@ -36,6 +36,7 @@ return function(use)
     use { 'nvim-lualine/lualine.nvim', config = require('config.lualine'), }
     use { 'lewis6991/gitsigns.nvim', config = require('config.gitsigns'), }
     use 'kyazdani42/nvim-web-devicons'
-    use 'shaunsingh/nord.nvim'
+    use { 'shaunsingh/nord.nvim', config = require('config.nord'), }
+--    use 'arcticicestudio/nord-vim'
     use 'crispgm/nvim-tabline'
 end

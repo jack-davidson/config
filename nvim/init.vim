@@ -4,6 +4,7 @@ lua <<EOF
 require('loader')
 EOF
 
+set fillchars=eob:\ 
 set cmdheight=1
 set laststatus=3
 set noshowmode
