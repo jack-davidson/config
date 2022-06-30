@@ -1,3 +1,5 @@
+config.load_autoconfig()
+
 c.fonts.default_family = "Fira Code Nerd Font"
 c.downloads.location.directory = "~/dow"
 c.content.javascript.can_access_clipboard = True
