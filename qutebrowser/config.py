@@ -1,7 +1,5 @@
 config.load_autoconfig(False)
 
-c.fonts.default_family = "Fira Code Nerd Font"
-c.fonts.web.family.fixed = "Fira Code Nerd Font"
 c.downloads.location.directory = "~/dow"
 c.content.javascript.can_access_clipboard = True
 c.colors.webpage.preferred_color_scheme = "dark"
