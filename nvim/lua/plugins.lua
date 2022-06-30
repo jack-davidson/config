@@ -1,6 +1,5 @@
 return function(use)
     use 'wbthomason/packer.nvim'
-    use { "ellisonleao/gruvbox.nvim" }
     -- Tools
     use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim', config = require('config.telescope'), }
     use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
@@ -37,6 +36,6 @@ return function(use)
     use { 'lewis6991/gitsigns.nvim', config = require('config.gitsigns'), }
     use 'kyazdani42/nvim-web-devicons'
     use { 'shaunsingh/nord.nvim', config = require('config.nord'), }
---    use 'arcticicestudio/nord-vim'
+    use { "ellisonleao/gruvbox.nvim" }
     use 'crispgm/nvim-tabline'
 end
