@@ -1,4 +1,4 @@
-config.load_autoconfig()
+config.load_autoconfig(False)
 
 c.fonts.default_family = "Fira Code Nerd Font"
 c.fonts.web.family.fixed = "Fira Code Nerd Font"
