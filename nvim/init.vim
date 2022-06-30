@@ -1,5 +1,6 @@
 set termguicolors
 set updatetime=100
+
 lua <<EOF
 require('loader')
 EOF
@@ -25,9 +26,10 @@ set smarttab
 set incsearch
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-let g:mapleader = ' '
 
 colorscheme nord
+
+let g:mapleader = ' '
 
 " Telescope
 nnoremap <leader><leader> <cmd>Telescope git_files<CR>
@@ -52,26 +54,4 @@ nnoremap tt <cmd>tabnew<CR>
 nnoremap <C-l> <cmd>noh<CR>
 
 hi Comment gui=italic
-
 hi BufferLineFill guibg=#191c23
-
-" LSP diagnostics window
-hi NormalFloat guibg=#2E3440
-hi FloatBorder guifg=#81A1C1
-
-hi PMenu guibg=#3B4252
-
-" nvim-cmp completion menu hl groups
-hi CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#4c566a
-hi CmpItemAbbrMatch guibg=NONE guifg=#8FBCBB
-hi CmpItemAbbrMatchFuzzy guibg=NONE guifg=#8FBCBB
-hi CmpItemKindVariable guibg=NONE guifg=#D8DEE9
-hi CmpItemKindInterface guibg=NONE guifg=#D8DEE9
-hi CmpItemKindText guibg=NONE guifg=#D8DEE9
-hi CmpItemKindFunction guibg=NONE guifg=#88C0D0
-hi CmpItemKindMethod guibg=NONE guifg=#88C0D0
-hi CmpItemKindClass guibg=NONE guifg=#8FBCBB
-hi CmpItemKindModule guibg=NONE guifg=#8FBCBB
-hi CmpItemKindKeyword guibg=NONE guifg=#81A1C1
-hi CmpItemKindProperty guibg=NONE guifg=#81A1C1
-hi CmpItemKindUnit guibg=NONE guifg=#81A1C1
