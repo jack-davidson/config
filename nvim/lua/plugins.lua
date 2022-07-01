@@ -4,6 +4,7 @@ return function(use)
     use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim', config = require('config.telescope'), }
     use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
     use 'kdheepak/lazygit.nvim'
+    use { 'numToStr/Navigator.nvim', config = require('config.navigator'), }
 
     -- LSP
     use { 'neovim/nvim-lspconfig', config = require('config.lsp'), }
