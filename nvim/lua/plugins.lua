@@ -1,14 +1,15 @@
 return function(use)
     use { 'wbthomason/packer.nvim', }
+
     -- Tools
     use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim', config = require('config.telescope'), }
+    use { 'numToStr/Navigator.nvim', config = require('config.navigator'), }
     use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
     use { 'kdheepak/lazygit.nvim', }
-    use { 'numToStr/Navigator.nvim', config = require('config.navigator'), }
 
     -- LSP
-    use { 'neovim/nvim-lspconfig', config = require('config.lsp'), }
     use { 'folke/trouble.nvim', config = require('config.trouble'), }
+    use { 'neovim/nvim-lspconfig', config = require('config.lsp'), }
     use { 'hrsh7th/nvim-cmp', config = require('config.cmp'), }
     use { 'hrsh7th/cmp-nvim-lsp', }
 
@@ -30,12 +31,11 @@ return function(use)
     use { 'fatih/vim-go', }
 
     -- UI/Appearance
-    use { 'akinsho/bufferline.nvim', tag = 'v2.*', requires = 'kyazdani42/nvim-web-devicons', config = require('config.bufferline'), }
     use { 'lukas-reineke/indent-blankline.nvim', config = require('config.indent_blankline'), }
+    use { 'akinsho/bufferline.nvim', config = require('config.bufferline'), }
     use { 'startup-nvim/startup.nvim', config = require('config.startup'), }
     use { 'nvim-lualine/lualine.nvim', config = require('config.lualine'), }
     use { 'lewis6991/gitsigns.nvim', config = require('config.gitsigns'), }
-    use { 'kyazdani42/nvim-web-devicons', }
     use { 'shaunsingh/nord.nvim', config = require('config.nord'), }
     use { 'ellisonleao/gruvbox.nvim' }
     use { 'crispgm/nvim-tabline', }
