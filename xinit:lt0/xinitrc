@@ -1,31 +1,19 @@
 #!/bin/sh
 
-# auto load programs
-qutebrowser &
+xrandr | grep "DP2-1 connected" \
+        && xrandr --newmode 2048x1080_60.00  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync \
+        && xrandr --addmode DP2-1 "2048x1080_60.00" \
+        && xrandr --addmode DP2-2 "2048x1080_60.00" \
+        && xrandr --output DP2-1 --above eDP1 --mode "2048x1080_60.00" \
+        && xrandr --output DP2-2 --left-of DP2-1 --rotate right --mode "2048x1080_60.00"
 
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
-
-xrandr --newmode 2048x1080_60.00  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync \
-if [[ "$(xrandr | grep 'DP2-1 connected')" ]]; then
-    xrandr --addmode DP2-1 "2048x1080_60.00" \
-    xrandr --output DP2-1 --above eDP1 --mode "2048x1080_60.00" \
-fi
-
-if [[ "$(xrandr | grep 'DP2-2 connected')" ]]; then
-    xrandr --addmode DP2-2 "2048x1080_60.00" \
-    xrandr --output DP2-2 --left-of DP2-1 --rotate right --mode "2048x1080_60.00"
-fi
-
+dwmblocks &
 setxkbmap -option caps:ctrl_modifier
 #setxkbmap -option altwin:swap_alt_win
-xinput set-prop $(xinput | grep "TPPS/2 IBM TrackPoint" | cut -f2 | cut -d'=' -f2) "libinput Accel Speed" -0.6 &
-
-# X client daemons
-dwmblocks &
 dunst &
-
-# wallpaper
+qutebrowser &
+xinput set-prop $(xinput | grep "TPPS/2 IBM TrackPoint" | cut -f2 | cut -d'=' -f2) "libinput Accel Speed" -0.6 &
 feh --bg-fill img/wallpapers/blue-mtn.png &
-
-wmname LG3D # set wmname to obscure java compatible window manager
+wmname LG3D
 exec dwm
