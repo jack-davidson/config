@@ -17,6 +17,7 @@ config.set('content.notifications.enabled', True, 'https://calendar.google.com/*
 
 c.content.pdfjs = True
 c.content.register_protocol_handler = True
+c.fonts.default_size = "10.0pt"
 
 config.bind("\\d", "spawn -u dict")
 config.bind("\\w", "spawn -u wiki")
