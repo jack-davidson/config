@@ -1,0 +1,28 @@
+body {
+    background-color: #2e3440;
+    color: #eeeeee;
+    font-family: monospace;
+}
+
+h1 {
+    font-size: 5vw;
+    text-align: center;
+}
+
+#cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+
+    gap: 10px;
+    width: 50vw;
+
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#cards-container div {
+    background-color: #3B4252;
+    border-radius: 10px;
+    padding: 10px;
+}
