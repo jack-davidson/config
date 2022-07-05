@@ -4,7 +4,7 @@ return function(use)
     -- Tools
     use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim', config = require('config.telescope'), }
     use { 'numToStr/Navigator.nvim', config = require('config.navigator'), }
-    use { 'kdhepak/lazygit.nvim', }
+    use { 'kdheepak/lazygit.nvim', }
 
     -- LSP
     use { 'neovim/nvim-lspconfig', config = require('config.lsp'), }
@@ -34,6 +34,7 @@ return function(use)
     use { 'startup-nvim/startup.nvim', config = require('config.startup'), }
     use { 'nvim-lualine/lualine.nvim', config = require('config.lualine'), }
     use { 'lewis6991/gitsigns.nvim', config = require('config.gitsigns'), }
+    use { 'kyazdani42/nvim-web-devicons', }
 
     -- Colorschemes
     use { 'shaunsingh/nord.nvim', config = require('config.nord'), }
