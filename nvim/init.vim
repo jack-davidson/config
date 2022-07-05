@@ -27,9 +27,14 @@ set incsearch
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+
 colorscheme nord
 
 let g:mapleader = ' '
+
+nnoremap <leader>s SymbolsOutline
 
 " Telescope
 nnoremap <leader><leader> <cmd>Telescope git_files<CR>
@@ -51,6 +56,7 @@ nnoremap <C-K> <cmd>tabprevious<CR>
 nnoremap <C-J> <cmd>tabnext<CR>
 nnoremap tt <cmd>tabnew<CR>
 
+" clear highlight
 nnoremap <C-l> <cmd>noh<CR>
 
 hi Comment gui=italic

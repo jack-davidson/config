@@ -8,6 +8,7 @@ return function(use)
 
     -- LSP
     use { 'neovim/nvim-lspconfig', config = require('config.lsp'), }
+    use { 'simrat39/symbols-outline.nvim', }
     use { 'hrsh7th/nvim-cmp', requires = {
         -- completion sources
         'hrsh7th/cmp-nvim-lsp-signature-help',
