@@ -33,7 +33,6 @@ return function(use)
     use { 'numToStr/Comment.nvim', config = require('Comment').setup(), }
     use { 'linty-org/readline.nvim', config = require('config.readline'), }
     use { "petertriho/nvim-scrollbar", config = require('scrollbar').setup{} }
-    use { 'f-person/git-blame.nvim', }
     use { 'lukas-reineke/indent-blankline.nvim', config = require('config.indent_blankline'), }
     use { 'norcalli/nvim-colorizer.lua', config = require('config.colorizer'), }
     use { 'akinsho/bufferline.nvim', config = require('config.bufferline'), }
