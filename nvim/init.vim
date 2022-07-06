@@ -40,10 +40,6 @@ nnoremap <C-p> <cmd>Telescope find_files<cr>
 " Git
 nnoremap <leader>g <cmd>LazyGit<CR>
 
-" folding
-au BufEnter * normal zR
-nnoremap <CR> za
-
 " cursor history
 nnoremap H <C-o>
 nnoremap L <C-i>
