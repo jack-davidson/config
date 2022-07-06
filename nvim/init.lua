@@ -26,8 +26,8 @@ vim.g.completion_matching_strategy_list = { 'exact', 'substring', 'fuzzy' }
 vim.g.mapleader = ' '
 
 vim.keymap.set('n', '<leader>s', '<cmd>SymbolsOutline<CR>')
-vim.keymap.set('n', '<leader><leader', '<cmd>Telescope git_files<CR>')
-vim.keymap.set('n', '<leader><leader', '<cmd>Telescope find_files<CR>')
+vim.keymap.set('n', '<leader><leader>', '<cmd>Telescope git_files<CR>')
+vim.keymap.set('n', '<C-p>', '<cmd>Telescope find_files<CR>')
 vim.keymap.set('n', '<leader>g', '<cmd>LazyGit<CR>')
 vim.keymap.set('n', 'H', '<C-o>')
 vim.keymap.set('n', 'L', '<C-i>')
