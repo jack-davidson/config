@@ -36,6 +36,25 @@ local kinds = {
 }
 
 local cmp = require('cmp')
+
+function next_item(fallback)
+    if cmp.visible() then
+        cmp.select_next_item()
+    elseif vim.fn["vsnip#available"](1) == 1 then
+        feedkey("<Plug>(vsnip-expand-or-jump)", "")
+    else
+        fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+    end
+end
+
+function prev_item()
+    if cmp.visible() then
+        cmp.select_prev_item()
+    elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+        feedkey("<Plug>(vsnip-jump-prev)", "")
+    end
+end
+
 cmp.setup {
     snippet = {
         expand = function(args)
@@ -49,45 +68,11 @@ cmp.setup {
             select = true,
         },
 
-        ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            elseif vim.fn["vsnip#available"](1) == 1 then
-                feedkey("<Plug>(vsnip-expand-or-jump)", "")
-            elseif has_words_before() then
-                cmp.complete()
-            else
-                fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
-              end
-        end, { "i", "s" }),
+        ["<Tab>"] = cmp.mapping(next_item, { "i", "s" }),
+        ["<C-n>"] = cmp.mapping(next_item, { "i", "s" }),
 
-        ["<C-n>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            elseif vim.fn["vsnip#available"](1) == 1 then
-                feedkey("<Plug>(vsnip-expand-or-jump)", "")
-            elseif has_words_before() then
-                cmp.complete()
-            else
-                fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
-              end
-        end, { "i", "s" }),
-
-        ["<S-Tab>"] = cmp.mapping(function()
-            if cmp.visible() then
-                cmp.select_prev_item()
-            elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-                feedkey("<Plug>(vsnip-jump-prev)", "")
-            end
-        end, { "i", "s" }),
-
-        ["<C-p>"] = cmp.mapping(function()
-            if cmp.visible() then
-                cmp.select_prev_item()
-            elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-                feedkey("<Plug>(vsnip-jump-prev)", "")
-            end
-        end, { "i", "s" }),
+        ["<S-Tab>"] = cmp.mapping(prev_item, { "i", "s" }),
+        ["<C-p>"] = cmp.mapping(prev_item, { "i", "s" }),
     },
 
     formatting = {
