@@ -8,27 +8,3 @@ h1 {
     font-size: 5vw;
     text-align: center;
 }
-
-#cards-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 10px;
-    width: 50vw;
-
-    margin-right: auto;
-    margin-left: auto;
-}
-
-#cards-container div {
-    background-color: #3B4252;
-    display: flex;
-    justify-content: space-between;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-#cards-container kbd {
-    color: #5E81AC;
-    font-style: italic;
-}
