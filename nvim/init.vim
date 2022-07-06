@@ -49,8 +49,10 @@ nnoremap H <C-o>
 nnoremap L <C-i>
 
 " tabs
-nnoremap <C-J> <cmd>BufferLineCycleNext<CR>
-nnoremap <C-K> <cmd>BufferLineCyclePrev<CR>
+nnoremap bn <cmd>BufferLineCycleNext<CR>
+nnoremap bp <cmd>BufferLineCyclePrev<CR>
+nnoremap <C-J> <cmd>tabnext<CR>
+nnoremap <C-K> <cmd>tabprev<CR>
 nnoremap tt <cmd>tabnew<CR>
 nnoremap <leader>b <cmd>BufferLinePick<CR>
 
