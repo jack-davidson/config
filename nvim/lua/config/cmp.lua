@@ -79,7 +79,7 @@ cmp.setup {
         fields = { "kind", "abbr", "menu" },
         format = function(_, vim_item)
             vim_item.menu = vim_item.kind
-            vim_item.kind = kinds[vim_item.kind]
+            vim_item.kind = kinds[vim_item.kind] or ""
             return vim_item
         end,
     },
@@ -88,8 +88,9 @@ cmp.setup {
         { name = 'vsnip' }, -- For vsnip users.
         { name = "path" },
         { name = "nvim_lsp" },
+        { name = 'nvim_lua' },
         { name = "buffer" , keyword_length = 5},
-        { name = 'nvim_lsp_signature_help' }
+        { name = 'nvim_lsp_signature_help' },
     },
 
     experimental = {
