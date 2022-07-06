@@ -40,6 +40,8 @@ nnoremap <C-p> <cmd>Telescope find_files<cr>
 " Git
 nnoremap <leader>g <cmd>LazyGit<CR>
 
+nnoremap <C-n> <cmd>NvimTreeToggle<CR>
+
 " cursor history
 nnoremap H <C-o>
 nnoremap L <C-i>
