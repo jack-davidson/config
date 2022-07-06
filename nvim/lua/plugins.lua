@@ -30,6 +30,7 @@ return function(use)
     use { 'windwp/nvim-ts-autotag', }
 
     -- UI
+    use { "petertriho/nvim-scrollbar", config = require('scrollbar').setup{} }
     use { 'f-person/git-blame.nvim', }
     use { 'lukas-reineke/indent-blankline.nvim', config = require('config.indent_blankline'), }
     use { 'norcalli/nvim-colorizer.lua', config = require('config.colorizer'), }
