@@ -1,11 +1,15 @@
 vim.g.nord_contrast = false
 vim.g.nord_borders = true
 vim.g.nord_disable_background = false
-vim.g.nord_italic = true
+vim.g.nord_italic = false
+
+require('nord').set()
 
 vim.cmd([[
 " Popup Menu item
 hi PMenu guibg=#3B4252
+
+hi String gui=NONE
 
 " Lsp Diagnostics Borders
 hi NormalFloat guibg=#2E3440
@@ -26,5 +30,3 @@ hi CmpItemKindKeyword guibg=NONE guifg=#81A1C1
 hi CmpItemKindProperty guibg=NONE guifg=#81A1C1
 hi CmpItemKindUnit guibg=NONE guifg=#81A1C1
 ]])
-
-require('nord').set()
