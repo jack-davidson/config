@@ -1,5 +1,9 @@
 # ~/.zshrc 
 
+# Plugin Loading
+source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # Variables
 export PATH=$PATH:~/.local/bin:~/go/bin:/home/jd/.local/share/gem/ruby/3.0.0/bin
 export TERM=xterm-kitty
@@ -11,7 +15,17 @@ export XDG_DOWNLOAD_DIR="/home/jd/dow"
 export BAT_THEME="Nord"
 export MANPAGER="less --use-color --color=d+b --color=P+c --color=u+g"
 
-# zsh settings
+# Syntax Highlighting
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp)
+
+# History
+HISTFILE=~/.zsh_history
+HISTSIZE=5000
+SAVEHIST=5000
+setopt INC_APPEND_HISTORY
+setopt EXTENDED_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+
 setopt autocd
 bindkey -e
 
@@ -19,8 +33,15 @@ bindkey -e
 alias gs="git status"
 alias grep="grep --color"
 alias ls="exa"
-alias dev="cd ~/repos/jd/"
 alias t="task"
+
+# Prompt
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn
+zstyle ':vcs_info:git*' formats "-->%B%F{blue}%b%f"
+precmd() {vcs_info}
+setopt prompt_subst
+prompt='%K{black} %F{green}%~%f${vcs_info_msg_0_}%k%F{black}%f '
 
 # functions
 toggle_bat_levels(){
@@ -33,36 +54,17 @@ toggle_bat_levels(){
 
 # ds: (d)evelopment (s)ession
 ds() {
-  local dir
-  cd
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
-  [ -z "$TMUX" ] && tmux # open tmux
+    cd $(fd --full-path ~ --type d | fzf +m)
+    zle reset-prompt
 }
 
-bindkey -s '^@' '^[Qds^M'
-bindkey -s '^o' '^[Qnvim^M'
+# widget to launch editor
+editor() $EDITOR
 
-# Plugin Loading
-source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# add widgets
+zle -N ds
+zle -N editor
 
-# Syntax Highlighting
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp)
-
-# Prompt
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git svn
-zstyle ':vcs_info:git*' formats "-->%B%F{blue}%b%f"
-precmd() {vcs_info}
-setopt prompt_subst
-prompt='%K{black} %F{green}%~%f${vcs_info_msg_0_}%k%F{black}%f '
-
-# History
-HISTFILE=~/.zsh_history
-HISTSIZE=5000
-SAVEHIST=5000
-setopt INC_APPEND_HISTORY
-setopt EXTENDED_HISTORY
-setopt HIST_IGNORE_ALL_DUPS
+# bind keys to widgets
+bindkey '^@' ds
+bindkey '^o' editor
