@@ -31,8 +31,8 @@ toggle_bat_levels(){
     fi
 }
 
-# fzfcd - cd to selected directory
-fzfcd() {
+# ds: (d)evelopment (s)ession
+ds() {
   local dir
   cd
   dir=$(find ${1:-.} -path '*/\.*' -prune \
@@ -41,7 +41,7 @@ fzfcd() {
   [ -z "$TMUX" ] && tmux # open tmux
 }
 
-bindkey -s '^@' '^[Qfzfcd^M'
+bindkey -s '^@' '^[Qds^M'
 bindkey -s '^o' '^[Qnvim^M'
 
 # Plugin Loading
