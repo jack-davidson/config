@@ -54,7 +54,7 @@ toggle_bat_levels(){
 
 # ds: (d)evelopment (s)ession
 ds() {
-    cd $(fd --full-path ~ --type d | fzf +m)
+    cd $(fd . ~ --type d | fzf +m)
     zle reset-prompt
 }
 

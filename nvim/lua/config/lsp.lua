@@ -11,10 +11,11 @@ local servers = {
     "html",
 }
 
+--Enable (broadcasting) snippet capability for completion
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()) --nvim-cmp
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 local on_attach = function(client, bufnr)
-    --Enable (broadcasting) snippet capability for completion
-    local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()) --nvim-cmp
-    capabilities.textDocument.completion.completionItem.snippetSupport = true
 
     -- Mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
