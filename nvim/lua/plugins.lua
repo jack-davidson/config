@@ -2,7 +2,7 @@ return function(use)
     use { 'wbthomason/packer.nvim', }
 
     -- Tools/Utility
---    use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim', config = require('config.telescope'), }
+    use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim', config = require('config.telescope'), }
     use { 'kyazdani42/nvim-tree.lua', config = require('config.nvim-tree'), }
     use { 'numToStr/Navigator.nvim', config = require('config.navigator'), }
     use { 'linty-org/readline.nvim', config = require('config.readline'), }
