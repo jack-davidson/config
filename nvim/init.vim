@@ -2,7 +2,7 @@ set termguicolors
 set updatetime=100
 
 lua <<EOF
-require('loader')
+require('plugins')
 EOF
 
 set fillchars=eob:\ 

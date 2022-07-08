@@ -1,4 +1,4 @@
-return function(use)
+require('packer').startup(function(use)
     use { 'wbthomason/packer.nvim', }
 
     -- Tools/Utility
@@ -44,4 +44,4 @@ return function(use)
     -- Colorschemes
     use { 'shaunsingh/nord.nvim', config = require('config.nord'), }
     use { 'ellisonleao/gruvbox.nvim' }
-end
+end)
