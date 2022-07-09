@@ -10,6 +10,7 @@ dir     spotify-tui     ~/.config
 dir     picom           ~/.config
 dir     mpd:host        ~/.config
 dir     ncmpcpp         ~/.config
+dir     wezterm         ~/.config
 
 files   xinit:host     ~/.
 files   alsa:host      ~/.
