@@ -1,11 +1,8 @@
 #!/bin/sh
 
 xrandr | grep "DP2-1 connected" \
-        && xrandr --newmode 2048x1080_60.00  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync \
-        && xrandr --addmode DP2-1 "2048x1080_60.00" \
-        && xrandr --addmode DP2-2 "2048x1080_60.00" \
-        && xrandr --output DP2-1 --above eDP1 --mode "2048x1080_60.00" \
-        && xrandr --output DP2-2 --left-of DP2-1 --rotate right --mode "2048x1080_60.00"
+        && xrandr --output DP2-1 --above eDP1 --mode 2560x1440 \
+        && xrandr --output DP2-2 --left-of DP2-1 --rotate right --mode 2560x1440
 
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 dwmblocks &
