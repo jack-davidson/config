@@ -43,15 +43,6 @@ precmd() {vcs_info}
 setopt prompt_subst
 prompt='%K{black} %F{green}%~%f${vcs_info_msg_0_}%k%F{black}%f '
 
-# functions
-toggle_bat_levels(){
-    if [ -e "/tmp/dwmblocks:bat:show_levels" ]; then
-        rm "/tmp/dwmblocks:bat:show_levels"
-    else
-        touch "/tmp/dwmblocks:bat:show_levels"
-    fi
-}
-
 # ds: (d)evelopment (s)ession
 ds() {
     cd $(fd . ~ --type d | fzf +m)
