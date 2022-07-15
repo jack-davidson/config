@@ -35,6 +35,11 @@ alias grep="grep --color"
 alias ls="exa"
 alias t="task"
 
+# Completion
+autoload -Uz compinit && compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
+
 # Prompt
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
@@ -43,7 +48,13 @@ precmd() {vcs_info}
 setopt prompt_subst
 prompt='%K{black} %F{green}%~%f${vcs_info_msg_0_}%k%F{black}%f '
 
-# ds: (d)evelopment (s)ession
+plugin_update() {
+    for repo in ~/.zsh/plugins/*; do
+        git -C "${repo}" pull
+    done
+}
+
+# enter tmux session in directory selected by fzf
 ds() {
     cd $(fd . ~ --type d | fzf +m)
     zle reset-prompt
