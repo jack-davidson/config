@@ -1,2 +1,2 @@
 all:
-	./install.sh
+	./config
