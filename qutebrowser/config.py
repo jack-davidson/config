@@ -31,13 +31,6 @@ padding = {
 c.statusbar.padding = padding
 c.tabs.padding = padding
 
-config.bind("xb", "config-cycle statusbar.show always never")
-config.bind("xt", "config-cycle tabs.show always never")
-config.bind(
-    "xx",
-    "config-cycle statusbar.show always never;; config-cycle tabs.show always never",
-)
-
 config.bind('\\d', 'spawn -u dict')
 config.bind('\\w', 'spawn -u wiki')
 
