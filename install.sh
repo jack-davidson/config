@@ -14,7 +14,7 @@ dir     mpd:host        ~/.config
 dir     ncmpcpp         ~/.config
 dir     wezterm         ~/.config
 
-dotfiles   xinit:$host     ~/.
+dotfiles   xorg:$host      ~/.
 dotfiles   alsa:$host      ~/.
 
 files   xdg             ~/.config
