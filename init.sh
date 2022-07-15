@@ -1,5 +1,3 @@
-#!/bin/sh
-
 host=$(cat /etc/hostname)
 
 pwd=$(pwd)
