@@ -6,20 +6,20 @@ pwd=$(pwd)
 
 dir() {
     ln -sf $pwd/$1 $2
-    echo "$pwd/$1 -> $2"
+    echo "dir $pwd/$1 -> $2"
 }
 
 files() {
     for file in $(ls $1); do
         ln -sf $pwd/$1/$file $2/$file
-        echo "$pwd/$1/$file -> $2/$file"
+        echo "files $pwd/$1/$file -> $2/$file"
     done;
 }
 
 dotfiles() {
     for file in $(ls $1); do
         ln -sf $pwd/$1/$file $2$file
-        echo "$pwd/$1/$file -> $2$file"
+        echo "dotfiles $pwd/$1/$file -> $2$file"
     done;
 }
 
