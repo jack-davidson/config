@@ -16,7 +16,7 @@ require('packer').startup(function(use)
     use { 'simrat39/symbols-outline.nvim', }
     use { 'kdheepak/lazygit.nvim', }
     use { 'jakewvincent/mkdnflow.nvim', config = function()
-        require('mkdnflow').setup{}
+        require('mkdnflow').setup({})
     end }
 
     -- LSP
