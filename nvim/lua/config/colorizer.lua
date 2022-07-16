@@ -1,1 +1,3 @@
-require('colorizer').setup()
+return function()
+    require('colorizer').setup()
+end

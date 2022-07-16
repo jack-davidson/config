@@ -1,3 +1,5 @@
-require('startup').setup {
-    theme = "dashboard",
-}
+return function()
+    require('startup').setup {
+        theme = "dashboard",
+    }
+end

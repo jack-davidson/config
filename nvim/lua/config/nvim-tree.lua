@@ -1,1 +1,3 @@
-require("nvim-tree").setup()
+return function()
+    require("nvim-tree").setup()
+end

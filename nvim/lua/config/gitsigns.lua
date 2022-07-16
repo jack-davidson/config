@@ -1,1 +1,3 @@
-require('gitsigns').setup{}
+return function()
+    require('gitsigns').setup{}
+end
