@@ -6,21 +6,20 @@ end
 
 require('packer').startup(function(use)
     use { 'wbthomason/packer.nvim', }
+    use 'nvim-lua/plenary.nvim'
 
     -- Tools/Utility
-    use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim', config = require('config.telescope'), }
-    use { 'kyazdani42/nvim-tree.lua', config = require('config.nvim-tree'), }
-    use { 'numToStr/Navigator.nvim', config = require('config.navigator'), }
-    use { 'linty-org/readline.nvim', config = require('config.readline'), }
-    use { 'numToStr/Comment.nvim', config = require('Comment').setup(), }
+    use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim',  }
+    use { 'kyazdani42/nvim-tree.lua',  }
+    use { 'numToStr/Navigator.nvim',  }
+    use { 'linty-org/readline.nvim',  }
+    use { 'numToStr/Comment.nvim',  }
     use { 'simrat39/symbols-outline.nvim', }
     use { 'kdheepak/lazygit.nvim', }
-    use { 'jakewvincent/mkdnflow.nvim', config = function()
-        require('mkdnflow').setup({})
-    end }
+    use{ 'jakewvincent/mkdnflow.nvim', config = require('mkdnflow').setup({}), }
 
     -- LSP
-    use { 'neovim/nvim-lspconfig', config = require('config.lsp'), }
+    use { 'neovim/nvim-lsp' }
     use { 'hrsh7th/nvim-cmp', requires = {
         -- completion sources
         'hrsh7th/cmp-nvim-lsp-signature-help',
@@ -29,7 +28,7 @@ require('packer').startup(function(use)
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-vsnip',
         'hrsh7th/cmp-path',
-    }, config = require('config.cmp'), }
+    },  }
 
     -- Snippets
     use { 'rafamadriz/friendly-snippets', }
@@ -37,24 +36,30 @@ require('packer').startup(function(use)
     use { 'hrsh7th/vim-vsnip', }
 
     -- Language
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = require('config.treesitter'), }
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',  }
     use { 'windwp/nvim-ts-autotag', }
 
     -- UI/Visuals
-    use { 'lukas-reineke/indent-blankline.nvim', config = require('config.indent_blankline'), }
-    use { 'norcalli/nvim-colorizer.lua', config = require('colorizer').setup(), }
+    use { 'lukas-reineke/indent-blankline.nvim',  }
+    use { 'norcalli/nvim-colorizer.lua',  }
     use { "petertriho/nvim-scrollbar", config = require('scrollbar').setup{}, }
-    use { 'akinsho/bufferline.nvim', config = require('config.bufferline'), }
-    use { 'startup-nvim/startup.nvim', config = require('config.startup'), }
-    use { 'nvim-lualine/lualine.nvim', config = require('config.lualine'), }
+    use { 'akinsho/bufferline.nvim',  }
+    use { 'startup-nvim/startup.nvim',  }
+    use { 'nvim-lualine/lualine.nvim',  }
     use { 'lewis6991/gitsigns.nvim', config = require('gitsigns').setup{}, }
     use { 'kyazdani42/nvim-web-devicons', }
 
     -- Colorschemes
-    use { 'shaunsingh/nord.nvim', config = require('config.nord'), }
+    use { 'shaunsingh/nord.nvim',  }
     use { 'ellisonleao/gruvbox.nvim' }
 
     if packer_bootstrap then
         require('packer').sync()
     end
 end)
+
+-- https://github.com/mrjones2014/load-all.nvim
+local scan = require('plenary.scandir')
+for _, file in ipairs(scan.scan_dir(os.getenv('HOME') .. '/.config/nvim/lua/config', { depth = 0 })) do
+  dofile(file)
+end
