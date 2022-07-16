@@ -58,8 +58,11 @@ require('packer').startup(function(use)
     end
 end)
 
+-- Load config files in config/
 -- https://github.com/mrjones2014/load-all.nvim
-local scan = require('plenary.scandir')
-for _, file in ipairs(scan.scan_dir(os.getenv('HOME') .. '/.config/nvim/lua/config', { depth = 0 })) do
-  dofile(file)
+local ok, scan = pcall(require, 'plenary.scandir')
+if ok then
+    for _, file in ipairs(scan.scan_dir(os.getenv('HOME') .. '/.config/nvim/lua/config', { depth = 0 })) do
+      dofile(file)
+    end
 end
