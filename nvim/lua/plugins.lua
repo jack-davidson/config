@@ -39,12 +39,12 @@ require('packer').startup(function(use)
 
     -- UI/Visuals
     use { 'lukas-reineke/indent-blankline.nvim', config = function() require('config.indent_blankline') end, }
-    use { 'norcalli/nvim-colorizer.lua', config = function() require('config.colorizer') end, }
+    use { 'norcalli/nvim-colorizer.lua', config = function() require('colorizer').setup() end, }
     use { "petertriho/nvim-scrollbar", config = function() require('scrollbar').setup{} end, }
     use { 'akinsho/bufferline.nvim', config = function() require('config.bufferline') end, }
     use { 'startup-nvim/startup.nvim', config = function() require('config.startup') end, }
     use { 'nvim-lualine/lualine.nvim', config = function() require('config.lualine') end, }
-    use { 'lewis6991/gitsigns.nvim', config = function() require('config.gitsigns') end, }
+    use { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup{} end, }
     use { 'kyazdani42/nvim-web-devicons', }
 
     -- Colorschemes
