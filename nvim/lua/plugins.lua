@@ -16,7 +16,7 @@ require('packer').startup(function(use)
     use { 'numToStr/Comment.nvim',  }
     use { 'simrat39/symbols-outline.nvim', }
     use { 'kdheepak/lazygit.nvim', }
-    use{ 'jakewvincent/mkdnflow.nvim', config = require('mkdnflow').setup({}), }
+    use{ 'jakewvincent/mkdnflow.nvim', }
 
     -- LSP
     use { 'neovim/nvim-lsp' }
@@ -42,11 +42,11 @@ require('packer').startup(function(use)
     -- UI/Visuals
     use { 'lukas-reineke/indent-blankline.nvim',  }
     use { 'norcalli/nvim-colorizer.lua',  }
-    use { "petertriho/nvim-scrollbar", config = require('scrollbar').setup{}, }
+    use { "petertriho/nvim-scrollbar", }
     use { 'akinsho/bufferline.nvim',  }
     use { 'startup-nvim/startup.nvim',  }
     use { 'nvim-lualine/lualine.nvim',  }
-    use { 'lewis6991/gitsigns.nvim', config = require('gitsigns').setup{}, }
+    use { 'lewis6991/gitsigns.nvim', }
     use { 'kyazdani42/nvim-web-devicons', }
 
     -- Colorschemes
@@ -57,6 +57,11 @@ require('packer').startup(function(use)
         require('packer').sync()
     end
 end)
+
+-- manually loaded configs
+require('mkdnflow').setup({})
+require('scrollbar').setup{}
+require('gitsigns').setup{}
 
 -- Load config files in config/
 -- https://github.com/mrjones2014/load-all.nvim
