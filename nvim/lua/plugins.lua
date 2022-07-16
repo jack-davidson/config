@@ -15,6 +15,9 @@ require('packer').startup(function(use)
     use { 'numToStr/Comment.nvim', config = require('Comment').setup(), }
     use { 'simrat39/symbols-outline.nvim', }
     use { 'kdheepak/lazygit.nvim', }
+    use { 'jakewvincent/mkdnflow.nvim', config = function()
+        require('mkdnflow').setup{}
+    end }
 
     -- LSP
     use { 'neovim/nvim-lspconfig', config = require('config.lsp'), }

@@ -10,6 +10,7 @@ set cmdheight=1
 set laststatus=3
 set noshowmode
 set hidden
+set conceallevel=2
 
 set number
 set relativenumber
