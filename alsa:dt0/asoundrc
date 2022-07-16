@@ -1,2 +1,2 @@
-defaults.pcm.card 3
-defaults.ctl.card 3
+defaults.pcm.card 1
+defaults.ctl.card 1
