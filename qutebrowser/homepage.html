@@ -3,8 +3,20 @@
   <head>
     <title>home</title>
     <link rel="stylesheet" href="homepage.css">
+    <script>
+      window.onload = () => {
+        if (!navigator.onLine) {
+          document.getElementById("offline-indicator").style.display = "block";
+        }
+      }
+    </script>
   </head>
   <body>
-    <h1>qutebrowser</h1>
+    <h1>
+      qutebrowser
+      <div style="display: none" id="offline-indicator">
+        ﲁ
+      </div>
+    </h1>
   </body>
 </html>
