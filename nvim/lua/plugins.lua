@@ -58,10 +58,7 @@ require('packer').startup(function(use)
     end
 end)
 
--- manually loaded configs
-require('mkdnflow').setup({})
-require('scrollbar').setup{}
-require('gitsigns').setup{}
+require('config')
 
 -- Load config files in config/
 -- https://github.com/mrjones2014/load-all.nvim
