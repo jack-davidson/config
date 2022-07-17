@@ -58,6 +58,7 @@ require('packer').startup(function(use)
     end
 end)
 
+-- load config/init.vim (manually loaded configs)
 require('config')
 
 -- Load config files in config/
