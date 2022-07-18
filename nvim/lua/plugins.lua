@@ -50,6 +50,7 @@ require('packer').startup(function(use)
     use 'nvim-lualine/lualine.nvim'
     use 'lewis6991/gitsigns.nvim'
     use 'kyazdani42/nvim-web-devicons'
+    use 'sunjon/shade.nvim'
 
     -- Colorschemes
     use 'shaunsingh/nord.nvim'
