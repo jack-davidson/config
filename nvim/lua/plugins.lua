@@ -50,6 +50,7 @@ require('packer').startup(function(use)
     use 'nvim-lualine/lualine.nvim'
     use 'lewis6991/gitsigns.nvim'
     use 'kyazdani42/nvim-web-devicons'
+    use 'folke/twilight.nvim'
 
     -- Colorschemes
     use 'shaunsingh/nord.nvim'
@@ -69,5 +70,7 @@ if ok then
     end
 end
 
--- load config/init.vim (manually loaded configs)
-require('config')
+require('mkdnflow').setup({})
+require('scrollbar').setup{}
+require('gitsigns').setup{}
+require('colorizer').setup()
