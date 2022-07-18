@@ -60,9 +60,6 @@ require('packer').startup(function(use)
     end
 end)
 
--- load config/init.vim (manually loaded configs)
-require('config')
-
 -- Load config files in config/
 -- https://github.com/mrjones2014/load-all.nvim
 local ok, scan = pcall(require, 'plenary.scandir')
@@ -71,3 +68,6 @@ if ok then
         dofile(file)
     end
 end
+
+-- load config/init.vim (manually loaded configs)
+require('config')
