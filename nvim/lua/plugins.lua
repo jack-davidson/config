@@ -19,6 +19,7 @@ require('packer').startup(function(use)
     use 'jakewvincent/mkdnflow.nvim'
     use 'jbyuki/venn.nvim'
     use 'jghauser/mkdir.nvim'
+    use 'filipdutescu/renamer.nvim'
 
     -- LSP
     use 'neovim/nvim-lsp'
@@ -76,3 +77,4 @@ require('mkdnflow').setup({})
 require('scrollbar').setup{}
 require('gitsigns').setup{}
 require('colorizer').setup()
+require('renamer').setup()
