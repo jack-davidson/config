@@ -1,6 +1,6 @@
 require('bufferline').setup {
     options = {
-        mode = "tabs",
+--        mode = "tabs",
         enforce_regular_tabs = true,
         numbers = "ordinal",
         separator_style = "thick",
