@@ -18,6 +18,7 @@ require('packer').startup(function(use)
     use 'kdheepak/lazygit.nvim'
     use 'jakewvincent/mkdnflow.nvim'
     use 'jbyuki/venn.nvim'
+    use 'jghauser/mkdir.nvim'
 
     -- LSP
     use 'neovim/nvim-lsp'
