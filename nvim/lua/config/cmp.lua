@@ -35,6 +35,19 @@ local kinds = {
     TypeParameter = "",
 }
 
+local function border(hl_name)
+   return {
+      { "╭", hl_name },
+      { "─", hl_name },
+      { "╮", hl_name },
+      { "│", hl_name },
+      { "╯", hl_name },
+      { "─", hl_name },
+      { "╰", hl_name },
+      { "│", hl_name },
+   }
+end
+
 local cmp = require('cmp')
 
 function next_item(fallback)
@@ -60,6 +73,16 @@ cmp.setup {
         expand = function(args)
             vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
         end,
+    },
+
+    window = {
+        completion = {
+            border = border "CmpBorder",
+            winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
+        },
+        documentation = {
+            border = border "CmpDocBorder",
+        },
     },
 
     mapping = {
