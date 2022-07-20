@@ -48,11 +48,8 @@ nnoremap H <C-o>
 nnoremap L <C-i>
 
 " tabs
-nnoremap ]b <cmd>BufferLineCycleNext<CR>
-nnoremap [b <cmd>BufferLineCyclePrev<CR>
-nnoremap <leader>b <cmd>BufferLinePick<CR>
-nnoremap <C-J> <cmd>tabnext<CR>
-nnoremap <C-K> <cmd>tabprev<CR>
+nnoremap <C-J> <cmd>BufferLineCycleNext<CR>
+nnoremap <C-K> <cmd>BufferLineCyclePrev<CR>
 nnoremap tt <cmd>tabnew<CR>
 
 " clear highlight
