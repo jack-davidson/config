@@ -59,7 +59,3 @@ hi Comment gui=italic
 hi BufferLineFill guibg=#191c23
 
 autocmd FileType markdown setlocal autowriteall
-
-" Disable relativenumber in insert mode
-autocmd InsertEnter * setlocal norelativenumber
-autocmd InsertLeave * setlocal relativenumber
