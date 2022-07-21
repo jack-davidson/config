@@ -57,5 +57,3 @@ nnoremap <C-l> <cmd>noh<CR>
 
 hi Comment gui=italic
 hi BufferLineFill guibg=#191c23
-
-autocmd FileType markdown setlocal autowriteall

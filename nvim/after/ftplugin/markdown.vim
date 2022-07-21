@@ -1,4 +1,5 @@
 setlocal tabstop=4
-set ve=all
+setlocal ve=all
 setlocal shiftwidth=4
 setlocal expandtab
+setlocal autowriteall
