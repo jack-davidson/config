@@ -16,7 +16,6 @@ require('packer').startup(function(use)
     use 'numToStr/Comment.nvim'
     use 'simrat39/symbols-outline.nvim'
     use 'kdheepak/lazygit.nvim'
-    use 'jakewvincent/mkdnflow.nvim'
     use 'jbyuki/venn.nvim'
     use 'jghauser/mkdir.nvim'
     use 'filipdutescu/renamer.nvim'
@@ -71,7 +70,6 @@ if ok then
     end
 end
 
-require('mkdnflow').setup({})
 require('scrollbar').setup{}
 require('gitsigns').setup{}
 require('colorizer').setup()
