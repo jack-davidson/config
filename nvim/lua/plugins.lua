@@ -49,7 +49,6 @@ require('packer').startup(function(use)
     use 'norcalli/nvim-colorizer.lua'
     use 'petertriho/nvim-scrollbar'
     use 'akinsho/bufferline.nvim'
-    use 'startup-nvim/startup.nvim'
     use 'nvim-lualine/lualine.nvim'
     use 'lewis6991/gitsigns.nvim'
     use 'kyazdani42/nvim-web-devicons'
