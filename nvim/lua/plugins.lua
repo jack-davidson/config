@@ -18,6 +18,7 @@ require('packer').startup(function(use)
     use 'jbyuki/venn.nvim'
     use 'jghauser/mkdir.nvim'
     use 'filipdutescu/renamer.nvim'
+    use 'jghauser/follow-md-links.nvim'
 
     -- LSP
     use 'neovim/nvim-lsp'
