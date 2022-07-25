@@ -2,7 +2,7 @@
 
 
 ([ -f ~/.Xresources ] && xrdb -merge -I$HOME ~/.Xresources) &
-. ~/.xrandr &
+. ~/.xrandr
 
 dwmblocks &
 setxkbmap -option caps:ctrl_modifier &
