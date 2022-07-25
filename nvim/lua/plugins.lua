@@ -58,16 +58,16 @@ require('packer').startup(function(use)
     if packer_bootstrap then
         require('packer').sync()
     end
-end)
 
--- Load config files in config/
--- https://github.com/mrjones2014/load-all.nvim
-local ok, scan = pcall(require, 'plenary.scandir')
-if ok then
-    for _, file in ipairs(scan.scan_dir(os.getenv('HOME') .. '/.config/nvim/lua/config', { depth = 0 })) do
-        dofile(file)
+    -- Load config files in config/
+    -- https://github.com/mrjones2014/load-all.nvim
+    local ok, scan = pcall(require, 'plenary.scandir')
+    if ok then
+        for _, file in ipairs(scan.scan_dir(os.getenv('HOME') .. '/.config/nvim/lua/config', { depth = 0 })) do
+            dofile(file)
+        end
     end
-end
+end)
 
 require('scrollbar').setup{}
 require('gitsigns').setup{}
