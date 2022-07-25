@@ -7,5 +7,4 @@ for programs such as bash, NeoVim, qutebrowser, xorg, zathura, and alsa.
 ./link
 ```
 
-![window screenshot](./super-zoom-window.png)
 ![completion screenshot](/screenshot_completion.png)
