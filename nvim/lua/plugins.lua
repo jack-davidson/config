@@ -11,7 +11,6 @@ require('packer').startup(function(use)
     -- Tools/Utility
     use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim',  }
     use 'kyazdani42/nvim-tree.lua'
-    use 'numToStr/Navigator.nvim'
     use 'linty-org/readline.nvim'
     use 'numToStr/Comment.nvim'
     use 'simrat39/symbols-outline.nvim'
