@@ -1,14 +1,6 @@
 require'nvim-treesitter.configs'.setup {
     -- A list of parser names, or "all"
-    ensure_installed = {
-        "python",
-        "lua",
-        "html",
-        "markdown",
-        "markdown_inline",
-        "javascript",
-        "go",
-    },
+    ensure_installed = "all",
 
     highlight = {
         enable = true,
