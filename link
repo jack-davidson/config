@@ -1,6 +1,7 @@
 #!/bin/sh
+# symlink config files in a pretty way
 
-. ./init.sh
+. ./init.sh # include utils
 
 dir     qutebrowser     ~/.config
 dir     alacritty       ~/.config
