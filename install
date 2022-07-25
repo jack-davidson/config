@@ -12,7 +12,7 @@ dir     dunst           ~/.config
 dir     spotifyd        ~/.config
 dir     spotify-tui     ~/.config
 dir     picom           ~/.config
-dir     mpd:$host        ~/.config
+dir     mpd:$host       ~/.config
 dir     ncmpcpp         ~/.config
 dir     wezterm         ~/.config
 
