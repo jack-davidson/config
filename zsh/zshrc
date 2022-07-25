@@ -68,4 +68,4 @@ zle -N editor
 
 # bind keys to widgets
 bindkey '^@' ds
-bindkey '^o' editor
+bindkey '^;' editor
