@@ -19,6 +19,7 @@ require('packer').startup(function(use)
     use 'jghauser/mkdir.nvim'
     use 'filipdutescu/renamer.nvim'
     use 'jghauser/follow-md-links.nvim'
+    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
     -- LSP
     use 'neovim/nvim-lsp'
