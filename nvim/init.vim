@@ -33,7 +33,7 @@ let g:mapleader = ' '
 nnoremap <leader>s <cmd>SymbolsOutline<CR>
 
 " Telescope
-nnoremap <leader><leader> <cmd>Telescope find_files<CR>
+nnoremap <leader><leader> <cmd>Telescope git_files<CR>
 
 " Git
 nnoremap <leader>g <cmd>LazyGit<CR>
