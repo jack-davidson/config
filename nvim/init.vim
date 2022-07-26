@@ -1,9 +1,7 @@
 set termguicolors
 set updatetime=100
 
-lua <<EOF
-require('plugins')
-EOF
+lua require('plugins')
 
 set fillchars=eob:\ 
 set cmdheight=1
