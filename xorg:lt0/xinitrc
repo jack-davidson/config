@@ -6,6 +6,7 @@
 
 dwmblocks &
 setxkbmap -option caps:ctrl_modifier &
+xbacklight -set 60
 #setxkbmap -option altwin:swap_alt_win
 dunst &
 qutebrowser &
