@@ -34,6 +34,7 @@ nnoremap <leader>s <cmd>SymbolsOutline<CR>
 
 " Telescope
 nnoremap <leader><leader> <cmd>Telescope git_files<CR>
+nnoremap <C-Space> <cmd>Telescope git_files<CR>
 
 " Git
 nnoremap <leader>g <cmd>LazyGit<CR>
