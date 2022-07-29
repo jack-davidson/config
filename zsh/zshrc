@@ -34,6 +34,7 @@ alias gs="git status"
 alias grep="grep --color"
 alias ls="exa"
 alias t="task"
+alias py="bpython"
 
 # Completion
 zstyle ':completion:*' menu select
