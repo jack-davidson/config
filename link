@@ -22,4 +22,4 @@ dotfiles   alsa:$host
 dotfiles   tmux
 dotfiles   zsh
 
-files   xdg             ~/.config
+allfrom   xdg             ~/.config

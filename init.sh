@@ -6,7 +6,7 @@ dir() {
     ln -sf $pwd/$1 $2
 }
 
-files() {
+allfrom() {
     for file in $(ls $1); do
         ln -sf $pwd/$1/$file $2/$file
     done;
