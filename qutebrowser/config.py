@@ -11,11 +11,11 @@ c.content.tls.certificate_errors = 'ask-block-thirdparty'
 
 c.url.default_page = 'file:///home/jd/.config/qutebrowser/homepage.html'
 c.url.start_pages = 'file:///home/jd/.config/qutebrowser/homepage.html'
+c.url.searchengines = {"DEFAULT": "https://www.google.com/search?hl=en&q={}"}
 c.downloads.location.directory = '~/dow'
 
 config.set('content.notifications.enabled', True, 'https://calendar.google.com/*')
 
-c.content.pdfjs = True
 c.content.register_protocol_handler = True
 c.fonts.default_size = '10.0pt'
 c.tabs.favicons.show = 'pinned'
