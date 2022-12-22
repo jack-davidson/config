@@ -73,4 +73,5 @@ return require('packer').startup(function(use)
     require('gitsigns').setup{}
     require('colorizer').setup()
     require('renamer').setup()
+    require("symbols-outline").setup()
 end)
