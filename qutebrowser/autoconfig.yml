@@ -6,5 +6,5 @@
 
 config_version: 2
 settings:
-  content.notifications.enabled:
-    https://www.facebook.com: true
+  content.geolocation:
+    https://www.google.com: false
