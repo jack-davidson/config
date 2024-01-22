@@ -5,12 +5,11 @@
 . ~/.xrandr
 
 dwmblocks &
-setxkbmap -option caps:ctrl_modifier &
 xbacklight -set 45 &
-setxkbmap -option compose:rctrl &
+setxkbmap -option compose:rctrl
+setxkbmap -option caps:ctrl_modifier
 #setxkbmap -option altwin:swap_alt_win
 dunst &
-qutebrowser &
 xinput set-prop $(xinput | grep "TPPS/2 IBM TrackPoint" | cut -f2 | cut -d'=' -f2) "libinput Accel Speed" -0.6 &
 feh --bg-fill img/wallpapers/blue-mtn.png &
 wmname LG3D &

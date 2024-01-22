@@ -9,7 +9,7 @@ export PATH=$PATH:~/.local/bin:~/go/bin:/home/jd/.local/share/gem/ruby/3.0.0/bin
 export TERM=xterm-kitty
 export EDITOR=nvim
 export GOPATH=~/go
-export BROWSER=/usr/bin/qutebrowser
+export BROWSER=/usr/bin/chromium
 export npm_config_prefix="$HOME/.local"
 export XDG_DOWNLOAD_DIR="/home/jd/dow"
 export BAT_THEME="Nord"
@@ -31,8 +31,8 @@ bindkey -e
 
 # Aliases
 alias gs="git status"
+alias ls="ls --color=auto"
 alias grep="grep --color"
-alias ls="exa"
 alias t="task"
 alias py="bpython"
 
