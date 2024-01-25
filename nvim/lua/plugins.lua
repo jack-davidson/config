@@ -10,7 +10,7 @@ return require('packer').startup(function(use)
 
     -- Tools/Utility
     use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim',  }
-    use 'kyazdani42/nvim-tree.lua'
+ --   use 'kyazdani42/nvim-tree.lua'
     use 'linty-org/readline.nvim'
     use 'numToStr/Comment.nvim'
     use 'simrat39/symbols-outline.nvim'
@@ -40,11 +40,11 @@ return require('packer').startup(function(use)
     use 'hrsh7th/vim-vsnip'
 
     -- Language
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',  }
-    use 'windwp/nvim-ts-autotag'
+--    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',  }
+ --   use 'windwp/nvim-ts-autotag'
 
     -- UI/Visuals
-    use 'lukas-reineke/indent-blankline.nvim'
+--    use 'lukas-reineke/indent-blankline.nvim'
     use 'norcalli/nvim-colorizer.lua'
     use 'petertriho/nvim-scrollbar'
     use 'akinsho/bufferline.nvim'
