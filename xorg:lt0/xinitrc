@@ -11,6 +11,11 @@ setxkbmap -option caps:ctrl_modifier
 #setxkbmap -option altwin:swap_alt_win
 dunst &
 xinput set-prop $(xinput | grep "TPPS/2 IBM TrackPoint" | cut -f2 | cut -d'=' -f2) "libinput Accel Speed" -0.6 &
-feh --bg-fill img/wallpapers/blue-mtn.png &
+#feh --bg-fill img/wallpapers/blue-mtn.png &
+#xsetroot -solid "#2e3440" &
+#
+#this looks nice with a light grayish blue background and white dots
+xsetroot -bitmap /usr/include/X11/bitmaps/dimple3 -fg "white" -bg "#4c566a"
+#xsetroot -bitmap /usr/include/X11/bitmaps/dimple3 -fg "#8fbcbb" -bg "#2e3440" # depends on xbitmaps
 wmname LG3D &
 exec dwm
