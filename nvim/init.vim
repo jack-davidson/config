@@ -26,7 +26,8 @@ set incsearch
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
-colorscheme nord
+set background=light
+colorscheme lunaperche
 
 let g:mapleader = ' '
 
