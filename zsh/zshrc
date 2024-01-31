@@ -46,7 +46,7 @@ zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:git*' formats "-->%B%F{blue}%b%f"
 precmd() {vcs_info}
 setopt prompt_subst
-prompt='%K{black} %F{green}%~%f${vcs_info_msg_0_}%k%F{black}%f '
+prompt=' %F{green}%~%f${vcs_info_msg_0_} '
 
 plugin_update() {
     for repo in ~/.zsh/plugins/*; do
