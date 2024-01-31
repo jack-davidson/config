@@ -1,0 +1,8 @@
+*background:    #FFFFAA
+
+dwm.normfg:     #3d3d3d
+dwm.normbg:     #AAAAAA
+dwm.normborder: #000000
+dwm.selfg:      #FFFFAA
+dwm.selbg:      #3d3d3d
+dwm.selborder:  #AAAAAA

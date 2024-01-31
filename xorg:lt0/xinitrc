@@ -4,7 +4,7 @@
 . ~/.xrandr
 
 dwmblocks &
-xbacklight -set 15 &
+xbacklight -set 40 &
 setxkbmap -option compose:rctrl
 setxkbmap -option caps:ctrl_modifier
 #setxkbmap -option altwin:swap_alt_win
