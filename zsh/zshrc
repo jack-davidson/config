@@ -2,7 +2,6 @@
 
 # Plugin Loading
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Variables
 export PATH=$PATH:~/.local/bin:~/go/bin:/home/jd/.local/share/gem/ruby/3.0.0/bin
@@ -41,12 +40,12 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 
 # Prompt
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git svn
-zstyle ':vcs_info:git*' formats "-->%B%F{blue}%b%f"
-precmd() {vcs_info}
+function _git_branch(){
+    branch=$(git branch --show-current 2>/dev/null)
+    [ -z $branch ] || echo "%{\x1b[3m%}-->${branch}%{\x1b[0m%}"
+}
 setopt prompt_subst
-prompt=' %F{green}%~%f${vcs_info_msg_0_} '
+prompt=' %B%~%b$(_git_branch) $ '
 
 plugin_update() {
     for repo in ~/.zsh/plugins/*; do
