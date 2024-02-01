@@ -30,7 +30,7 @@ bindkey -e
 
 # Aliases
 alias gs="git status"
-alias ls="ls --color=auto"
+alias ls="ls -F"
 alias grep="grep --color"
 alias t="task"
 alias py="bpython"

@@ -1,7 +1,7 @@
 *background:    #FFFFAA
 
 dwm.foreground: #3d3d3d
-dwm.background: #AAAAAA
+dwm.background: #afacb0
 
 dwm.selborder:   #000000
 dwm.normborder:  #3d3d3d
