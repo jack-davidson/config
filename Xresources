@@ -3,7 +3,8 @@
 dwm.foreground: #3d3d3d
 dwm.background: #AAAAAA
 
-dwm.normborder: #000000
+dwm.selborder:   #000000
+dwm.normborder:  #3d3d3d
+
 dwm.selfg:      #FFFFAA
 dwm.selbg:      #3d3d3d
-dwm.selborder:  #AAAAAA
