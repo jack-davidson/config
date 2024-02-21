@@ -4,6 +4,8 @@
 (. ~/.xrandr) &
 
 dwmblocks &
+xclock -digital -norender &
+
 xbacklight -set 40 &
 setxkbmap -option compose:rctrl
 setxkbmap -option caps:ctrl_modifier &
@@ -17,5 +19,5 @@ setxkbmap -option caps:ctrl_modifier &
 xsetroot -bitmap /usr/include/X11/bitmaps/cross_weave -fg "#FFFFFF" -bg "#444444" &
 
 wmname LG3D &
-#exec twm
-exec dwm
+#exec dwm
+exec ctwm

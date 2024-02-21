@@ -10,19 +10,15 @@
 
 NoGrabServer
 RestartPreviousState
-DecorateTransients
-TitleFont "-adobe-helvetica-bold-r-normal--*-120-*-*-*-*-*-*"
-ResizeFont "-adobe-helvetica-bold-r-normal--*-120-*-*-*-*-*-*"
-MenuFont "-adobe-helvetica-bold-r-normal--*-120-*-*-*-*-*-*"
-IconFont "-adobe-helvetica-bold-r-normal--*-100-*-*-*-*-*-*"
-IconManagerFont "-adobe-helvetica-bold-r-normal--*-100-*-*-*"
 UsePPosition "on"
 Randomplacement "on"
+ShowWorkSpaceManager
+ShowIconManager
 #ClientBorderWidth
 
-#Color
-#{
-#    BorderColor "slategrey"
+Color
+{
+    BorderColor "black"
 #    DefaultBackground "rgb:2/a/9"
 #    DefaultForeground "gray85"
 #    TitleBackground "rgb:2/a/9"
@@ -31,13 +27,45 @@ Randomplacement "on"
 #    MenuForeground "gray85"
 #    MenuBorderColor "slategrey"
 #    MenuTitleBackground "gray70"
-#    MenuTitleForeground "rgb:2/a/9"
+##    MenuTitleForeground "rgb:2/a/9"
 #    IconBackground "rgb:2/a/9"
 #    IconForeground "gray85"
 #    IconBorderColor "gray85"
 #    IconManagerBackground "rgb:2/a/9"
 #    IconManagerForeground "gray85"
-#}
+    MapWindowForeground "black"
+    MapWindowBackground "#FFFFAA"
+}
+
+IconManagerGeometry "360x60-0-0" 2
+IconManagerDontShow {
+	"xclock"
+}
+
+WorkSpaceManagerGeometry "360x30+0-0" 4
+WorkSpaces {
+ "A"	{"" "" "black" "white" "cross_weave"}
+ "S"	{"" "" "black" "white" "cross_weave"}
+ "D"	{"" "" "black" "white" "cross_weave"}
+ "F"	{"" "" "black" "white" "cross_weave"}
+}
+
+DontToggleWorkSpaceManagerState
+WMgrHorizButtonIndent 0
+WMgrVertButtonIndent 0
+DontWarpCursorInWMap
+MapWindowCurrentWorkSpace { "black" "white" }
+
+NoShowOccupyAll
+OccupyAll {
+    "XClock"
+}
+
+NoTitle {                  # little programs that look like icons
+    "TWM Icon Manager"
+    "WorkSpaceManager"
+    "xclock"
+}
 
 #
 # Define some useful functions for motion-based actions.
@@ -65,6 +93,11 @@ Button2 = : icon : f.iconify
 Button1 = : iconmgr : f.iconify
 Button2 = : iconmgr : f.iconify
 
+"a"     = mod4  : all : f.gotoworkspace "A"
+"s"     = mod4  : all : f.gotoworkspace "S"
+"d"     = mod4  : all : f.gotoworkspace "D"
+"f"     = mod4  : all : f.gotoworkspace "F"
+
 "c"     = mod4|s  : window : f.destroy
 "Return" = mod4|s : all  : !"xterm &"
 
@@ -76,8 +109,6 @@ Button2 = : iconmgr : f.iconify
 menu "defops"
 {
 "Twm"	f.title
-"Show Iconmgr"	f.showiconmgr
-""		f.nop
 "Xterm"		f.exec "exec xterm &"
 ""		f.nop
 "Restart"	f.restart
