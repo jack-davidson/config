@@ -111,6 +111,7 @@ Button2 = : iconmgr : f.iconify
 "f"     = mod4  : all : f.gotoworkspace "4"
 
 "c"     = mod4|s  : window : f.destroy
+"q"     = mod4|s  : window : f.quit
 
 # Spawn programs
 "Return" = mod4|s : all  : !"xterm &"
