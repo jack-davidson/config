@@ -1,0 +1,2 @@
+xbacklight -set 40 &
+(xinput set-prop $(xinput | grep "TPPS/2 IBM TrackPoint" | cut -f2 | cut -d'=' -f2) "libinput Accel Speed" -0.6) &

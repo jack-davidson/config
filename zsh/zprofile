@@ -1,5 +1,6 @@
-export QT_STYLE_OVERRIDE=adwaita-dark
 export PATH=$PATH:~/.local/bin
-if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+
+if [ -z "${DISPLAY}" ] && [ "${TTY}" = "/dev/tty1" ]; then
+    echo "Starting X..."
     exec startx
 fi

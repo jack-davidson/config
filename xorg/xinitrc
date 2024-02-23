@@ -1,0 +1,27 @@
+#!/bin/sh
+# Jack Davidson
+#
+#     top-level xinitrc
+
+WM="ctwm"
+
+([ -f ~/.Xresources ] && xrdb -merge -I$HOME ~/.Xresources) &
+
+# host-specific X configuration
+(. ~/.xinit.$(cat /etc/hostname) &
+
+# wm-specific applications
+([ $WM = "dwm" ] && dwmblocks) &
+([ $WM = "ctwm" ] && xclock -digital -norender) &
+
+setxkbmap -option compose:rctrl
+setxkbmap -option caps:ctrl_modifier &
+
+# X bitmaps
+([ $WM = "dwm" ] || \
+    xsetroot -bitmap /usr/include/X11/bitmaps/cross_weave -fg "#FFFFFF" -bg "#444444") &
+
+# Workaround for java Swing GUIs
+wmname LG3D &
+
+exec $WM

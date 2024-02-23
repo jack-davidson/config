@@ -12,9 +12,6 @@ NoGrabServer
 RestartPreviousState
 UsePPosition "on"
 Randomplacement "on"
-ShowWorkSpaceManager
-ShowIconManager
-#ClientBorderWidth
 
 Color
 {
@@ -37,17 +34,23 @@ Color
     MapWindowBackground "#FFFFAA"
 }
 
+WindowGeometries {
+    "xclock" "240x40-0-0"
+}
+
+#ShowIconManager
 IconManagerGeometry "360x60-0-0" 2
 IconManagerDontShow {
 	"xclock"
 }
 
-WorkSpaceManagerGeometry "360x30+0-0" 4
+ShowWorkSpaceManager
+WorkSpaceManagerGeometry "360x60+0-0" 4
 WorkSpaces {
- "A"	{"" "" "black" "white" "cross_weave"}
- "S"	{"" "" "black" "white" "cross_weave"}
- "D"	{"" "" "black" "white" "cross_weave"}
- "F"	{"" "" "black" "white" "cross_weave"}
+ "1"	{"" "" "black" "white" "cross_weave"}
+ "2"	{"" "" "black" "white" "cross_weave"}
+ "3"	{"" "" "black" "white" "cross_weave"}
+ "4"	{"" "" "black" "white" "cross_weave"}
 }
 
 DontToggleWorkSpaceManagerState
@@ -67,6 +70,12 @@ NoTitle {                  # little programs that look like icons
     "xclock"
 }
 
+AlwaysOnTop {
+    "TWM Icon Manager"
+    "WorkSpaceManager"
+    "xclock"
+}
+
 #
 # Define some useful functions for motion-based actions.
 #
@@ -80,9 +89,11 @@ Function "move-or-iconify" { f.move f.deltastop f.iconify }
 #
 Button3 = : root : f.menu "defops"
 
-Button1 = mod4 : window|icon : f.function "move-or-lower"
-Button2 = mod4 : window|icon : f.iconify
-Button3 = mod4 : window|icon : f.function "move-or-raise"
+AutoRelativeResize
+Button3 = mod4 : window : f.resize
+
+Button1 = mod4 : window|icon|title : f.function "move-or-lower"
+Button2 = mod4 : window|icon|title : f.iconify
 
 Button1 = : title : f.function "move-or-raise"
 Button2 = : title : f.raiselower
@@ -93,14 +104,16 @@ Button2 = : icon : f.iconify
 Button1 = : iconmgr : f.iconify
 Button2 = : iconmgr : f.iconify
 
-"a"     = mod4  : all : f.gotoworkspace "A"
-"s"     = mod4  : all : f.gotoworkspace "S"
-"d"     = mod4  : all : f.gotoworkspace "D"
-"f"     = mod4  : all : f.gotoworkspace "F"
+# Select work space MOD+{A|S|D|F}
+"a"     = mod4  : all : f.gotoworkspace "1"
+"s"     = mod4  : all : f.gotoworkspace "2"
+"d"     = mod4  : all : f.gotoworkspace "3"
+"f"     = mod4  : all : f.gotoworkspace "4"
 
 "c"     = mod4|s  : window : f.destroy
-"Return" = mod4|s : all  : !"xterm &"
 
+# Spawn programs
+"Return" = mod4|s : all  : !"xterm &"
 "p"     = mod4 : all : !"dmenu_run &"
 
 #
@@ -108,9 +121,10 @@ Button2 = : iconmgr : f.iconify
 #
 menu "defops"
 {
-"Twm"	f.title
-"Xterm"		f.exec "exec xterm &"
-""		f.nop
-"Restart"	f.restart
-"Exit"		f.quit
+"Twm"     f.title
+"Run..."  f.exec "exec dmenu_run &"
+"Xterm"   f.exec "exec xterm &"
+""        f.nop
+"Restart" f.restart
+"Exit"    f.quit
 }
