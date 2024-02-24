@@ -133,6 +133,7 @@ menu "defops"
 {
 "Twm"     f.title
 "Run..."  f.exec "exec rofi -show run &"
+""        f.nop
 "Xterm"   f.exec "exec xterm &"
 ""        f.nop
 "Restart" f.restart

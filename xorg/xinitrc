@@ -5,17 +5,20 @@
 
 WM="ctwm"
 
-[ -f ~/.Xresources ] && xrdb -merge -I$HOME ~/.Xresources
-
 # host-specific X configuration
 (. ~/.xinitrc.$(cat /etc/hostname)) &
+
+
+[ -f ~/.Xresources ] && xrdb -merge -I$HOME ~/.Xresources
+
+sxhkd &
 
 # wm-specific applications
 ([ $WM = "dwm" ] && dwmblocks) &
 ([ $WM = "ctwm" ] && xclock -digital -norender) &
 
 setxkbmap -option compose:rctrl
-setxkbmap -option caps:ctrl_modifier &
+setxkbmap -option caps:ctrl_modifier
 
 # X bitmaps
 ([ $WM = "dwm" ] || \
