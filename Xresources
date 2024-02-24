@@ -1,10 +1,1 @@
 *background:    #FFFFAA
-
-dwm.foreground: #000000
-dwm.background: #FFFFAA
-
-dwm.selborder:   #000000
-dwm.normborder:  #333333
-
-dwm.selfg:      #FFFFAA
-dwm.selbg:      #000000
