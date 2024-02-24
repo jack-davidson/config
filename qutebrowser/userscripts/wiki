@@ -1,3 +1,0 @@
-#!/bin/sh
-
-echo "open -t https://www.wikipedia.org/wiki/$QUTE_SELECTED_TEXT" >> "$QUTE_FIFO"
