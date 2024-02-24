@@ -5,10 +5,10 @@
 
 WM="ctwm"
 
-([ -f ~/.Xresources ] && xrdb -merge -I$HOME ~/.Xresources) &
+[ -f ~/.Xresources ] && xrdb -merge -I$HOME ~/.Xresources
 
 # host-specific X configuration
-(. ~/.xinit.$(cat /etc/hostname) &
+(. ~/.xinitrc.$(cat /etc/hostname)) &
 
 # wm-specific applications
 ([ $WM = "dwm" ] && dwmblocks) &
