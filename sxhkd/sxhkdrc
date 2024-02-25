@@ -1,13 +1,13 @@
-# sxhkd global media key bindings
+# WM-independent media keys
 
 XF86AudioMute
 	amixer set Master toggle
 
 XF86AudioLowerVolume
-	amixer set Master 5%+
-
-XF86AudioLowerVolume
 	amixer set Master 5%-
+
+XF86AudioRaiseVolume
+	amixer set Master 5%+
 
 XF86MonBrightnessUp
 	xbacklight -inc 5

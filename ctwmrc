@@ -1,18 +1,12 @@
-#
-# Default twm configuration file; needs to be kept small to conserve string
-# space in systems whose compilers don't handle medium-sized strings.
-#
-# Sites should tailor this file, providing any extra title buttons, menus, etc.
-# that may be appropriate for their environment.  For example, if most of the
-# users were accustomed to uwm, the defaults could be set up not to decorate
-# any windows and to use meta-keys.
-#
+# Jack Davidson's ctwm(1) config
 
 NoGrabServer
 RestartPreviousState
 UsePPosition "on"
 Randomplacement "on"
 AutoFocusToTransients
+SaveWorkspaceFocus
+ClickToFocus
 
 Color
 {
@@ -31,7 +25,7 @@ Color
     IconBorderColor "gray85"
     IconManagerBackground "rgb:2/a/9"
     IconManagerForeground "gray85"
-    MapWindowCurrentWorkSpace { "slategray" "#FFFFAA" }
+    MapWindowCurrentWorkSpace { "slategray" "#FFFACD" }
 }
 
 WindowGeometries {
@@ -45,7 +39,7 @@ IconManagerDontShow {
 }
 
 ShowWorkSpaceManager
-WorkSpaceManagerGeometry "360x60+0-0" 4
+WorkSpaceManagerGeometry "384x54+0-0" 4
 WorkSpaces {
  "1"	{"" "" "#AA80A0" "white" "cross_weave"}
  "2"	{"" "" "#AA80A0" "white" "cross_weave"}
@@ -53,36 +47,63 @@ WorkSpaces {
  "4"	{"" "" "#AA80A0" "white" "cross_weave"}
 }
 
-DontWarpCursorInWMap
+#
+# Window Rules
+#
 
 NoShowOccupyAll
 OccupyAll {
+    # Desktop Widgets
     "XClock"
 }
 
-NoTitle {                  # little programs that look like icons
+NoTitle {
+    # Desktop Widgets
     "TWM Icon Manager"
     "WorkSpaceManager"
     "xclock"
 }
 
 AlwaysOnTop {
+    # Desktop Widgets
     "TWM Icon Manager"
     "WorkSpaceManager"
     "xclock"
 }
 
-#
-# Define some useful functions for motion-based actions.
-#
+# Motion Based Functions
 MoveDelta 3
 Function "move-or-lower" { f.move f.deltastop f.lower }
 Function "move-or-raise" { f.move f.deltastop f.raise }
 Function "move-or-iconify" { f.move f.deltastop f.iconify }
 
 #
-# Set some useful bindings.  Sort of uwm-ish, sort of simple-button-ish
+# WM bindings - dwm style
 #
+
+# workspace selection on ASDF keys
+"a"     = mod4  : all : f.gotoworkspace "1"
+"s"     = mod4  : all : f.gotoworkspace "2"
+"d"     = mod4  : all : f.gotoworkspace "3"
+"f"     = mod4  : all : f.gotoworkspace "4"
+
+"space" = mod4|s  : all : f.fullscreenzoom
+
+# Moves window in a direction until it hits another window or the screen border.
+"h"     = mod4|s  : all : f.pack "left"
+"j"     = mod4|s  : all : f.pack "bottom"
+"k"     = mod4|s  : all : f.pack "top"
+"l"     = mod4|s  : all : f.pack "right"
+
+"c"     = mod4|s  : window : f.destroy
+"q"     = mod4|s  : window : f.quit
+
+# Spawn programs
+"Return" = mod4|s : all  : !"xterm &"
+"p"     = mod4 : all : !"rofi -show run &"
+
+
+# Mouse Controls
 Button3 = : root : f.menu "defops"
 
 AutoRelativeResize
@@ -100,42 +121,19 @@ Button2 = : icon : f.iconify
 Button1 = : iconmgr : f.iconify
 Button2 = : iconmgr : f.iconify
 
-# Select work space MOD+{A|S|D|F}
-"a"     = mod4  : all : f.gotoworkspace "1"
-"s"     = mod4  : all : f.gotoworkspace "2"
-"d"     = mod4  : all : f.gotoworkspace "3"
-"f"     = mod4  : all : f.gotoworkspace "4"
-
-"m"     = mod4  : all : f.fullscreenzoom
-
-"h"     = mod4  : all : f.move "left"
-"j"     = mod4  : all : f.circledown
-"k"     = mod4  : all : f.circleup
-"l"     = mod4  : all : f.move "right"
-
-# Moves window in a direction until it hits another window or the screen border.
-"h"     = mod4|s  : all : f.pack "left"
-"j"     = mod4|s  : all : f.pack "bottom"
-"k"     = mod4|s  : all : f.pack "top"
-"l"     = mod4|s  : all : f.pack "right"
-
-"c"     = mod4|s  : window : f.destroy
-"q"     = mod4|s  : window : f.quit
-
-# Spawn programs
-"Return" = mod4|s : all  : !"xterm &"
-"p"     = mod4 : all : !"rofi -show run &"
-
 #
-# And a menus with the usual things
+# Menu with essentials.
 #
 menu "defops"
 {
 "Twm"     f.title
-"Run..."  f.exec "exec rofi -show run &"
+"Run..."  !"exec rofi -show run &"
 ""        f.nop
-"Xterm"   f.exec "exec xterm &"
+"Web Navigator" !"exec chromium &"
+"Xterm"   !"exec xterm &"
 ""        f.nop
 "Restart" f.restart
-"Exit"    f.quit
+"Log Out"    f.quit
 }
+
+StayUpMenus

@@ -21,7 +21,7 @@ setxkbmap -option compose:rctrl
 setxkbmap -option caps:ctrl_modifier
 
 # X bitmaps
-([ $WM = "dwm" ] || \
+([ $WM = "dwm" ] && \
     xsetroot -bitmap /usr/include/X11/bitmaps/cross_weave -fg "#FFFFFF" -bg "#444444") &
 
 # Workaround for java Swing GUIs
