@@ -124,16 +124,26 @@ Button2 = : iconmgr : f.iconify
 #
 # Menu with essentials.
 #
+StayUpMenus
+IgnoreCaseInMenuSelection
+
 menu "defops"
 {
-"Twm"     f.title
-"Run..."  !"exec rofi -show run &"
-""        f.nop
-"Web Navigator" !"exec chromium &"
-"Xterm"   !"exec xterm &"
-""        f.nop
-"Restart" f.restart
-"Log Out"    f.quit
+	"CTwm"     f.title
+	"Run..."  !"exec rofi -show run &"
+	""        f.nop
+	"Web Navigator" !"exec chromium &"
+	"Xterm"   !"exec xterm &"
+	""        f.nop
+	"Preferences" f.menu "preferences"
+	""        f.nop
+	"Restart" f.restart
+	"Log Out"    f.quit
 }
 
-StayUpMenus
+# Easy preference shortcuts
+menu "preferences"
+{
+	"Preferences" f.title
+	"Display" !"exec arandr &"
+}
