@@ -3,28 +3,26 @@
 #
 #     top-level xinitrc
 
-WM="ctwm"
+WM="dwm"
 
 # host-specific X configuration
 (. ~/.xinitrc.$(cat /etc/hostname)) &
 
-
 [ -f ~/.Xresources ] && xrdb -merge -I$HOME ~/.Xresources
+setxkbmap -option compose:rctrl
+setxkbmap -option caps:ctrl_modifier
+
+# Workaround for java Swing GUIs
+wmname LG3D &
+
+# X bitmaps
+([ $WM = "dwm" ] && \
+    xsetroot -bitmap /usr/include/X11/bitmaps/cross_weave -fg "#FFFFFF" -bg "#AA80A0") &
 
 sxhkd &
 
 # wm-specific applications
-([ $WM = "dwm" ] && dwmblocks) &
-([ $WM = "ctwm" ] && xclock -digital -norender) &
-
-setxkbmap -option compose:rctrl
-setxkbmap -option caps:ctrl_modifier
-
-# X bitmaps
-([ $WM = "dwm" ] && \
-    xsetroot -bitmap /usr/include/X11/bitmaps/cross_weave -fg "#FFFFFF" -bg "#444444") &
-
-# Workaround for java Swing GUIs
-wmname LG3D &
+([ $WM = "dwm" ] && dwmblocks &) &
+([ $WM = "ctwm" ] && xclock -digital -norender &) &
 
 exec $WM
