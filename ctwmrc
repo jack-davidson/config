@@ -7,6 +7,8 @@ Randomplacement "on"
 AutoFocusToTransients
 SaveWorkspaceFocus
 
+RightTitleButton "/usr/include/X11/bitmaps/xlogo11" = f.delete
+
 Color
 {
     BorderColor "slategrey"
@@ -63,12 +65,12 @@ NoTitle {
     "xclock"
 }
 
-AlwaysOnTop {
-    # Desktop Widgets
-    "TWM Icon Manager"
-    "WorkSpaceManager"
-    "xclock"
-}
+#AlwaysOnTop {
+#    # Desktop Widgets
+#    "TWM Icon Manager"
+#    "WorkSpaceManager"
+#    "xclock"
+#}
 
 # Motion Based Functions
 MoveDelta 3
@@ -126,9 +128,12 @@ Button2 = : iconmgr : f.iconify
 StayUpMenus
 IgnoreCaseInMenuSelection
 
+sinclude(HOME/.config/twm-xdg.menu)
+
 menu "defops"
 {
 	"CTwm"     f.title
+	"Applications" f.menu "Applications" # for use with xdg-menu
 	"Run..."  !"exec rofi -show run &"
 	""        f.nop
 	"Web Navigator" !"exec chromium &"

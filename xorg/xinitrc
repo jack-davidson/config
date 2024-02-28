@@ -3,7 +3,7 @@
 #
 #     top-level xinitrc
 
-WM="dwm"
+WM="ctwm"
 
 # host-specific X configuration
 (. ~/.xinitrc.$(cat /etc/hostname)) &
@@ -19,10 +19,12 @@ wmname LG3D &
 ([ $WM = "dwm" ] && \
     xsetroot -bitmap /usr/include/X11/bitmaps/cross_weave -fg "#FFFFFF" -bg "#AA80A0") &
 
-sxhkd &
+([ $WM = "dwm" ] || \
+	sxhkd &)
 
 # wm-specific applications
 ([ $WM = "dwm" ] && dwmblocks &) &
 ([ $WM = "ctwm" ] && xclock -digital -norender &) &
+([ $WM = "ctwm" ] && xdg_menu --format twm --root-menu /etc/xdg/menus/arch-applications.menu > ~/.config/twm-xdg.menu)
 
 exec $WM
