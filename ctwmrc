@@ -7,7 +7,9 @@ Randomplacement "on"
 AutoFocusToTransients
 SaveWorkspaceFocus
 
-RightTitleButton "/usr/include/X11/bitmaps/xlogo11" = f.delete
+NoDefaults
+LeftTitleButton ":xlogo" = f.delete
+LeftTitleButton "dropbar8" = f.iconify
 
 Color
 {
