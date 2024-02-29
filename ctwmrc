@@ -6,11 +6,13 @@ UsePPosition "on"
 Randomplacement "on"
 AutoRelativeResize
 AutoFocusToTransients
+WarpRing
+WindowRing
 SaveWorkspaceFocus
 
 NoDefaults
 
-LeftTitleButton ":dot" = f.iconify
+LeftTitleButton ":menu" = f.menu "winops"
 RightTitleButton ":xlogo" = f.delete
 
 Color
@@ -35,6 +37,10 @@ Color
 
 WindowGeometries {
     "xclock" "240x40-0-0"
+}
+
+WindowRingExclude {
+	"xclock"
 }
 
 #ShowIconManager
@@ -106,14 +112,22 @@ Function "move-or-raise" { f.move f.deltastop f.raise }
 # toggle fullscreen
 "space" = mod4|s  : all : f.fullscreenzoom
 
+"j" = mod4 : window : f.warpring "next"
+"k" = mod4 : window : f.warpring "prev"
+
 # Moves window in a direction until it hits another window or the screen border.
-"h"     = mod4|s  : all : f.pack "left"
-"j"     = mod4|s  : all : f.pack "bottom"
-"k"     = mod4|s  : all : f.pack "top"
-"l"     = mod4|s  : all : f.pack "right"
+"h"     = mod4  : all : f.pack "left"
+"l"     = mod4  : all : f.pack "right"
+
+"h"     = mod4|s  : all : f.fill "left"
+"j"     = mod4|s  : all : f.fill "bottom"
+"k"     = mod4|s  : all : f.fill "top"
+"l"     = mod4|s  : all : f.fill "right"
 
 # close window
 "c"     = mod4|s  : window : f.destroy
+
+"m"     = mod4    : window : f.iconify
 
 # Spawn programs
 "Return" = mod4|s : all  : !"xterm &"
@@ -167,6 +181,13 @@ menu "defops"
 	""        f.nop
 	"Restart" f.restart
 	"Log Out"    f.quit
+}
+
+menu "winops"
+{
+	"Maximize" f.fullzoom
+	"Fullscreen" f.fullscreenzoom
+	"Iconify" f.iconify
 }
 
 # Easy preference shortcuts
